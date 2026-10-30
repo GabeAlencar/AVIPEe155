@@ -1,0 +1,30 @@
+---
+title: Results
+---
+
+## System Performance
+
+::: {.callout-warning title="To do"}
+Discuss how the final system performs against the specifications in the proposal.
+Use quantitative results where applicable.
+:::
+
+## Simulation Results
+
+::: {.callout-warning title="To do"}
+Add any relevant simulation waveforms and explain what each one shows.
+:::
+
+## Oscilloscope and Logic Analyzer Traces
+
+::: {.callout-warning title="To do"}
+Add any relevant oscilloscope or logic analyzer traces and explain what each one
+shows.
+:::
+
+## Photos and Videos
+
+::: {.callout-warning title="To do"}
+Add photos of the finished design, along with videos or photos of any
+intermediate build steps.
+:::

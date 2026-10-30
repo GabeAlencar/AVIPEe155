@@ -1,0 +1,38 @@
+---
+title: "AVIPE"
+subtitle: "E155 Final Project"
+---
+
+## Abstract
+
+::: {.callout-warning title="To do"}
+Write a roughly 200-word abstract that summarizes what the project does. Treat
+this page like a pitch: give a quick summary and invite the reader to look at
+the rest of the site.
+:::
+
+## Demonstration
+
+::: {.callout-warning title="To do"}
+Embed a short video of the project in operation. Upload it to the course Google
+Drive folder as `<LastName1>_<LastName2>_<VideoName>`. Do not commit video files
+to this repository.
+:::
+
+## System Block Diagram
+
+::: {.callout-warning title="To do"}
+Add a block diagram of the full system showing the chips, connections, and
+protocols.
+:::
+
+## Contents
+
+| Page | What it covers |
+|---|---|
+| [Documentation](documentation.qmd) | New hardware, schematics, bill of materials, and source code |
+| [FPGA Design](fpga-design.qmd) | Summary and block diagram of the HDL |
+| [MCU Design](mcu-design.qmd) | Summary and code flow of the firmware |
+| [Results](results.qmd) | Performance, traces, photos, and videos |
+| [Team](team.qmd) | Team members and bios |
+| [References](references.qmd) | References and acknowledgements |

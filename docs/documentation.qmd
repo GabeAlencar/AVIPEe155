@@ -1,0 +1,51 @@
+---
+title: Documentation
+---
+
+## New Hardware
+
+### New MCU Peripheral
+
+::: {.callout-warning title="To do"}
+Describe the new microcontroller peripheral and how the project uses it.
+:::
+
+### New FPGA IP
+
+::: {.callout-warning title="To do"}
+Describe the new FPGA IP and how the project uses it.
+:::
+
+### New External Hardware
+
+::: {.callout-warning title="To do"}
+Describe the new external hardware, such as a sensor or display, and how it
+interfaces with the rest of the system.
+:::
+
+## Schematics
+
+::: {.callout-warning title="To do"}
+Add complete, computer-drawn schematics for the system.
+:::
+
+## Bill of Materials
+
+::: {.callout-warning title="To do"}
+Fill in every part used. Write "stockroom" as the price for parts that came from
+the stockroom.
+:::
+
+| Item | Part Number | Quantity | Unit Price | Total Price |
+|---|---|---|---|---|
+|  |  |  |  |  |
+| **Total** |  |  |  |  |
+
+: Bill of materials {.striped}
+
+## Source Code
+
+All HDL and firmware for this project is in the [AVIPEe155 GitHub
+repository](https://github.com/GabeAlencar/AVIPEe155). The
+[README](https://github.com/GabeAlencar/AVIPEe155#readme) describes where to find
+things.

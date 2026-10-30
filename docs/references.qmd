@@ -1,0 +1,15 @@
+---
+title: References and Acknowledgements
+---
+
+## References
+
+::: {.callout-warning title="To do"}
+List the datasheets, papers, and other sources used in the project.
+:::
+
+## Acknowledgements
+
+::: {.callout-warning title="To do"}
+Thank the people and groups who helped with the project.
+:::

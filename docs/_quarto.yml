@@ -1,0 +1,32 @@
+project:
+  type: website
+
+website:
+  title: "AVIPE"
+  site-url: https://gabealencar.github.io/AVIPEe155/
+  repo-url: https://github.com/GabeAlencar/AVIPEe155
+  navbar:
+    tools:
+      - icon: github
+        href: https://github.com/GabeAlencar/AVIPEe155
+    left:
+      - href: index.qmd
+        text: Home
+      - href: documentation.qmd
+        text: Documentation
+      - href: fpga-design.qmd
+        text: FPGA Design
+      - href: mcu-design.qmd
+        text: MCU Design
+      - href: results.qmd
+        text: Results
+      - href: team.qmd
+        text: Team
+      - href: references.qmd
+        text: References
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

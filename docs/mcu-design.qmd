@@ -1,0 +1,28 @@
+---
+title: MCU Design
+---
+
+## Overview
+
+::: {.callout-warning title="To do"}
+Give a brief summary of what the MCU does and why that work belongs on the MCU.
+:::
+
+## Code Flow
+
+::: {.callout-warning title="To do"}
+Add any diagrams needed to explain the flow of the MCU code.
+:::
+
+## Peripherals
+
+::: {.callout-warning title="To do"}
+Describe how each MCU peripheral is configured and call out the new peripheral.
+Link to the source files in `mcu/src`.
+:::
+
+## Pin Assignments
+
+::: {.callout-warning title="To do"}
+List the MCU pin assignments.
+:::

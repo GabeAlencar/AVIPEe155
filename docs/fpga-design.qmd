@@ -1,0 +1,42 @@
+---
+title: FPGA Design
+---
+
+## Overview
+
+::: {.callout-warning title="To do"}
+Give a brief summary of what the FPGA does and why that work belongs on the FPGA.
+:::
+
+## HDL Block Diagram
+
+::: {.callout-warning title="To do"}
+Add a block diagram of the HDL that was written, showing each module and how the
+modules connect.
+:::
+
+## Modules
+
+::: {.callout-warning title="To do"}
+Describe what each module does and call out any new FPGA IP. Link to the source
+files in `fpga/src`.
+:::
+
+## Operation
+
+::: {.callout-warning title="To do"}
+Add any documentation needed to explain how the design operates, such as state
+transition diagrams. State transition and output logic tables are not needed.
+:::
+
+## Pin Assignments
+
+::: {.callout-warning title="To do"}
+List the FPGA pin assignments.
+:::
+
+## Resources and Timing
+
+::: {.callout-warning title="To do"}
+Report the resource usage and maximum clock frequency from Lattice Radiant.
+:::
