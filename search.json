@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Team",
+    "section": "",
+    "text": "Gabe Alencar is a senior studying Computer Engineering at Harvey Mudd College who is interested in RISC-V design and verification and in how hardware can better support modern AI workloads.\nPortfolio | LinkedIn | GitHub"
+  },
+  {
+    "objectID": "team.html#gabe-alencar",
+    "href": "team.html#gabe-alencar",
+    "title": "Team",
+    "section": "",
+    "text": "Gabe Alencar is a senior studying Computer Engineering at Harvey Mudd College who is interested in RISC-V design and verification and in how hardware can better support modern AI workloads.\nPortfolio | LinkedIn | GitHub"
+  },
+  {
+    "objectID": "team.html#katie-latvakoski",
+    "href": "team.html#katie-latvakoski",
+    "title": "Team",
+    "section": "Katie Latvakoski",
+    "text": "Katie Latvakoski\n\nKatie Latvakoski is an engineering student at Harvey Mudd College with a focus in biomedical engineering who runs track and cross country for Claremont-Mudd-Scripps.\nPortfolio | LinkedIn | GitHub"
+  },
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Project Proposal",
+    "section": "",
+    "text": "The goal of this project is to create a proof of concept for the audio processing and display connectivity in AVIPE. The device listens to a microphone and shows the frequency content of the sound on an E-Ink display. The FPGA reads samples from the microphone over I2S and performs a 512-point FFT every 20 ms. The results are sent over SPI to the MCU, which draws a bar graph of the spectrum and labels the peak frequency in Hz."
+  },
+  {
+    "objectID": "proposal.html#project-description-and-overview",
+    "href": "proposal.html#project-description-and-overview",
+    "title": "Project Proposal",
+    "section": "",
+    "text": "The goal of this project is to create a proof of concept for the audio processing and display connectivity in AVIPE. The device listens to a microphone and shows the frequency content of the sound on an E-Ink display. The FPGA reads samples from the microphone over I2S and performs a 512-point FFT every 20 ms. The results are sent over SPI to the MCU, which draws a bar graph of the spectrum and labels the peak frequency in Hz."
+  },
+  {
+    "objectID": "proposal.html#project-specification",
+    "href": "proposal.html#project-specification",
+    "title": "Project Proposal",
+    "section": "Project Specification",
+    "text": "Project Specification\n\nThe FPGA runs a 512-point FFT every 20 ms on continuous audio.\nThe FPGA receives audio from the microphone with an I2S receiver.\nThe FPGA sends FFT results to the MCU over SPI.\nThe display shows a bar graph of the spectrum from 0 to 7.8 kHz with 254 bars and a labeled frequency axis.\nThe display shows the peak frequency in Hz.\nThe display refresh starts within 750 ms of the end of an audio frame.\nA new spectrum is fully drawn within 2 s.\nThe MCU writes each image to the display over SPI with DMA in under 1 s."
+  },
+  {
+    "objectID": "proposal.html#new-hardware",
+    "href": "proposal.html#new-hardware",
+    "title": "Project Proposal",
+    "section": "New Hardware",
+    "text": "New Hardware\n\nNew MCU peripheral: DMA receives the FFT frames from SPI3 and sends the display data through SPI1.\nNew FPGA IP: The FFT processor uses the SB_MAC16 DSP blocks and embedded block RAM (EBR).\nNew external hardware: The project adds an SPH0645 I2S MEMS microphone and a 6-inch 1448 x 1072 E-Ink display with an IT8951 controller."
+  },
+  {
+    "objectID": "proposal.html#fpga-design-details",
+    "href": "proposal.html#fpga-design-details",
+    "title": "Project Proposal",
+    "section": "FPGA Design Details",
+    "text": "FPGA Design Details\nI2S Mic sample (24 bits) → I2S FPGA receiver → Sum of 3 samples → DC removal (16 bit PCM) → Ring buffer (512 x 16 bits) → 512 pt FFT module SB_MAC16 → SPI frame to MCU\nThe ring buffer stores samples continuously. Every 312 samples (20 ms), the FPGA copies the latest 512 samples into the FFT RAM, runs the FFT, and raises READY.\n\nAudio\n\nClock: The FPGA uses the UPduino’s 12 MHz oscillator.\nSample rate: The microphone datasheet supports a BCLK of 2.048 to 4.096 MHz, so we run it at 3 MHz. Adding each group of 3 samples reduces the 46.875 kHz rate to 15.625 kHz.\nDC removal: The microphone has a typical DC offset. The FPGA subtracts a slow running average.\nGain: Speech at 65 dB SPL arrives near -55 dBFS, so the FPGA keeps the lower 16 bits of the 20-bit sum, saturating at the limits. This gives a gain of 12, and sound above 98 dB SPL clips.\n\n\n\nFFT Design\nThe FFT is based on the radix-2 processor in Vercruysse et al., with a butterfly unit, ping-pong RAMs, a twiddle factor ROM, and a control unit. Two changes are needed:\n\nMemory: The paper assumes asynchronous-read RAM with two ports. The UP5K EBR is synchronous with one read port and one write port, so each butterfly takes multiple cycles: read a, read b, compute, write a, and write b.\nBit growth: A 512-point FFT can grow by 9 bits, so the padding in the paper would leave 7-bit samples. We use block floating point instead. Each level shifts its outputs right by 0, 1, or 2 bits only if needed, and the total shift is sent to the MCU.\n\n\nFFT requirements for voice recognition\n\n\n\n\n\n\n\nRequirement for Voice Recognition\nOur Design\nReason\n\n\n\n\nFrequency range\n0 to 7.8 kHz\nCovers voices and high-frequency sounds produced by humans\n\n\nFrequency resolution\n30.5 Hz per bin\nFine enough to separate speech sounds\n\n\nFrame length\n32.8 ms\nSpeech is roughly steady over 20 to 40 ms\n\n\nTime between frames\n20 ms\nTracks changes in speech with no gaps\n\n\n\n\nFFT parameters\n\n\n\n\n\n\nFFT Parameter\nValue\n\n\n\n\nPoints\n512\n\n\nLevels\n9\n\n\nButterflies\n256 per level, 2,304 total\n\n\nNumber format\nQ1.15, with 16-bit real and 16-bit imaginary parts in one 32-bit word\n\n\nInput bits per sample\n16 (from 18-bit microphone samples)\n\n\nOverflow handling\nBlock floating point\n\n\nMultipliers\n4 of 8 SB_MAC16 blocks\n\n\n\n\nFFT memory\n\n\nMemory\nSize\nEBR Blocks (256 x 16)\n\n\n\n\nRing buffer\n512 x 16 bits\n2\n\n\nRAM0\n512 x 32 bits\n4\n\n\nRAM1\n512 x 32 bits\n4\n\n\nTwiddle ROM\n256 x 32 bits\n2\n\n\nTotal\n\n12 of 30"
+  },
+  {
+    "objectID": "proposal.html#new-mcu-features",
+    "href": "proposal.html#new-mcu-features",
+    "title": "Project Proposal",
+    "section": "New MCU Features",
+    "text": "New MCU Features\n\nFrame capture: The MCU waits for READY and uses SPI3 with DMA to receive each FFT frame.\nSpectrum processing: The MCU applies the Hamming window, computes the magnitude of bins 1 to 254, and finds the largest.\nDrawing: The MCU draws the bars and peak label one row at a time because one image is larger than the 64 KB of SRAM.\nePaper driver: The MCU sends the IT8951 command sequence with HRDY waits, using SPI1 with DMA.\n\nThe Hamming window can be applied after the FFT by combining each bin with its two neighbors using:\n\\[X_w[k] = 0.54\\,X[k] - 0.23\\,(X[k-1] + X[k+1])\\]"
+  },
+  {
+    "objectID": "proposal.html#block-diagram",
+    "href": "proposal.html#block-diagram",
+    "title": "Project Proposal",
+    "section": "Block Diagram",
+    "text": "Block Diagram\n\n\n\nChips, connections, and protocols"
+  },
+  {
+    "objectID": "proposal.html#calculations",
+    "href": "proposal.html#calculations",
+    "title": "Project Proposal",
+    "section": "Calculations",
+    "text": "Calculations\nThe microphone sends one sample every 64 BCLK cycles, and 12 MHz / 4 gives a BCLK of 3 MHz. Adding each group of 3 samples sets the final sample rate:\n\\[f_{mic} = \\frac{3 \\text{ MHz}}{64} = 46.875 \\text{ kHz}\\]\n\\[f_s = \\frac{46.875 \\text{ kHz}}{3} = 15.625 \\text{ kHz}\\]\nThe FFT size sets the frame length, the frequency resolution, and the highest frequency:\n\\[T_{frame} = \\frac{512}{15.625 \\text{ kHz}} = 32.8 \\text{ ms}\\]\n\\[\\Delta f = \\frac{15.625 \\text{ kHz}}{512} = 30.5 \\text{ Hz per bin}\\]\n\\[f_{max} = \\frac{15.625 \\text{ kHz}}{2} = 7.8 \\text{ kHz}\\]\nA new frame starts every 312 samples:\n\\[T_{hop} = \\frac{312}{15.625 \\text{ kHz}} = 20.0 \\text{ ms}\\]\nCopying 512 samples and running 2,304 butterflies at an estimated 5 cycles each takes about 5% of the time between frames:\n\\[\\frac{512 + 2{,}304 \\times 5 \\text{ cycles}}{12 \\text{ MHz}} = 1.0 \\text{ ms}\\]\nThe upper half of the FFT mirrors the lower half for real input, so the FPGA sends 256 bins and a 4-byte header with the frame count and total shift:\n\\[256 \\times 32 \\text{ bits} + 32 \\text{ bits} = 8{,}224 \\text{ bits} = 1{,}028 \\text{ bytes}\\]\nThe display width in 1-bit mode must be a multiple of 32 pixels, so the image is 1408 pixels wide:\n\\[1408 \\times 1072 \\times 1 \\text{ bit} = 1{,}509{,}376 \\text{ bits} = 188{,}672 \\text{ bytes}\\]\nThe time from the end of an audio frame to the start of the display refresh is the sum of three steps, each calculated from the numbers above:\n\nTime from the end of an audio frame to the start of the refresh\n\n\n\n\n\n\n\nStep\nCalculation\nTime\n\n\n\n\nFPGA copies the samples and runs the FFT\n(512 + 2,304 × 5 cycles) / 12 MHz\n1.0 ms\n\n\nFPGA sends the FFT frame to the MCU over SPI3\n8,224 bits / 1.25 MHz\n6.6 ms\n\n\nMCU sends the image to the IT8951 over SPI1\n1,509,376 bits / 5 MHz\n302 ms\n\n\n\n\\[1.0 \\text{ ms} + 6.6 \\text{ ms} + 302 \\text{ ms} \\approx 310 \\text{ ms}\\]\nThis is well under the 750 ms specification. The 302 ms assumes the MCU builds each 176-byte row before SPI1 finishes sending the previous one, which gives it 282 µs, or about 22,500 cycles at 80 MHz, per row. The MCU’s windowing and magnitude calculations for 254 bins take well under 1 ms at 80 MHz, and the IT8951 command overhead is not included.\nWaveshare lists a full refresh time of under 1 s for the 6-inch HD display, so a new spectrum is fully drawn in about 310 ms + 1 s ≈ 1.3 s, which meets the 2 s specification.\nOne update takes about 1.3 s, so about 65 FFT frames arrive during each update. The MCU ignores them while it is busy and draws the newest frame once it is free. The 310 ms is measured from the end of that frame. The MCU keeps that frame’s bar heights fixed until the whole image is sent, so every row comes from the same frame.\n\nCommunication links\n\n\n\n\n\n\n\n\n\nLink\nProtocol\nWires\nRate\nBits\n\n\n\n\nMic to FPGA\nI2S\n3 (BCLK, WS, SD), SEL tied to GND\nBCLK 3 MHz, 46,875 samples/s\n24-bit sample sent most-significant bit first, with 18 bits of precision\n\n\nFPGA to MCU\nSPI3 (PB3, PB4, PB5)\n5 (SCK, MOSI, MISO, CS, READY)\n1.25 MHz SCK, 6.6 ms per frame, 412 kbit/s\nOne 1,028-byte frame: 4-byte header, then 256 bins of 16-bit real and 16-bit imaginary data\n\n\nMCU to ePaper\nSPI1 (PA1, PA11, PA12)\n6 (SCK, MOSI, MISO, CS, HRDY, RST)\n5 MHz SCK, 0.30 s per image\nOne image: 1408 x 1072 x 1 bit = 1,509,376 bits (188,672 bytes)"
+  },
+  {
+    "objectID": "proposal.html#riskiest-element-of-the-project",
+    "href": "proposal.html#riskiest-element-of-the-project",
+    "title": "Project Proposal",
+    "section": "Riskiest Element of the Project",
+    "text": "Riskiest Element of the Project\nThe riskiest element of the project is the FFT memory and scaling design. The design in the paper cannot be used directly because of the UP5K block RAM, and it does not include block floating point. We need to redesign the control logic for multi-cycle butterflies and verify it against a reference FFT in simulation."
+  },
+  {
+    "objectID": "proposal.html#division-of-labor",
+    "href": "proposal.html#division-of-labor",
+    "title": "Project Proposal",
+    "section": "Division of Labor",
+    "text": "Division of Labor\n\nWe will create the high level schematics and diagrams together.\nEach member will be assigned individual modules, and we will share the higher level modules.\nWe will complete all work in a shared GitHub repository.\nWe will use AI, and each member is responsible for their final code and for understanding the full design.\nEach member will make weekly commits with detailed messages."
+  },
+  {
+    "objectID": "proposal.html#schedule",
+    "href": "proposal.html#schedule",
+    "title": "Project Proposal",
+    "section": "Schedule",
+    "text": "Schedule\n\nProject schedule\n\n\n\n\n\n\n\nDate\nMilestone\nOwner\n\n\n\n\n11/3 - 11/4\nProposal redo\nBoth\n\n\n11/7\nParts confirmed with instructors and ordered\nKatie\n\n\n11/10\nI2S receiver and DC removal simulated\nGabe\n\n\n11/10 - 11/17\nDesign review presentation\nBoth\n\n\n11/14\nFFT simulated and matched against a reference FFT\nKatie\n\n\n11/17 - 11/18\nMidpoint report and demo: mic samples through the FFT to the MCU over SPI\nBoth\n\n\n11/24\nDisplay driver draws a test image\nGabe\n\n\n12/1\nFull system integrated\nBoth\n\n\n12/8 - 12/9\nFinal checkoff\nBoth\n\n\n12/10\nFinal report website\nBoth\n\n\n12/11\nDemo Day\nBoth"
+  },
+  {
+    "objectID": "proposal.html#bombudget",
+    "href": "proposal.html#bombudget",
+    "title": "Project Proposal",
+    "section": "BOM/Budget",
+    "text": "BOM/Budget\n\nBill of materials\n\n\nPart\nPart Number\nVendor\nQuantity\nPrice\nPrice + shipping/tax\nLink\n\n\n\n\nE155 development board\nUPduino v3.1, NUCLEO-L432KC\nCourse kit\n1\nProvided\n\n\n\n\nMicrophone\nSPH0645LM4H-B\nAdafruit\n1\n$6.95\n\nlink\n\n\nDisplay\n6inch HD e-Paper HAT\nWaveshare\n1\n$113.99\n\nlink\n\n\nTotal\n\n\n\n$120.94"
+  }
+]

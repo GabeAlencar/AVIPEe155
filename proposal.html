@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabe Alencar">
+<meta name="author" content="Katie Latvakoski">
+
+<title>Project Proposal – AVIPE</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-60087649df3bc419abdd661cc15c8cac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">AVIPE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./proposal.html" aria-current="page"> 
+<span class="menu-text">Project Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./team.html"> 
+<span class="menu-text">Team</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/GabeAlencar/AVIPEe155" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-description-and-overview" id="toc-project-description-and-overview" class="nav-link active" data-scroll-target="#project-description-and-overview">Project Description and Overview</a></li>
+  <li><a href="#project-specification" id="toc-project-specification" class="nav-link" data-scroll-target="#project-specification">Project Specification</a></li>
+  <li><a href="#new-hardware" id="toc-new-hardware" class="nav-link" data-scroll-target="#new-hardware">New Hardware</a></li>
+  <li><a href="#fpga-design-details" id="toc-fpga-design-details" class="nav-link" data-scroll-target="#fpga-design-details">FPGA Design Details</a>
+  <ul class="collapse">
+  <li><a href="#audio" id="toc-audio" class="nav-link" data-scroll-target="#audio">Audio</a></li>
+  <li><a href="#fft-design" id="toc-fft-design" class="nav-link" data-scroll-target="#fft-design">FFT Design</a></li>
+  </ul></li>
+  <li><a href="#new-mcu-features" id="toc-new-mcu-features" class="nav-link" data-scroll-target="#new-mcu-features">New MCU Features</a></li>
+  <li><a href="#block-diagram" id="toc-block-diagram" class="nav-link" data-scroll-target="#block-diagram">Block Diagram</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
+  <li><a href="#riskiest-element-of-the-project" id="toc-riskiest-element-of-the-project" class="nav-link" data-scroll-target="#riskiest-element-of-the-project">Riskiest Element of the Project</a></li>
+  <li><a href="#division-of-labor" id="toc-division-of-labor" class="nav-link" data-scroll-target="#division-of-labor">Division of Labor</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#bombudget" id="toc-bombudget" class="nav-link" data-scroll-target="#bombudget">BOM/Budget</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Proposal</h1>
+<p class="subtitle lead">AVIPE (Adaptive Voice-Integrated Picture Ecosystem)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabe Alencar </p>
+             <p>Katie Latvakoski </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="project-description-and-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-description-and-overview">Project Description and Overview</h2>
+<p>The goal of this project is to create a proof of concept for the audio processing and display connectivity in AVIPE. The device listens to a microphone and shows the frequency content of the sound on an E-Ink display. The FPGA reads samples from the microphone over I2S and performs a 512-point FFT every 20 ms. The results are sent over SPI to the MCU, which draws a bar graph of the spectrum and labels the peak frequency in Hz.</p>
+</section>
+<section id="project-specification" class="level2">
+<h2 class="anchored" data-anchor-id="project-specification">Project Specification</h2>
+<ul>
+<li>The FPGA runs a 512-point FFT every 20 ms on continuous audio.</li>
+<li>The FPGA receives audio from the microphone with an I2S receiver.</li>
+<li>The FPGA sends FFT results to the MCU over SPI.</li>
+<li>The display shows a bar graph of the spectrum from 0 to 7.8 kHz with 254 bars and a labeled frequency axis.</li>
+<li>The display shows the peak frequency in Hz.</li>
+<li>The display refresh starts within 750 ms of the end of an audio frame.</li>
+<li>A new spectrum is fully drawn within 2 s.</li>
+<li>The MCU writes each image to the display over SPI with DMA in under 1 s.</li>
+</ul>
+</section>
+<section id="new-hardware" class="level2">
+<h2 class="anchored" data-anchor-id="new-hardware">New Hardware</h2>
+<ul>
+<li>New MCU peripheral: DMA receives the FFT frames from SPI3 and sends the display data through SPI1.</li>
+<li>New FPGA IP: The FFT processor uses the SB_MAC16 DSP blocks and embedded block RAM (EBR).</li>
+<li>New external hardware: The project adds an SPH0645 I2S MEMS microphone and a 6-inch 1448 x 1072 E-Ink display with an IT8951 controller.</li>
+</ul>
+</section>
+<section id="fpga-design-details" class="level2">
+<h2 class="anchored" data-anchor-id="fpga-design-details">FPGA Design Details</h2>
+<p>I2S Mic sample (24 bits) → I2S FPGA receiver → Sum of 3 samples → DC removal (16 bit PCM) → Ring buffer (512 x 16 bits) → 512 pt FFT module SB_MAC16 → SPI frame to MCU</p>
+<p>The ring buffer stores samples continuously. Every 312 samples (20 ms), the FPGA copies the latest 512 samples into the FFT RAM, runs the FFT, and raises READY.</p>
+<section id="audio" class="level3">
+<h3 class="anchored" data-anchor-id="audio">Audio</h3>
+<ul>
+<li>Clock: The FPGA uses the UPduino’s 12 MHz oscillator.</li>
+<li>Sample rate: The microphone datasheet supports a BCLK of 2.048 to 4.096 MHz, so we run it at 3 MHz. Adding each group of 3 samples reduces the 46.875 kHz rate to 15.625 kHz.</li>
+<li>DC removal: The microphone has a typical DC offset. The FPGA subtracts a slow running average.</li>
+<li>Gain: Speech at 65 dB SPL arrives near -55 dBFS, so the FPGA keeps the lower 16 bits of the 20-bit sum, saturating at the limits. This gives a gain of 12, and sound above 98 dB SPL clips.</li>
+</ul>
+</section>
+<section id="fft-design" class="level3">
+<h3 class="anchored" data-anchor-id="fft-design">FFT Design</h3>
+<p>The FFT is based on the radix-2 processor in <a href="https://doi.org/10.1145/3526241.3530329">Vercruysse et al.</a>, with a butterfly unit, ping-pong RAMs, a twiddle factor ROM, and a control unit. Two changes are needed:</p>
+<ul>
+<li>Memory: The paper assumes asynchronous-read RAM with two ports. The UP5K EBR is synchronous with one read port and one write port, so each butterfly takes multiple cycles: read a, read b, compute, write a, and write b.</li>
+<li>Bit growth: A 512-point FFT can grow by 9 bits, so the padding in the paper would leave 7-bit samples. We use block floating point instead. Each level shifts its outputs right by 0, 1, or 2 bits only if needed, and the total shift is sent to the MCU.</li>
+</ul>
+<table class="caption-top table">
+<caption>FFT requirements for voice recognition</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Requirement for Voice Recognition</th>
+<th>Our Design</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frequency range</td>
+<td>0 to 7.8 kHz</td>
+<td>Covers voices and high-frequency sounds produced by humans</td>
+</tr>
+<tr class="even">
+<td>Frequency resolution</td>
+<td>30.5 Hz per bin</td>
+<td>Fine enough to separate speech sounds</td>
+</tr>
+<tr class="odd">
+<td>Frame length</td>
+<td>32.8 ms</td>
+<td>Speech is roughly steady over 20 to 40 ms</td>
+</tr>
+<tr class="even">
+<td>Time between frames</td>
+<td>20 ms</td>
+<td>Tracks changes in speech with no gaps</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>FFT parameters</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>FFT Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Points</td>
+<td>512</td>
+</tr>
+<tr class="even">
+<td>Levels</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>Butterflies</td>
+<td>256 per level, 2,304 total</td>
+</tr>
+<tr class="even">
+<td>Number format</td>
+<td>Q1.15, with 16-bit real and 16-bit imaginary parts in one 32-bit word</td>
+</tr>
+<tr class="odd">
+<td>Input bits per sample</td>
+<td>16 (from 18-bit microphone samples)</td>
+</tr>
+<tr class="even">
+<td>Overflow handling</td>
+<td>Block floating point</td>
+</tr>
+<tr class="odd">
+<td>Multipliers</td>
+<td>4 of 8 SB_MAC16 blocks</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>FFT memory</caption>
+<thead>
+<tr class="header">
+<th>Memory</th>
+<th>Size</th>
+<th>EBR Blocks (256 x 16)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ring buffer</td>
+<td>512 x 16 bits</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>RAM0</td>
+<td>512 x 32 bits</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>RAM1</td>
+<td>512 x 32 bits</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Twiddle ROM</td>
+<td>256 x 32 bits</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>12 of 30</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="new-mcu-features" class="level2">
+<h2 class="anchored" data-anchor-id="new-mcu-features">New MCU Features</h2>
+<ul>
+<li>Frame capture: The MCU waits for READY and uses SPI3 with DMA to receive each FFT frame.</li>
+<li>Spectrum processing: The MCU applies the Hamming window, computes the magnitude of bins 1 to 254, and finds the largest.</li>
+<li>Drawing: The MCU draws the bars and peak label one row at a time because one image is larger than the 64 KB of SRAM.</li>
+<li>ePaper driver: The MCU sends the IT8951 command sequence with HRDY waits, using SPI1 with DMA.</li>
+</ul>
+<p>The Hamming window can be applied after the FFT by combining each bin with its two neighbors using:</p>
+<p><span class="math display">\[X_w[k] = 0.54\,X[k] - 0.23\,(X[k-1] + X[k+1])\]</span></p>
+</section>
+<section id="block-diagram" class="level2">
+<h2 class="anchored" data-anchor-id="block-diagram">Block Diagram</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/proposal-block-diagram.svg" class="img-fluid figure-img" alt="System block diagram. An I2S microphone feeds the iCE40 UP5K FPGA at 3 MHz. The FPGA contains an I2S receiver, a block that sums 3 samples and removes DC, a ring buffer, a 512-point FFT, and an SPI slave. The FPGA sends a 1,028-byte frame every 20 ms over SPI3 at 1.25 MHz with a READY line to the STM32L432KC MCU, which contains SPI3 with DMA, spectrum processing, drawing, and SPI1 with DMA. The MCU drives the 6-inch ePaper display over SPI1 at 5 MHz."></p>
+<figcaption>Chips, connections, and protocols</figcaption>
+</figure>
+</div>
+</section>
+<section id="calculations" class="level2">
+<h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
+<p>The microphone sends one sample every 64 BCLK cycles, and 12 MHz / 4 gives a BCLK of 3 MHz. Adding each group of 3 samples sets the final sample rate:</p>
+<p><span class="math display">\[f_{mic} = \frac{3 \text{ MHz}}{64} = 46.875 \text{ kHz}\]</span></p>
+<p><span class="math display">\[f_s = \frac{46.875 \text{ kHz}}{3} = 15.625 \text{ kHz}\]</span></p>
+<p>The FFT size sets the frame length, the frequency resolution, and the highest frequency:</p>
+<p><span class="math display">\[T_{frame} = \frac{512}{15.625 \text{ kHz}} = 32.8 \text{ ms}\]</span></p>
+<p><span class="math display">\[\Delta f = \frac{15.625 \text{ kHz}}{512} = 30.5 \text{ Hz per bin}\]</span></p>
+<p><span class="math display">\[f_{max} = \frac{15.625 \text{ kHz}}{2} = 7.8 \text{ kHz}\]</span></p>
+<p>A new frame starts every 312 samples:</p>
+<p><span class="math display">\[T_{hop} = \frac{312}{15.625 \text{ kHz}} = 20.0 \text{ ms}\]</span></p>
+<p>Copying 512 samples and running 2,304 butterflies at an estimated 5 cycles each takes about 5% of the time between frames:</p>
+<p><span class="math display">\[\frac{512 + 2{,}304 \times 5 \text{ cycles}}{12 \text{ MHz}} = 1.0 \text{ ms}\]</span></p>
+<p>The upper half of the FFT mirrors the lower half for real input, so the FPGA sends 256 bins and a 4-byte header with the frame count and total shift:</p>
+<p><span class="math display">\[256 \times 32 \text{ bits} + 32 \text{ bits} = 8{,}224 \text{ bits} = 1{,}028 \text{ bytes}\]</span></p>
+<p>The display width in 1-bit mode must be a multiple of 32 pixels, so the image is 1408 pixels wide:</p>
+<p><span class="math display">\[1408 \times 1072 \times 1 \text{ bit} = 1{,}509{,}376 \text{ bits} = 188{,}672 \text{ bytes}\]</span></p>
+<p>The time from the end of an audio frame to the start of the display refresh is the sum of three steps, each calculated from the numbers above:</p>
+<table class="caption-top table">
+<caption>Time from the end of an audio frame to the start of the refresh</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Calculation</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FPGA copies the samples and runs the FFT</td>
+<td>(512 + 2,304 × 5 cycles) / 12 MHz</td>
+<td>1.0 ms</td>
+</tr>
+<tr class="even">
+<td>FPGA sends the FFT frame to the MCU over SPI3</td>
+<td>8,224 bits / 1.25 MHz</td>
+<td>6.6 ms</td>
+</tr>
+<tr class="odd">
+<td>MCU sends the image to the IT8951 over SPI1</td>
+<td>1,509,376 bits / 5 MHz</td>
+<td>302 ms</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[1.0 \text{ ms} + 6.6 \text{ ms} + 302 \text{ ms} \approx 310 \text{ ms}\]</span></p>
+<p>This is well under the 750 ms specification. The 302 ms assumes the MCU builds each 176-byte row before SPI1 finishes sending the previous one, which gives it 282 µs, or about 22,500 cycles at 80 MHz, per row. The MCU’s windowing and magnitude calculations for 254 bins take well under 1 ms at 80 MHz, and the IT8951 command overhead is not included.</p>
+<p>Waveshare lists a full refresh time of under 1 s for the <a href="https://www.waveshare.com/6inch-HD-e-Paper-HAT.htm">6-inch HD display</a>, so a new spectrum is fully drawn in about 310 ms + 1 s ≈ 1.3 s, which meets the 2 s specification.</p>
+<p>One update takes about 1.3 s, so about 65 FFT frames arrive during each update. The MCU ignores them while it is busy and draws the newest frame once it is free. The 310 ms is measured from the end of that frame. The MCU keeps that frame’s bar heights fixed until the whole image is sent, so every row comes from the same frame.</p>
+<table class="caption-top table">
+<caption>Communication links</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Link</th>
+<th>Protocol</th>
+<th>Wires</th>
+<th>Rate</th>
+<th>Bits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mic to FPGA</td>
+<td>I2S</td>
+<td>3 (BCLK, WS, SD), SEL tied to GND</td>
+<td>BCLK 3 MHz, 46,875 samples/s</td>
+<td>24-bit sample sent most-significant bit first, with 18 bits of precision</td>
+</tr>
+<tr class="even">
+<td>FPGA to MCU</td>
+<td>SPI3 (PB3, PB4, PB5)</td>
+<td>5 (SCK, MOSI, MISO, CS, READY)</td>
+<td>1.25 MHz SCK, 6.6 ms per frame, 412 kbit/s</td>
+<td>One 1,028-byte frame: 4-byte header, then 256 bins of 16-bit real and 16-bit imaginary data</td>
+</tr>
+<tr class="odd">
+<td>MCU to ePaper</td>
+<td>SPI1 (PA1, PA11, PA12)</td>
+<td>6 (SCK, MOSI, MISO, CS, HRDY, RST)</td>
+<td>5 MHz SCK, 0.30 s per image</td>
+<td>One image: 1408 x 1072 x 1 bit = 1,509,376 bits (188,672 bytes)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="riskiest-element-of-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="riskiest-element-of-the-project">Riskiest Element of the Project</h2>
+<p>The riskiest element of the project is the FFT memory and scaling design. The design in the paper cannot be used directly because of the UP5K block RAM, and it does not include block floating point. We need to redesign the control logic for multi-cycle butterflies and verify it against a reference FFT in simulation.</p>
+</section>
+<section id="division-of-labor" class="level2">
+<h2 class="anchored" data-anchor-id="division-of-labor">Division of Labor</h2>
+<ul>
+<li>We will create the high level schematics and diagrams together.</li>
+<li>Each member will be assigned individual modules, and we will share the higher level modules.</li>
+<li>We will complete all work in a shared GitHub repository.</li>
+<li>We will use AI, and each member is responsible for their final code and for understanding the full design.</li>
+<li>Each member will make weekly commits with detailed messages.</li>
+</ul>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<table class="caption-top table">
+<caption>Project schedule</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Milestone</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>11/3 - 11/4</td>
+<td>Proposal redo</td>
+<td>Both</td>
+</tr>
+<tr class="even">
+<td>11/7</td>
+<td>Parts confirmed with instructors and ordered</td>
+<td>Katie</td>
+</tr>
+<tr class="odd">
+<td>11/10</td>
+<td>I2S receiver and DC removal simulated</td>
+<td>Gabe</td>
+</tr>
+<tr class="even">
+<td>11/10 - 11/17</td>
+<td>Design review presentation</td>
+<td>Both</td>
+</tr>
+<tr class="odd">
+<td>11/14</td>
+<td>FFT simulated and matched against a reference FFT</td>
+<td>Katie</td>
+</tr>
+<tr class="even">
+<td>11/17 - 11/18</td>
+<td>Midpoint report and demo: mic samples through the FFT to the MCU over SPI</td>
+<td>Both</td>
+</tr>
+<tr class="odd">
+<td>11/24</td>
+<td>Display driver draws a test image</td>
+<td>Gabe</td>
+</tr>
+<tr class="even">
+<td>12/1</td>
+<td>Full system integrated</td>
+<td>Both</td>
+</tr>
+<tr class="odd">
+<td>12/8 - 12/9</td>
+<td>Final checkoff</td>
+<td>Both</td>
+</tr>
+<tr class="even">
+<td>12/10</td>
+<td>Final report website</td>
+<td>Both</td>
+</tr>
+<tr class="odd">
+<td>12/11</td>
+<td>Demo Day</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bombudget" class="level2">
+<h2 class="anchored" data-anchor-id="bombudget">BOM/Budget</h2>
+<table class="caption-top table">
+<caption>Bill of materials</caption>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Part Number</th>
+<th>Vendor</th>
+<th>Quantity</th>
+<th>Price</th>
+<th>Price + shipping/tax</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E155 development board</td>
+<td>UPduino v3.1, NUCLEO-L432KC</td>
+<td>Course kit</td>
+<td>1</td>
+<td>Provided</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Microphone</td>
+<td>SPH0645LM4H-B</td>
+<td>Adafruit</td>
+<td>1</td>
+<td>$6.95</td>
+<td></td>
+<td><a href="https://www.adafruit.com/product/3421">link</a></td>
+</tr>
+<tr class="odd">
+<td>Display</td>
+<td>6inch HD e-Paper HAT</td>
+<td>Waveshare</td>
+<td>1</td>
+<td>$113.99</td>
+<td></td>
+<td><a href="https://www.waveshare.com/6inch-HD-e-Paper-HAT.htm">link</a></td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$120.94</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/gabealencar\.github\.io\/AVIPEe155\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
