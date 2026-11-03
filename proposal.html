@@ -75,6 +75,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -164,7 +167,10 @@ window.Quarto = {
   <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
   <li><a href="#riskiest-element-of-the-project" id="toc-riskiest-element-of-the-project" class="nav-link" data-scroll-target="#riskiest-element-of-the-project">Riskiest Element of the Project</a></li>
   <li><a href="#division-of-labor" id="toc-division-of-labor" class="nav-link" data-scroll-target="#division-of-labor">Division of Labor</a></li>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a>
+  <ul class="collapse">
+  <li><a href="#gantt-chart" id="toc-gantt-chart" class="nav-link" data-scroll-target="#gantt-chart">Gantt Chart</a></li>
+  </ul></li>
   <li><a href="#bombudget" id="toc-bombudget" class="nav-link" data-scroll-target="#bombudget">BOM/Budget</a></li>
   </ul>
 </nav>
@@ -496,6 +502,7 @@ window.Quarto = {
 </section>
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p>Gabe owns the audio front end and the display. Katie owns the FFT, the FPGA to MCU link, and the spectrum processing. We do the reports, presentations, integration, and testing together.</p>
 <table class="caption-top table">
 <caption>Project schedule</caption>
 <colgroup>
@@ -568,6 +575,60 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<section id="gantt-chart" class="level3">
+<h3 class="anchored" data-anchor-id="gantt-chart">Gantt Chart</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {
+  "fontFamily": "inherit",
+  "sectionBkgColor": "#f8f9fa", "altSectionBkgColor": "#ffffff", "sectionBkgColor2": "#f8f9fa",
+  "gridColor": "#dee2e6", "titleColor": "#212529",
+  "taskBkgColor": "#cfe2ff", "taskBorderColor": "#2780e3",
+  "activeTaskBkgColor": "#d1f2e0", "activeTaskBorderColor": "#198754",
+  "doneTaskBkgColor": "#e9ecef", "doneTaskBorderColor": "#6c757d",
+  "taskTextColor": "#212529", "taskTextDarkColor": "#212529",
+  "taskTextLightColor": "#212529", "taskTextOutsideColor": "#212529"
+}}}%%
+gantt
+    dateFormat YYYY-MM-DD
+    todayMarker off
+    axisFormat %m/%d
+    tickInterval 1week
+    weekday monday
+
+    section Gabe
+    I2S receiver, DC removal, and gain    :g1, 2026-11-04, 7d
+    Ring buffer and frame copy            :g2, 2026-11-09, 4d
+    Microphone bring-up on the FPGA       :g3, 2026-11-11, 5d
+    IT8951 display driver                 :g4, 2026-11-16, 9d
+    Row-by-row drawing                    :g5, 2026-11-22, 9d
+
+    section Katie
+    Confirm and order parts               :active, k1, 2026-11-03, 5d
+    FFT design and simulation             :active, k2, 2026-11-04, 11d
+    FPGA SPI slave and READY              :active, k3, 2026-11-11, 5d
+    MCU SPI3 receive with DMA             :active, k4, 2026-11-13, 5d
+    Spectrum processing                   :active, k5, 2026-11-19, 8d
+
+    section Both
+    Proposal redo                         :done, b1, 2026-11-03, 2d
+    Design review presentation            :done, b2, 2026-11-10, 8d
+    Midpoint report and demo              :done, milestone, b3, 2026-11-17, 0d
+    System integration                    :done, b4, 2026-11-25, 7d
+    Testing and tuning                    :done, b5, 2026-12-02, 6d
+    Final report website                  :done, b6, 2026-12-01, 10d
+    Final checkoff                        :done, b7, 2026-12-08, 2d
+    Demo Day                              :done, milestone, b8, 2026-12-11, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="bombudget" class="level2">
 <h2 class="anchored" data-anchor-id="bombudget">BOM/Budget</h2>
