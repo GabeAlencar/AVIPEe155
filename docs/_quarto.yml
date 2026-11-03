@@ -1,5 +1,10 @@
 project:
   type: website
+  # Only the proposal and team pages are live for now. Remove this list and
+  # restore the navbar entries below to bring back the other pages.
+  render:
+    - proposal.qmd
+    - team.qmd
 
 website:
   title: "AVIPE"
@@ -10,20 +15,22 @@ website:
       - icon: github
         href: https://github.com/GabeAlencar/AVIPEe155
     left:
-      - href: index.qmd
-        text: Home
-      - href: documentation.qmd
-        text: Documentation
-      - href: fpga-design.qmd
-        text: FPGA Design
-      - href: mcu-design.qmd
-        text: MCU Design
-      - href: results.qmd
-        text: Results
+      - href: proposal.qmd
+        text: Project Proposal
       - href: team.qmd
         text: Team
-      - href: references.qmd
-        text: References
+      # - href: index.qmd
+      #   text: Home
+      # - href: documentation.qmd
+      #   text: Documentation
+      # - href: fpga-design.qmd
+      #   text: FPGA Design
+      # - href: mcu-design.qmd
+      #   text: MCU Design
+      # - href: results.qmd
+      #   text: Results
+      # - href: references.qmd
+      #   text: References
 
 format:
   html:
