@@ -14,8 +14,13 @@ support modern AI workloads.
 [LinkedIn](https://www.linkedin.com/in/gabe-alencar/) |
 [GitHub](https://github.com/gabealencar)
 
-## Teammate
+## Katie Latvakoski
 
-::: {.callout-warning title="To do"}
-Add your teammate's name, one-sentence bio, photo, and links.
-:::
+![](images/katie-latvakoski.jpg){width=200 fig-alt="Headshot of Katie Latvakoski"}
+
+Katie Latvakoski is an engineering student at Harvey Mudd College with a focus in
+biomedical engineering who runs track and cross country for Claremont-Mudd-Scripps.
+
+[Portfolio](https://klatvakoski.github.io/E155_Website/) |
+[LinkedIn](https://www.linkedin.com/in/katie-latvakoski-920224378) |
+[GitHub](https://github.com/klatvakoski)
