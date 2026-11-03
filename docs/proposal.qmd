@@ -170,6 +170,8 @@ The riskiest element of the project is the FFT memory and scaling design. The de
 
 ## Schedule
 
+Gabe owns the audio front end and the display. Katie owns the FFT, the FPGA to MCU link, and the spectrum processing. We do the reports, presentations, integration, and testing together.
+
 | Date | Milestone | Owner |
 |---|---|---|
 | 11/3 - 11/4 | Proposal redo | Both |
@@ -185,6 +187,51 @@ The riskiest element of the project is the FFT memory and scaling design. The de
 | 12/11 | Demo Day | Both |
 
 : Project schedule
+
+### Gantt Chart
+
+```{mermaid}
+%%{init: {"theme": "base", "themeVariables": {
+  "fontFamily": "inherit",
+  "sectionBkgColor": "#f8f9fa", "altSectionBkgColor": "#ffffff", "sectionBkgColor2": "#f8f9fa",
+  "gridColor": "#dee2e6", "titleColor": "#212529",
+  "taskBkgColor": "#cfe2ff", "taskBorderColor": "#2780e3",
+  "activeTaskBkgColor": "#d1f2e0", "activeTaskBorderColor": "#198754",
+  "doneTaskBkgColor": "#e9ecef", "doneTaskBorderColor": "#6c757d",
+  "taskTextColor": "#212529", "taskTextDarkColor": "#212529",
+  "taskTextLightColor": "#212529", "taskTextOutsideColor": "#212529"
+}}}%%
+gantt
+    dateFormat YYYY-MM-DD
+    todayMarker off
+    axisFormat %m/%d
+    tickInterval 1week
+    weekday monday
+
+    section Gabe
+    I2S receiver, DC removal, and gain    :g1, 2026-11-04, 7d
+    Ring buffer and frame copy            :g2, 2026-11-09, 4d
+    Microphone bring-up on the FPGA       :g3, 2026-11-11, 5d
+    IT8951 display driver                 :g4, 2026-11-16, 9d
+    Row-by-row drawing                    :g5, 2026-11-22, 9d
+
+    section Katie
+    Confirm and order parts               :active, k1, 2026-11-03, 5d
+    FFT design and simulation             :active, k2, 2026-11-04, 11d
+    FPGA SPI slave and READY              :active, k3, 2026-11-11, 5d
+    MCU SPI3 receive with DMA             :active, k4, 2026-11-13, 5d
+    Spectrum processing                   :active, k5, 2026-11-19, 8d
+
+    section Both
+    Proposal redo                         :done, b1, 2026-11-03, 2d
+    Design review presentation            :done, b2, 2026-11-10, 8d
+    Midpoint report and demo              :done, milestone, b3, 2026-11-17, 0d
+    System integration                    :done, b4, 2026-11-25, 7d
+    Testing and tuning                    :done, b5, 2026-12-02, 6d
+    Final report website                  :done, b6, 2026-12-01, 10d
+    Final checkoff                        :done, b7, 2026-12-08, 2d
+    Demo Day                              :done, milestone, b8, 2026-12-11, 0d
+```
 
 ## BOM/Budget
 
