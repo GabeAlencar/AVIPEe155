@@ -47,10 +47,10 @@ The ring buffer stores samples continuously. Every 312 samples (20 ms), the FPGA
 
 ### FFT Design
 
-The FFT is based on the radix-2 processor in [Vercruysse et al.](https://doi.org/10.1145/3526241.3530329), with a butterfly unit, ping-pong RAMs, a twiddle factor ROM, and a control unit. Two changes are needed:
+The FFT is based on the radix-2 processor in Vercruysse et al., "[A Tutorial-style Single-cycle Fast Fourier Transform Processor](https://doi.org/10.1145/3526241.3530329)" (GLSVLSI 2022), with a butterfly unit, ping-pong RAMs, a twiddle factor ROM, and a control unit. Two changes are needed:
 
 - Memory: The paper assumes asynchronous-read RAM with two ports. The UP5K EBR is synchronous with one read port and one write port, so each butterfly takes multiple cycles: read a, read b, compute, write a, and write b.
-- Bit growth: A 512-point FFT can grow by 9 bits, so the padding in the paper would leave 7-bit samples. We use block floating point instead. Each level shifts its outputs right by 0, 1, or 2 bits only if needed, and the total shift is sent to the MCU.
+- Bit growth: A 512-point FFT can grow by 9 bits, and padding for that as the paper does would leave 7-bit samples. We use block floating point instead. A butterfly can grow a value by at most 1 + √2 ≈ 2.4 times, so each level shifts right by 0, 1, or 2 bits, based on the largest value from the level before. The total shift (0 to 18) is sent to the MCU in the frame header.
 
 | Requirement for Voice Recognition | Our Design | Reason |
 |---|---|---|
@@ -90,7 +90,7 @@ The FFT is based on the radix-2 processor in [Vercruysse et al.](https://doi.org
 - Drawing: The MCU draws the bars and peak label one row at a time because one image is larger than the 64 KB of SRAM.
 - ePaper driver: The MCU sends the IT8951 command sequence with HRDY waits, using SPI1 with DMA.
 
-The Hamming window can be applied after the FFT by combining each bin with its two neighbors using:
+The Hamming window can be applied after the FFT by combining each bin with its two neighbors, as shown in Lyons, *[Understanding Digital Signal Processing](https://www.iro.umontreal.ca/~mignotte/IFT3205/Documents/UnderstandingDigitalSignalProcessing.pdf)*, Section 13.3, using:
 
 $$X_w[k] = 0.54\,X[k] - 0.23\,(X[k-1] + X[k+1])$$
 
