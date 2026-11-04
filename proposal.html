@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-60087649df3bc419abdd661cc15c8cac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-935f9a09bf7adb275a83d33aba450be4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -245,10 +245,10 @@ window.Quarto = {
 </section>
 <section id="fft-design" class="level3">
 <h3 class="anchored" data-anchor-id="fft-design">FFT Design</h3>
-<p>The FFT is based on the radix-2 processor in <a href="https://doi.org/10.1145/3526241.3530329">Vercruysse et al.</a>, with a butterfly unit, ping-pong RAMs, a twiddle factor ROM, and a control unit. Two changes are needed:</p>
+<p>The FFT is based on the radix-2 processor in Vercruysse et al., “<a href="https://doi.org/10.1145/3526241.3530329">A Tutorial-style Single-cycle Fast Fourier Transform Processor</a>” (GLSVLSI 2022), with a butterfly unit, ping-pong RAMs, a twiddle factor ROM, and a control unit. Two changes are needed:</p>
 <ul>
 <li>Memory: The paper assumes asynchronous-read RAM with two ports. The UP5K EBR is synchronous with one read port and one write port, so each butterfly takes multiple cycles: read a, read b, compute, write a, and write b.</li>
-<li>Bit growth: A 512-point FFT can grow by 9 bits, so the padding in the paper would leave 7-bit samples. We use block floating point instead. Each level shifts its outputs right by 0, 1, or 2 bits only if needed, and the total shift is sent to the MCU.</li>
+<li>Bit growth: A 512-point FFT can grow by 9 bits, and padding for that as the paper does would leave 7-bit samples. We use block floating point instead. A butterfly can grow a value by at most 1 + √2 ≈ 2.4 times, so each level shifts right by 0, 1, or 2 bits, based on the largest value from the level before. The total shift (0 to 18) is sent to the MCU in the frame header.</li>
 </ul>
 <table class="caption-top table">
 <caption>FFT requirements for voice recognition</caption>
@@ -377,7 +377,7 @@ window.Quarto = {
 <li>Drawing: The MCU draws the bars and peak label one row at a time because one image is larger than the 64 KB of SRAM.</li>
 <li>ePaper driver: The MCU sends the IT8951 command sequence with HRDY waits, using SPI1 with DMA.</li>
 </ul>
-<p>The Hamming window can be applied after the FFT by combining each bin with its two neighbors using:</p>
+<p>The Hamming window can be applied after the FFT by combining each bin with its two neighbors, as shown in Lyons, <em><a href="https://www.iro.umontreal.ca/~mignotte/IFT3205/Documents/UnderstandingDigitalSignalProcessing.pdf">Understanding Digital Signal Processing</a></em>, Section 13.3, using:</p>
 <p><span class="math display">\[X_w[k] = 0.54\,X[k] - 0.23\,(X[k-1] + X[k+1])\]</span></p>
 </section>
 <section id="block-diagram" class="level2">
