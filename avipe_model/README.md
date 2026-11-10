@@ -12,8 +12,10 @@ mic → sum of 3 → DC removal → 512-sample frames → FFT → frame to MCU �
 ```bash
 cd fpga/model
 uv venv .venv
-uv pip install --python .venv/bin/python numpy matplotlib pandas jupyter
+uv pip install --python .venv/bin/python numpy matplotlib pandas jupyter scipy sounddevice
 .venv/bin/jupyter lab avipe_chain.ipynb
 ```
+
+`SOURCE` in the first code cell picks the input: `tone`, `chirp`, `speech`, `click`, `silence`, a `wav` file, or your `mic`. With `mic`, the last cell plots the chain live (needs the PortAudio system package, e.g. `pacman -S portaudio`).
 
 You can also open the notebook in VS Code (from WSL) and pick `.venv/bin/python` as the kernel.
