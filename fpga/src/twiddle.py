@@ -44,21 +44,6 @@ w_im = (w_im * (2**(q-1) - 1)).astype('int')
 w_im = i2b(w_im, q)
 
 # write the memory a rom file to be read by Quartus
-with open("twiddle.vectors", 'w') as f:
+with open("twiddle.tv", 'w') as f:
     for i in range(len(w_re)):
         f.write(w_re[i] + "" + w_im[i] + "\n")
-
-# write the memory to a rom file to be read by ModelSim (for test).
-with open("../simulation/modelsim/twiddle.vectors", 'w') as f:
-    for i in range(len(w_re)):
-        f.write(w_re[i] + "" + w_im[i] + "\n")
-
-# write the memory to a test file in hex.
-with open("twiddle_hex.txt", 'w') as f:
-    for i in range(len(w_re)):
-        f.write(f"{int(w_re[i],base=2):04x}{int(w_im[i],base=2):04x}\n")
-
-# write the memory to a test file in hex formatted for LaTeX table.
-with open("twiddle_hex_formatted.txt", 'w') as f:
-    for i in range(len(w_re)):
-        f.write(f"{i} & \\texttt{{({int(w_re[i],base=2):04x})}}+j\\texttt{{({int(w_im[i],base=2):04x})}}\\\\\n")
