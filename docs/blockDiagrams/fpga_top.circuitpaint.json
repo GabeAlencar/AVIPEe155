@@ -1,0 +1,856 @@
+{
+  "version": 1,
+  "components": [],
+  "drawings": [
+    {
+      "id": "drawing-1794700000000-ujzd",
+      "toolId": "rectangle",
+      "x": 800.0,
+      "y": 270.0,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 1280,
+      "shapeHeight": 300
+    },
+    {
+      "id": "drawing-1794700000000-e8gx",
+      "toolId": "text",
+      "x": 215,
+      "y": 142,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 18,
+      "text": "fpga_top",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-d6nc",
+      "toolId": "rectangle",
+      "x": 70,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 110,
+      "shapeHeight": 150
+    },
+    {
+      "id": "drawing-1794700000000-f10e",
+      "toolId": "text",
+      "x": 70,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "SPH0645\nmicrophone",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-pf91",
+      "toolId": "rectangle",
+      "x": 340,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 170,
+      "shapeHeight": 130
+    },
+    {
+      "id": "drawing-1794700000000-dhod",
+      "toolId": "text",
+      "x": 340,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 16,
+      "text": "u_receiver\ni2s_receiver",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-zdoc",
+      "toolId": "rectangle",
+      "x": 610,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 150,
+      "shapeHeight": 130
+    },
+    {
+      "id": "drawing-1794700000000-9is0",
+      "toolId": "text",
+      "x": 610,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 16,
+      "text": "u_sum3\nsum_of_3",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-j8ht",
+      "toolId": "rectangle",
+      "x": 880,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 150,
+      "shapeHeight": 130
+    },
+    {
+      "id": "drawing-1794700000000-9lgm",
+      "toolId": "text",
+      "x": 880,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 16,
+      "text": "u_dc\ndc_removal",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-xg9e",
+      "toolId": "rectangle",
+      "x": 1170,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 170,
+      "shapeHeight": 130
+    },
+    {
+      "id": "drawing-1794700000000-dn58",
+      "toolId": "text",
+      "x": 1170,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 16,
+      "text": "u_ring\nring_buffer\n512 x 16 RAM",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-xtpl",
+      "toolId": "port",
+      "x": 160,
+      "y": 205,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-5v2s",
+      "toolId": "text",
+      "x": 200,
+      "y": 193,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "sd",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-kvj5",
+      "toolId": "port",
+      "x": 140,
+      "y": 250,
+      "rotation": 180,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-uvw5",
+      "toolId": "text",
+      "x": 200,
+      "y": 238,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "bclk",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-4edt",
+      "toolId": "port",
+      "x": 140,
+      "y": 295,
+      "rotation": 180,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-b3wk",
+      "toolId": "text",
+      "x": 200,
+      "y": 283,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "ws",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-sipz",
+      "toolId": "text",
+      "x": 480.0,
+      "y": 210,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "sample[17:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-2z9r",
+      "toolId": "text",
+      "x": 480.0,
+      "y": 290,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "sample_valid",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-0wyo",
+      "toolId": "text",
+      "x": 745.0,
+      "y": 210,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "sum[19:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-ooa5",
+      "toolId": "text",
+      "x": 745.0,
+      "y": 290,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "sum_valid",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-j08x",
+      "toolId": "text",
+      "x": 1020.0,
+      "y": 210,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "pcm[15:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-39zz",
+      "toolId": "text",
+      "x": 1020.0,
+      "y": 290,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "pcm_valid",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-zdme",
+      "toolId": "port",
+      "x": 1460,
+      "y": 210,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-n2kh",
+      "toolId": "text",
+      "x": 1530,
+      "y": 210,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "read_data[15:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-j8gx",
+      "toolId": "port",
+      "x": 1460,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-beny",
+      "toolId": "text",
+      "x": 1530,
+      "y": 250,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "frame_ready",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-jqwx",
+      "toolId": "port",
+      "x": 1440,
+      "y": 290,
+      "rotation": 180,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-344t",
+      "toolId": "text",
+      "x": 1530,
+      "y": 290,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "read_index[8:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-fjgv",
+      "toolId": "text",
+      "x": 1350,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "to the FFT (next)",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-q4k7",
+      "toolId": "port",
+      "x": 160,
+      "y": 360,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-j8b7",
+      "toolId": "text",
+      "x": 105,
+      "y": 360,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "clk",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-tfq7",
+      "toolId": "port",
+      "x": 160,
+      "y": 390,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1794700000000-886v",
+      "toolId": "text",
+      "x": 105,
+      "y": 390,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "reset_b",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-ompz",
+      "toolId": "text",
+      "x": 360,
+      "y": 375,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "12 MHz clk and reset_b go to every block",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1794700000000-om75",
+      "toolId": "text",
+      "x": 1390,
+      "y": 400,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "thick = bus",
+      "borderWidth": 60,
+      "borderHeight": 20
+    }
+  ],
+  "wires": [
+    {
+      "id": "wire-1794700000000-1u33",
+      "x": 125,
+      "y": 205,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 15,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-pft7",
+      "x": 160,
+      "y": 205,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 95.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-eh60",
+      "x": 255.0,
+      "y": 250,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": -95.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1794700000000-0ce9",
+      "x": 140,
+      "y": 250,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -15,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-3efr",
+      "x": 255.0,
+      "y": 295,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": -95.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1794700000000-2syw",
+      "x": 140,
+      "y": 295,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -15,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-h5dn",
+      "x": 425.0,
+      "y": 225,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 110.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-z5fk",
+      "x": 425.0,
+      "y": 275,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 110.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-i19r",
+      "x": 685.0,
+      "y": 225,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 120.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-jflj",
+      "x": 685.0,
+      "y": 275,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 120.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-lqsa",
+      "x": 955.0,
+      "y": 225,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 130.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-ui6d",
+      "x": 955.0,
+      "y": 275,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 130.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-zzg4",
+      "x": 1255.0,
+      "y": 210,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 185.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1794700000000-vdga",
+      "x": 1255.0,
+      "y": 250,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 185.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1794700000000-4hh5",
+      "x": 1440,
+      "y": 290,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -185.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-bn7x",
+      "x": 160,
+      "y": 360,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 40,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1794700000000-xkwo",
+      "x": 160,
+      "y": 390,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 40,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    }
+  ]
+}

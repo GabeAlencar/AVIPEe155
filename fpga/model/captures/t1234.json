@@ -1,0 +1,12 @@
+{
+ "port": "COM3",
+ "baud": 744186,
+ "clk_hz": 11906976,
+ "fs_hz": 15503.875,
+ "seconds": 2.0,
+ "bytes": 97920,
+ "fs_from_byte_rate_hz": 14293.769834131102,
+ "samples": 32639,
+ "bad_bytes": 2,
+ "counter_skips": 0
+}

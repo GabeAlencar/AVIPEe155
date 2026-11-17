@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiantProject version="4.2" radiant="2026.1.0.37.0" title="AVIPEe155" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="impl_1">
+    <Options/>
+    <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
+        <Options def_top="fpga_board_top" top="mic_fft_spi_top"/>
+        <Source name="../../src/counter.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/i2s_clkgen.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/i2s_deserializer.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/i2s_receiver.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/sum_of_3.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/dc_removal.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/dual_port_ram.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/ring_buffer.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fpga_top.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fpga_board_top.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog" top_module="fpga_board_top"/>
+        </Source>
+        <Source name="../../src/spi_word_tx.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/frame_dumper.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/level_meter.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/mic_hw_test_top.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/uart_tx.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/pcm_uart.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fft.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fft_agu.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fft_butterfly.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/math.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/memory.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fft_frame_uart.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/mic_fft_test_top.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/fft_frame_spi.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/mic_fft_spi_top.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../src/bins_uart.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="AVIPEe155.pdc" type="Physical Constraints File" type_short="PDC" excluded="TRUE">
+            <Options/>
+        </Source>
+        <Source name="mic_fft_spi.pdc" type="Physical Constraints File" type_short="PDC">
+            <Options/>
+        </Source>
+        <Source name="mic_fft_test.pdc" type="Physical Constraints File" type_short="PDC" excluded="TRUE">
+            <Options/>
+        </Source>
+        <Source name="mic_hw_test.pdc" type="Physical Constraints File" type_short="PDC" excluded="TRUE">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="AVIPEe1551.sty"/>
+</RadiantProject>

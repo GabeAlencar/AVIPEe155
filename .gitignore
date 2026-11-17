@@ -2,10 +2,38 @@
 /docs/_site/
 /docs/.quarto/
 
-# Lattice Radiant build output
-/fpga/Lattice/**/impl_*/
-/fpga/Lattice/**/*.dir/
-/fpga/Lattice/**/.recovery
+# Lattice Radiant: keep only what is needed to rebuild the project
+#   kept:    *.rdf (project), *.sty (strategy), *.pdc / *.sdc / *.ldc (constraints)
+#   ignored: everything Radiant regenerates on each build or open
+/fpga/Radiant/**/impl_*/
+/fpga/Radiant/**/*.dir/
+/fpga/Radiant/**/.recovery
+/fpga/Radiant/**/*_tcl.html
+/fpga/Radiant/**/promote.pfl
+/fpga/Radiant/**/promote.xml
+/fpga/Radiant/**/reportview.xml
+/fpga/Radiant/**/.setting.ini
+/fpga/Radiant/**/.ng_run_manager.ini
+/fpga/Radiant/**/*.log
+/fpga/Radiant/**/*.tcr
+
+# Questa / ModelSim simulation output (Radiant simulation wizard and qrun)
+transcript
+*.wlf
+*.vcd
+qrun.out
+qrun.log
+hdlparser.log
+moduleparser_command.log
+source_files.lst
+work/
+qrun.out/
+modelsim.ini
+
+# Python model environment
+/fpga/model/.venv/
+__pycache__/
+.ipynb_checkpoints/
 
 # SEGGER Embedded Studio build output
 /mcu/Segger/**/Output/

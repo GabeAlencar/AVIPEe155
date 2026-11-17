@@ -34,9 +34,14 @@ module singleport_RAM
 endmodule // singleport_RAM
 
 
+// The output is registered (one clk after twiddleadr). The AGU holds
+// twiddleadr for both clks of a butterfly, so the twiddle is ready on the
+// second clk when the butterfly result is written, and the long path from
+// fftLevel through the ROM and the multipliers is cut in two.
 module fft_twiddleROM
   #(parameter width=16, M=5)
-   (input logic  [M-2:0] twiddleadr, // 0 - 1023 = 10 bits    // takes in the address determined by the fft_control; specifically fft_agu_adrcalc 
+   (input logic          clk,
+    input logic  [M-2:0] twiddleadr, // 0 - 1023 = 10 bits    // takes in the address determined by the fft_control; specifically fft_agu_adrcalc 
     output logic [2*width-1:0] twiddle); // twiddle factor out which is pulled from the python code here?
 
    // twiddle table pseudocode: w[k] = w[k-1] * w,
@@ -45,6 +50,6 @@ module fft_twiddleROM
 
    logic [2*width-1:0]         vectors [0:2**(M-1)-1];  // 2*width in width, 2^(M-1) tall (half of 2^M)
    initial $readmemb("twiddle.tv", vectors);
-   assign twiddle = vectors[twiddleadr];    // pull twiddle from mem @ twiddleadr -- Need to change this to an EBR storage? 
+   always_ff @(posedge clk) twiddle <= vectors[twiddleadr];    // pull twiddle from mem @ twiddleadr -- Need to change this to an EBR storage? 
 
 endmodule // fft_twiddleROM

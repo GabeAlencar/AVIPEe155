@@ -1,5 +1,5 @@
 module fft
-  #(parameter width=16, M=5)
+  #(parameter width=16, M=5, STAGE_SHIFT=0)
    (input  logic                clk, reset, start, load,
     input  logic [M-1:0]        rd_adr,
     input  logic [2*width-1:0]  rd,
@@ -63,8 +63,8 @@ module fft
    // butterfly inputs: undo the bank manipulation -- a is in one of the banks; goes where the ^(addr) tells it to
    assign a = pA ? rd1 : rd0;
    assign b = pA ? rd0 : rd1;
-   fft_twiddleROM #(width, M) twiddlerom(twiddleadr, twiddle);
-   fft_butterfly  #(width)    bgu(twiddle, a, b, aout, bout);
+   fft_twiddleROM #(width, M) twiddlerom(clk, twiddleadr, twiddle);   // registered: ready on the butterfly's 2nd clk
+   fft_butterfly  #(width, STAGE_SHIFT) bgu(twiddle, a, b, aout, bout);
 
    // read-out: the bank select for the output also needs to be delayed due to the RAM latency  
    logic [1:0] sel_pipe = 0;

@@ -10,7 +10,7 @@ at <https://gabealencar.github.io/AVIPEe155/>.
 | `docs/` | Quarto source for the project website |
 | `fpga/src/` | SystemVerilog source |
 | `fpga/sim/` | Testbenches |
-| `fpga/Lattice/` | Lattice Radiant project |
+| `fpga/Radiant/` | Radiant project |
 | `mcu/src/` | MCU application code |
 | `mcu/lib/` | MCU device drivers |
 | `mcu/Segger/` | SEGGER Embedded Studio project |

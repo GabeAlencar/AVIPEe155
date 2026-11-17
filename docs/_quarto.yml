@@ -1,9 +1,10 @@
 project:
   type: website
-  # Only the proposal and team pages are live for now. Remove this list and
-  # restore the navbar entries below to bring back the other pages.
+  # Only the proposal, FPGA design, and team pages are live for now. Remove
+  # this list and restore the navbar entries below to bring back the others.
   render:
     - proposal.qmd
+    - fpga-design.qmd
     - team.qmd
 
 website:
@@ -17,14 +18,14 @@ website:
     left:
       - href: proposal.qmd
         text: Project Proposal
+      - href: fpga-design.qmd
+        text: FPGA Design
       - href: team.qmd
         text: Team
       # - href: index.qmd
       #   text: Home
       # - href: documentation.qmd
       #   text: Documentation
-      # - href: fpga-design.qmd
-      #   text: FPGA Design
       # - href: mcu-design.qmd
       #   text: MCU Design
       # - href: results.qmd

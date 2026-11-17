@@ -1,0 +1,15 @@
+# Pin assignments for the UPduino v3.1 (iCE40UP5K-SG48).
+# Pins come from the E155 FA23 v4 dev board and breadboard adapter schematics.
+# J1/J3 are adapter header positions; SW0 and D6 are on the dev board.
+# Keep DIP switch SW7 off: it ties MCU pins to P10, P12, P20, P21, P23, P25-27.
+# clk comes from the internal HSOSC (fpga_board_top), so it has no pin.
+
+# SPH0645 microphone. Power it from J3-2 (+3V3) and J3-1 (GND): J1 has only
+# +5V and VIN.
+ldc_set_location -site {11} [get_ports bclk]      ;# J1-4
+ldc_set_location -site {6}  [get_ports ws]        ;# J1-5
+ldc_set_location -site {48} [get_ports sd]        ;# J1-7
+
+# active-low reset on dev board push button SW0 (to GND, internal pull-up)
+ldc_set_location -site {34} [get_ports reset_b]   ;# SW0
+ldc_set_port -iobuf {PULLMODE=100K} [get_ports reset_b]

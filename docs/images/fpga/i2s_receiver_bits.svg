@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 326" font-family="Helvetica, Arial, sans-serif" role="img">
+<title>i2s_receiver reading the first bits of a word</title>
+<rect width="960" height="326" fill="#ffffff"/>
+<line x1="196.9" y1="30" x2="196.9" y2="292" stroke="#e3e8ee"/>
+<text x="196.9" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">42.6 µs</text>
+<line x1="272.1" y1="30" x2="272.1" y2="292" stroke="#e3e8ee"/>
+<text x="272.1" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">42.8 µs</text>
+<line x1="347.4" y1="30" x2="347.4" y2="292" stroke="#e3e8ee"/>
+<text x="347.4" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">43 µs</text>
+<line x1="422.6" y1="30" x2="422.6" y2="292" stroke="#e3e8ee"/>
+<text x="422.6" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">43.2 µs</text>
+<line x1="497.8" y1="30" x2="497.8" y2="292" stroke="#e3e8ee"/>
+<text x="497.8" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">43.4 µs</text>
+<line x1="573.1" y1="30" x2="573.1" y2="292" stroke="#e3e8ee"/>
+<text x="573.1" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">43.6 µs</text>
+<line x1="648.3" y1="30" x2="648.3" y2="292" stroke="#e3e8ee"/>
+<text x="648.3" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">43.8 µs</text>
+<line x1="723.6" y1="30" x2="723.6" y2="292" stroke="#e3e8ee"/>
+<text x="723.6" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">44 µs</text>
+<line x1="798.8" y1="30" x2="798.8" y2="292" stroke="#e3e8ee"/>
+<text x="798.8" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">44.2 µs</text>
+<line x1="874.0" y1="30" x2="874.0" y2="292" stroke="#e3e8ee"/>
+<text x="874.0" y="308" font-size="11" fill="#5b6b7c" text-anchor="middle">44.4 µs</text>
+<rect x="0" y="34" width="960" height="36" fill="#f6f8fa" opacity="0.6"/>
+<text x="138" y="54.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">clk</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,40.0 159.4,40.0 159.4,60.0 175.1,60.0 175.1,40.0 190.8,40.0 190.8,60.0 206.4,60.0 206.4,40.0 222.1,40.0 222.1,60.0 237.8,60.0 237.8,40.0 253.5,40.0 253.5,60.0 269.1,60.0 269.1,40.0 284.8,40.0 284.8,60.0 300.5,60.0 300.5,40.0 316.2,40.0 316.2,60.0 331.8,60.0 331.8,40.0 347.5,40.0 347.5,60.0 363.2,60.0 363.2,40.0 378.8,40.0 378.8,60.0 394.5,60.0 394.5,40.0 410.2,40.0 410.2,60.0 425.9,60.0 425.9,40.0 441.5,40.0 441.5,60.0 457.2,60.0 457.2,40.0 472.9,40.0 472.9,60.0 488.6,60.0 488.6,40.0 504.2,40.0 504.2,60.0 519.9,60.0 519.9,40.0 535.6,40.0 535.6,60.0 551.3,60.0 551.3,40.0 566.9,40.0 566.9,60.0 582.6,60.0 582.6,40.0 598.3,40.0 598.3,60.0 614.0,60.0 614.0,40.0 629.6,40.0 629.6,60.0 645.3,60.0 645.3,40.0 661.0,40.0 661.0,60.0 676.7,60.0 676.7,40.0 692.3,40.0 692.3,60.0 708.0,60.0 708.0,40.0 723.7,40.0 723.7,60.0 739.4,60.0 739.4,40.0 755.0,40.0 755.0,60.0 770.7,60.0 770.7,40.0 786.4,40.0 786.4,60.0 802.1,60.0 802.1,40.0 817.7,40.0 817.7,60.0 833.4,60.0 833.4,40.0 849.1,40.0 849.1,60.0 864.8,60.0 864.8,40.0 880.4,40.0 880.4,60.0 896.1,60.0 896.1,40.0 911.8,40.0 911.8,60.0 927.5,60.0 927.5,40.0 940.0,40.0"/>
+<text x="138" y="90.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">bclk</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,76.0 175.1,76.0 175.1,96.0 237.8,96.0 237.8,76.0 300.5,76.0 300.5,96.0 363.2,96.0 363.2,76.0 425.9,76.0 425.9,96.0 488.6,96.0 488.6,76.0 551.3,76.0 551.3,96.0 614.0,96.0 614.0,76.0 676.7,76.0 676.7,96.0 739.4,96.0 739.4,76.0 802.1,76.0 802.1,96.0 864.8,96.0 864.8,76.0 927.5,76.0 927.5,96.0 940.0,96.0"/>
+<rect x="0" y="106" width="960" height="36" fill="#f6f8fa" opacity="0.6"/>
+<text x="138" y="126.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">ws</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,112.0 300.5,112.0 300.5,132.0 940.0,132.0"/>
+<text x="138" y="162.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">sd</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,168.0 566.3,168.0 566.3,148.0 940.0,148.0"/>
+<rect x="0" y="178" width="960" height="36" fill="#f6f8fa" opacity="0.6"/>
+<text x="138" y="198.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">sample_en</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,204.0 237.8,204.0 237.8,184.0 269.1,184.0 269.1,204.0 363.2,204.0 363.2,184.0 394.5,184.0 394.5,204.0 488.6,204.0 488.6,184.0 519.9,184.0 519.9,204.0 614.0,204.0 614.0,184.0 645.3,184.0 645.3,204.0 739.4,204.0 739.4,184.0 770.7,184.0 770.7,204.0 864.8,204.0 864.8,184.0 896.1,184.0 896.1,204.0 940.0,204.0"/>
+<text x="138" y="234.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">slot</text>
+<polygon points="150.0,230.0 153.0,220 172.1,220 175.1,230.0 172.1,240 153.0,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="162.5" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">62</text>
+<polygon points="175.1,230.0 178.1,220 297.5,220 300.5,230.0 297.5,240 178.1,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="237.8" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">63</text>
+<polygon points="300.5,230.0 303.5,220 422.9,220 425.9,230.0 422.9,240 303.5,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="363.2" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">0</text>
+<polygon points="425.9,230.0 428.9,220 548.3,220 551.3,230.0 548.3,240 428.9,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="488.6" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">1</text>
+<polygon points="551.3,230.0 554.3,220 673.7,220 676.7,230.0 673.7,240 554.3,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="614.0" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">2</text>
+<polygon points="676.7,230.0 679.7,220 799.1,220 802.1,230.0 799.1,240 679.7,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="739.4" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">3</text>
+<polygon points="802.1,230.0 805.1,220 924.5,220 927.5,230.0 924.5,240 805.1,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="864.8" y="234.0" font-size="11.5" fill="#17202b" text-anchor="middle">4</text>
+<polygon points="927.5,230.0 930.5,220 937.0,220 940.0,230.0 937.0,240 930.5,240" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<rect x="0" y="250" width="960" height="36" fill="#f6f8fa" opacity="0.6"/>
+<text x="138" y="270.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">shift</text>
+<polygon points="150.0,266.0 153.0,256 516.9,256 519.9,266.0 516.9,276 153.0,276" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="335.0" y="270.0" font-size="11.5" fill="#17202b" text-anchor="middle">13462</text>
+<polygon points="519.9,266.0 522.9,256 642.3,256 645.3,266.0 642.3,276 522.9,276" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="582.6" y="270.0" font-size="11.5" fill="#17202b" text-anchor="middle">268C4</text>
+<polygon points="645.3,266.0 648.3,256 767.7,256 770.7,266.0 767.7,276 648.3,276" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="708.0" y="270.0" font-size="11.5" fill="#17202b" text-anchor="middle">0D189</text>
+<polygon points="770.7,266.0 773.7,256 893.1,256 896.1,266.0 893.1,276 773.7,276" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="833.4" y="270.0" font-size="11.5" fill="#17202b" text-anchor="middle">1A313</text>
+<polygon points="896.1,266.0 899.1,256 937.0,256 940.0,266.0 937.0,276 899.1,276" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="918.1" y="270.0" font-size="11.5" fill="#17202b" text-anchor="middle">34627</text>
+<line x1="300.5" y1="24" x2="300.5" y2="292" stroke="#d9831f" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="300.5" y="20" font-size="11.5" font-weight="700" fill="#b8661a" text-anchor="middle">ws falls</text>
+<line x1="519.9" y1="24" x2="519.9" y2="292" stroke="#d9831f" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="519.9" y="20" font-size="11.5" font-weight="700" fill="#b8661a" text-anchor="middle">MSB read</text>
+</svg>

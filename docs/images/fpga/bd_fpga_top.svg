@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 105 1610 330" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="fpga_top block diagram">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,1 L10,5 L0,9 z" fill="#000"/></marker></defs>
+<rect x="0" y="105" width="1610" height="330" fill="#fff"/>
+<polyline points="125,205 140,205" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="160,205 255.0,205" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="255.0,250 160.0,250" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="140,250 125,250" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="255.0,295 160.0,295" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="140,295 125,295" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="425.0,225 535.0,225" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="425.0,275 535.0,275" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="685.0,225 805.0,225" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="685.0,275 805.0,275" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="955.0,225 1085.0,225" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="955.0,275 1085.0,275" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="1255.0,210 1440.0,210" fill="none" stroke="#000" stroke-width="4"/>
+<polyline points="1255.0,250 1440.0,250" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="1440,290 1255.0,290" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="160,360 200,360" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="160,390 200,390" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<rect x="160.0" y="120.0" width="1280" height="300" fill="none" stroke="#000" stroke-width="2"/>
+<text x="215" y="142.0" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central">fpga_top</text>
+<rect x="15.0" y="175.0" width="110" height="150" fill="none" stroke="#000" stroke-width="2"/>
+<text x="70" y="241.25" font-size="14" text-anchor="middle" dominant-baseline="central">SPH0645</text>
+<text x="70" y="258.75" font-size="14" text-anchor="middle" dominant-baseline="central">microphone</text>
+<rect x="255.0" y="185.0" width="170" height="130" fill="none" stroke="#000" stroke-width="2"/>
+<text x="340" y="240.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">u_receiver</text>
+<text x="340" y="260.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">i2s_receiver</text>
+<rect x="535.0" y="185.0" width="150" height="130" fill="none" stroke="#000" stroke-width="2"/>
+<text x="610" y="240.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">u_sum3</text>
+<text x="610" y="260.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">sum_of_3</text>
+<rect x="805.0" y="185.0" width="150" height="130" fill="none" stroke="#000" stroke-width="2"/>
+<text x="880" y="240.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">u_dc</text>
+<text x="880" y="260.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">dc_removal</text>
+<rect x="1085.0" y="185.0" width="170" height="130" fill="none" stroke="#000" stroke-width="2"/>
+<text x="1170" y="230.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">u_ring</text>
+<text x="1170" y="250.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">ring_buffer</text>
+<text x="1170" y="270.0" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="central">512 x 16 RAM</text>
+<polygon points="140,198 153,198 160,205 153,212 140,212" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="200" y="193.0" font-size="14" text-anchor="middle" dominant-baseline="central">sd</text>
+<polygon points="140,250 147,243 160,243 160,257 147,257" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="200" y="238.0" font-size="14" text-anchor="middle" dominant-baseline="central">bclk</text>
+<polygon points="140,295 147,288 160,288 160,302 147,302" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="200" y="283.0" font-size="14" text-anchor="middle" dominant-baseline="central">ws</text>
+<text x="480.0" y="210.0" font-size="13" text-anchor="middle" dominant-baseline="central">sample[17:0]</text>
+<text x="480.0" y="290.0" font-size="13" text-anchor="middle" dominant-baseline="central">sample_valid</text>
+<text x="745.0" y="210.0" font-size="13" text-anchor="middle" dominant-baseline="central">sum[19:0]</text>
+<text x="745.0" y="290.0" font-size="13" text-anchor="middle" dominant-baseline="central">sum_valid</text>
+<text x="1020.0" y="210.0" font-size="13" text-anchor="middle" dominant-baseline="central">pcm[15:0]</text>
+<text x="1020.0" y="290.0" font-size="13" text-anchor="middle" dominant-baseline="central">pcm_valid</text>
+<polygon points="1440,203 1453,203 1460,210 1453,217 1440,217" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1530" y="210.0" font-size="14" text-anchor="middle" dominant-baseline="central">read_data[15:0]</text>
+<polygon points="1440,243 1453,243 1460,250 1453,257 1440,257" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1530" y="250.0" font-size="14" text-anchor="middle" dominant-baseline="central">frame_ready</text>
+<polygon points="1440,290 1447,283 1460,283 1460,297 1447,297" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1530" y="290.0" font-size="14" text-anchor="middle" dominant-baseline="central">read_index[8:0]</text>
+<text x="1350" y="330.0" font-size="13" text-anchor="middle" dominant-baseline="central">to the FFT (next)</text>
+<polygon points="140,353 153,353 160,360 153,367 140,367" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="105" y="360.0" font-size="14" text-anchor="middle" dominant-baseline="central">clk</text>
+<polygon points="140,383 153,383 160,390 153,397 140,397" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="105" y="390.0" font-size="14" text-anchor="middle" dominant-baseline="central">reset_b</text>
+<text x="360" y="375.0" font-size="14" text-anchor="middle" dominant-baseline="central">12 MHz clk and reset_b go to every block</text>
+<text x="1390" y="400.0" font-size="13" text-anchor="middle" dominant-baseline="central">thick = bus</text>
+</svg>
