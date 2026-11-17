@@ -1,7 +1,7 @@
-"""Read the FFT frames mic_fft_spi_top sends over USB and plot them live.
+"""Read the FFT frames fpga_top sends over USB and plot them live.
 
-mic_fft_spi_top sends every frame twice: on the SPI pins (J3) for the scope
-and the MCU, and on the UPduino's USB serial port for the PC (bins_uart.sv).
+fpga_top sends every frame twice: on the SPI pins (J3) for the scope
+and the MCU, and on the UPduino's USB serial port for the PC (uart_frame_tx.sv).
 The USB copy is the SPI frame plus a checksum, 515 big-endian 16-bit words:
 
   A55A | {frame number, STAGE_SHIFT} | re X[0], im X[0], ..., re X[255], im X[255] | sum of words 1..513
@@ -15,7 +15,7 @@ Live plot (needs pyserial, numpy, matplotlib):
 After programming with openFPGALoader, unplug and replug the USB cable (or
 run ftdi_reset.py on Windows) so the FT232H is back in serial mode.
 
-Check the bytes from mic_fft_spi_top_tb against its SPI frames:
+Check the bytes from fpga_top_tb against its SPI frames:
 
   python fft_live.py --check uart.hex --spi spi.hex
 """
@@ -90,34 +90,30 @@ def magnitude_db(f):
     return 20 * np.log10(np.maximum(m, 0.5) / (32767 / 2))
 
 
-def live(port, seconds=None, fs=FS):
+def live(port, seconds=None, fs=FS, baud=BAUD):
     import matplotlib.pyplot as plt
-    ser = open_port(port)
+    ser = open_port(port, baud)
     print(f'reading {ser.port} at {ser.baudrate} baud; close the window to stop')
     freqs = np.arange(BINS) * fs / 512
     plt.ion()
     fig, ax = plt.subplots(figsize=(10, 5))
     line, = ax.plot(freqs, np.full(BINS, -100.0), lw=1)
-    peak, = ax.plot(freqs, np.full(BINS, -100.0), lw=0.8, alpha=0.4)
     ax.set_xlim(0, fs / 2)
     ax.set_ylim(-100, 0)
     ax.set_xlabel('frequency (Hz)')
     ax.set_ylabel('|X[k]| (dB, 0 = full-scale sine)')
     title = ax.set_title('waiting for frames...')
     ax.grid(alpha=0.3)
-    hold = np.full(BINS, -100.0)
     start, n, last_num, gaps = time.time(), 0, None, 0
     try:
         for f in frames_from(ser):
             db = magnitude_db(f)
-            hold = np.maximum(db, hold - 0.5)          # slow-falling peak hold
             n += 1
             if last_num is not None and (f['frame'] - last_num) % 256 != 1:
                 gaps += 1
             last_num = f['frame']
             if n % 2 == 0 or ser.in_waiting < 1030:    # skip drawing if we fall behind
                 line.set_ydata(db)
-                peak.set_ydata(hold)
                 k = int(np.argmax(db[1:])) + 1
                 title.set_text(f'frame {f["frame"]}  |  peak {k * fs / 512:.0f} Hz (bin {k})  |  '
                                f'{n / (time.time() - start):.1f} frames/s, {gaps} gaps')
@@ -129,8 +125,8 @@ def live(port, seconds=None, fs=FS):
         ser.close()
 
 
-def record(port, seconds, out):
-    ser = open_port(port)
+def record(port, seconds, out, baud=BAUD):
+    ser = open_port(port, baud)
     data, start = b'', time.time()
     while time.time() - start < seconds:
         data += ser.read(65536)
@@ -160,6 +156,7 @@ def check(uart_hex, spi_hex):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--port')
+    ap.add_argument('--baud', type=int, default=BAUD, help=f'default {BAUD}, which matches this board')
     ap.add_argument('--seconds', type=float)
     ap.add_argument('--out', help='record raw bytes to this file instead of plotting')
     ap.add_argument('--check', metavar='UART_HEX')
@@ -168,6 +165,6 @@ if __name__ == '__main__':
     if a.check:
         sys.exit(0 if check(a.check, a.spi) else 1)
     elif a.out:
-        record(a.port, a.seconds or 4, a.out)
+        record(a.port, a.seconds or 4, a.out, a.baud)
     else:
-        live(a.port, a.seconds)
+        live(a.port, a.seconds, baud=a.baud)

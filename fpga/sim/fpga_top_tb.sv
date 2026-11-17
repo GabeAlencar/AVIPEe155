@@ -1,56 +1,48 @@
-`timescale 1 ns/1 ps
-
 /*
  * Testbench: fpga_top_tb
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
- * Date:   11/6/26
- * Note: Runs the whole FPGA at the real 12 MHz clock against the same
- *   SPH0645 microphone model as i2s_receiver_tb (datasheet timing, SEL
- *   tied to GND). Each word the microphone sends also goes into a model of
- *   the sum of 3 and the DC removal, which keeps a list of every pcm value
- *   in order. On each frame_ready the testbench reads the frame through
- *   read_index like the FFT frame copy will, and checks it against the
- *   last 512 values of that list. Nothing inside fpga_top is used for the
- *   checks.
+ * Date:   11/16/26
+ *
+ * Runs fpga_top with an SPH0645 model playing two tones and acts as the SPI
+ * receiver (mode 0, 16-bit words) and the PC's UART receiver.
+ * Checks in this testbench:
+ *   - each frame (cs_b low to cs_b high) is 514 words with a whole number
+ *     of 16-bit words
+ *   - mosi only changes while sck is low (stable at every rising edge)
+ *   - sck runs at 3 MHz and stays low while cs_b is high
+ *   - fft_busy rises before each frame and is low while it is sent
+ *   - the UART sends 1,030 bytes per frame with good stop bits
+ * and writes, for fpga/model/fft_spi_check.py:
+ *   +SPI=file   each frame's words, one hex word a line, a blank line after each frame
+ *   +IN=file    the 512 samples that went into the fft for each frame (read
+ *               from inside the design), one frame a line
+ *   +UART=file  every byte on uart_tx, one hex byte a line
+ *   +PCM=file   every pcm sample the model of sum_of_3 + dc_removal expects
+ * Then, from fpga/model:
+ *   python fft_spi_check.py spi.hex in.txt pcm.txt    each SPI frame vs fft_fixed.py, bit for bit
+ *   python fft_live.py --check uart.hex --spi spi.hex each UART frame equals its SPI frame
+ * Stops after FRAMES frames.
  */
-
+`timescale 1ns/1ps
 module fpga_top_tb();
-  logic        clk;
-  logic        reset_b;
-  tri0         sd;           // pulled low while the mic tri-states
-  logic        bclk;
-  logic        ws;
-  logic [8:0]  read_index;
-  logic [15:0] read_data;
-  logic        frame_ready;
-  int          errors = 0;
+  logic       reset_b;
+  tri0        sd;
+  logic       bclk, ws;
+  logic [4:0] bar;
+  logic       led_heartbeat, led_clip;
+  logic       spi_sck, spi_mosi, spi_cs_b, fft_busy, uart_tx;
 
-  localparam real CLK_HALF    = 41.667;   // 12 MHz
-  localparam real PI          = 3.14159265358979;
-  localparam int  DEPTH       = 512;
-  localparam int  HOP_SAMPLES = 312;
+  localparam real PI     = 3.14159265358979;
+  localparam int  FRAMES = 4;
+  localparam int  WORDS  = 514;
 
-  fpga_top dut (.clk(clk), .reset_b(reset_b), .sd(sd), .bclk(bclk), .ws(ws), .read_index(read_index), .read_data(read_data), .frame_ready(frame_ready));
+  fpga_top dut (.reset_b(reset_b), .sd(sd), .bclk(bclk), .ws(ws), .spi_sck(spi_sck), .spi_mosi(spi_mosi), .spi_cs_b(spi_cs_b), .fft_busy(fft_busy),
+                .uart_tx(uart_tx), .bar(bar), .led_heartbeat(led_heartbeat), .led_clip(led_clip));
 
-  // generate clock
-  always begin
-      clk = 0; #(CLK_HALF);
-      clk = 1; #(CLK_HALF);
-  end
-
-  task automatic check(input logic ok, input string what);
-    if (ok)
-      $display("PASSED! %s at time: %0t.", what, $time);
-    else begin
-      errors++;
-      $error("FAILED! %s at time: %0t.", what, $time);
-    end
-  endtask
-
-  // ---- model of sum_of_3 and dc_removal, fed by the mic model ----
+  // ---- model of sum_of_3 and dc_removal (same as fpga_top_tb) ----
   int     group_count, group_sum;
   longint average_acc;
-  int     expected_pcm[$];   // every pcm value since reset, in order
+  int     fpcm;
 
   function automatic int clamp(input longint value);
     if (value > 32767)  return 32767;
@@ -58,45 +50,40 @@ module fpga_top_tb();
     return int'(value);
   endfunction
 
-  task automatic model_word(input logic [17:0] word);
+  task automatic model_word(input logic [17:0] w);
     longint average;
-    group_sum += $signed(word);
+    group_sum += $signed(w);
     group_count++;
     if (group_count == 3) begin
       average = average_acc >>> 10;
-      expected_pcm.push_back(clamp(group_sum - average));
+      $fwrite(fpcm, "%0d\n", clamp(group_sum - average));
       average_acc = average_acc + group_sum - average;
       group_sum   = 0;
       group_count = 0;
     end
   endtask
 
-  task automatic model_reset();
-    group_count = 0; group_sum = 0; average_acc = 0;
-    expected_pcm.delete();
-  endtask
-
-  // ---- SPH0645 model (same as i2s_receiver_tb) ----
-  localparam real THTR = 7.0;     // datasheet: data held at least 7 ns after bclk rises
-  localparam real TDC  = 40.0;    // delay from bclk rising to new SD data, ns (max 65.92)
+  // ---- SPH0645 model ----
+  localparam real THTR = 7.0;
+  localparam real TDC  = 40.0;
   logic        sd_drv, sd_oe;
-  logic [17:0] to_send[$];   // words the test wants sent next
   logic [17:0] word;
-  int          bitn;
+  int          bitn, n_word;
   logic        ws_d;
 
   assign sd = sd_oe ? sd_drv : 1'bz;
 
-  initial begin
-    sd_oe = 0; sd_drv = 0; bitn = 0; ws_d = 0;
-  end
+  // 1 kHz at 6000 LSB plus 3.1 kHz at 2000 LSB on a -3000 offset (18-bit
+  // words at 46,875 Hz); sum_of_3 makes them about 3x bigger in pcm
+  function automatic logic [17:0] mic_word(input int n);
+    real t;
+    t = n / 46875.0;
+    return 18'(-3000 + int'(6000 * $sin(2.0 * PI * 1000.0 * t) + 2000 * $sin(2.0 * PI * 3100.0 * t)));
+  endfunction
 
-  // after reset the receiver starts a new frame in slot 0
-  always @(negedge reset_b) begin
-    bitn = 0;
-    ws_d = 0;
-    sd_oe = 0;
-    model_reset();
+  initial begin
+    sd_oe = 0; sd_drv = 0; bitn = 0; ws_d = 0; n_word = 0;
+    group_count = 0; group_sum = 0; average_acc = 0;
   end
 
   always @(posedge bclk) if (reset_b === 1'b1) begin
@@ -104,13 +91,11 @@ module fpga_top_tb();
     else            bitn++;
     ws_d = ws;
 
-    // pick the word for this left channel half frame
     if (ws == 0 && bitn == 1) begin
-      word = (to_send.size() > 0) ? to_send.pop_front() : 18'($urandom);
+      word = mic_word(n_word++);
       model_word(word);
     end
 
-    // hold the old bit, then SD is unknown until the new bit is ready
     #(THTR);
     if (sd_oe) sd_drv = 1'bx;
     #(TDC - THTR);
@@ -124,113 +109,101 @@ module fpga_top_tb();
     end
   end
 
-  // ---- frame_ready monitor ----
-  int      frames, long_pulses, bad_gap;
-  realtime last_frame;
-  logic    prev_frame_ready;
-  initial begin
-    frames = 0; long_pulses = 0; bad_gap = 0; last_frame = 0;
+  // ---- input frames, read from inside the design ----
+  int fin, n_loaded;
+  initial n_loaded = 0;
+  always @(posedge dut.clk) if (dut.u_fft_controller.load_v) begin
+    $fwrite(fin, "%0d ", $signed(dut.read_data));
+    n_loaded++;
+    if (n_loaded % 512 == 0) $fwrite(fin, "\n");
   end
 
-  always @(posedge clk) begin
-    prev_frame_ready <= frame_ready;
-    if (frame_ready && prev_frame_ready) long_pulses++;
-    if (reset_b && frame_ready && !prev_frame_ready) begin
-      // 312 samples of 768 clk each between frames
-      if (last_frame != 0 && ($realtime - last_frame) > HOP_SAMPLES * 768 * 2 * CLK_HALF + 1.0) bad_gap++;
-      if (last_frame != 0 && ($realtime - last_frame) < HOP_SAMPLES * 768 * 2 * CLK_HALF - 1.0) bad_gap++;
-      last_frame = $realtime;
-      frames++;
+  // ---- SPI receiver, mode 0 ----
+  int          fspi, n_frames, n_bits, n_words, errors;
+  logic [15:0] shreg;
+  realtime     t_rise, period;
+  logic        busy_seen;
+  initial begin n_frames = 0; n_bits = 0; n_words = 0; errors = 0; t_rise = 0; busy_seen = 0; end
+
+  always @(posedge spi_sck) if (reset_b === 1'b1) begin
+    if (spi_cs_b !== 1'b0) begin errors++; $display("ERROR: sck rose with cs_b high at %0t", $time); end
+    if (t_rise != 0 && n_bits % 16 != 0) begin
+      period = $realtime - t_rise;
+      if (period < 330.0 || period > 337.0) begin errors++; $display("ERROR: sck period %0.1f ns at %0t", period, $time); end
+    end
+    t_rise = $realtime;
+    shreg = {shreg[14:0], spi_mosi};
+    n_bits++;
+    if (n_bits % 16 == 0) begin
+      $fwrite(fspi, "%04h\n", shreg);
+      n_words++;
     end
   end
 
-  // read one frame through read_index, oldest first, and compare it with
-  // the model. Frame k comes after 624 + 312 (k - 1) pcm values.
-  int frame_min, frame_max;
-  task automatic read_frame(output int wrong, output int last_pcm);
-    int first;
-    wrong = 0;
-    frame_min = 32767; frame_max = -32768;
-    last_pcm = 2 * HOP_SAMPLES + HOP_SAMPLES * (frames - 1);
-    first = last_pcm - DEPTH;
-    for (int i = 0; i < DEPTH; i++) begin
-      @(negedge clk);
-      read_index = i;
-      @(posedge clk); #1;
-      if ($signed(read_data) != expected_pcm[first + i]) wrong++;
-      if ($signed(read_data) < frame_min) frame_min = $signed(read_data);
-      if ($signed(read_data) > frame_max) frame_max = $signed(read_data);
+  always @(spi_mosi) if (reset_b === 1'b1 && spi_cs_b === 1'b0 && spi_sck === 1'b1) begin
+    errors++; $display("ERROR: mosi changed while sck high at %0t", $time);
+  end
+
+  always @(posedge fft_busy) busy_seen = 1;
+
+  always @(negedge spi_cs_b) if (reset_b === 1'b1) begin
+    n_bits = 0; n_words = 0; t_rise = 0;
+    if (!busy_seen) begin errors++; $display("ERROR: frame without fft_busy first"); end
+    busy_seen = 0;
+  end
+
+  always @(posedge spi_cs_b) if (reset_b === 1'b1) begin
+    if (n_words != WORDS || n_bits != 16 * WORDS) begin
+      errors++; $display("ERROR: frame %0d had %0d bits (%0d words)", n_frames, n_bits, n_words);
     end
-  endtask
+    $fwrite(fspi, "\n");
+    n_frames++;
+    $display("frame %0d: %0d words, cs_b high at %0t", n_frames, n_words, $time);
+  end
 
-  // 18-bit word for sample n of a tone at freq Hz on a DC offset
-  function automatic logic [17:0] tone(input int n, input real freq, input int amplitude, input int offset);
-    return 18'(offset + int'(amplitude * $sin(2.0 * PI * freq * n / 46875.0)));
-  endfunction
+  always @(posedge spi_sck) if (fft_busy) begin errors++; $display("ERROR: fft_busy high during a frame"); end
 
-  // apply stimuli and check outputs
+  // ---- UART reader: 8N1 at clk / 16 ----
+  localparam real BIT_NS = 16 * 4 * 2 * 10.4167;   // 16 clk of 12 MHz from hsosc_sim
+  int fuart, n_bytes, bad_stop;
+  initial begin n_bytes = 0; bad_stop = 0; end
+
+  always @(negedge uart_tx) if (reset_b === 1'b1) begin : uart_byte
+    logic [7:0] b;
+    #(BIT_NS * 1.5);
+    for (int i = 0; i < 8; i++) begin b[i] = uart_tx; #(BIT_NS); end
+    if (uart_tx !== 1'b1) bad_stop++;
+    $fwrite(fuart, "%02h\n", b);
+    n_bytes++;
+  end
+
   initial begin
-    realtime t0, bclk_period, ws_period;
-    int      wrong, last_pcm;
-    model_reset();
-    read_index = 0;
+    string uart_file;
+    if (!$value$plusargs("UART=%s", uart_file)) uart_file = "uart.hex";
+    fuart = $fopen(uart_file, "w");
+  end
 
-    // test 1: reset holds the outputs low
+  initial begin
+    string spi_file, in_file, pcm_file;
+    realtime t_cs;
+    if (!$value$plusargs("SPI=%s", spi_file)) spi_file = "spi.hex";
+    if (!$value$plusargs("IN=%s", in_file))   in_file  = "in.txt";
+    if (!$value$plusargs("PCM=%s", pcm_file)) pcm_file = "pcm.txt";
+    fspi = $fopen(spi_file, "w");
+    fin  = $fopen(in_file, "w");
+    fpcm = $fopen(pcm_file, "w");
     reset_b = 0;
-    #200;
-    check(bclk == 0 && ws == 0 && !frame_ready, "Reset holds bclk, ws, and frame_ready low");
-
-    // the words to send: a 1 kHz tone on a DC offset of -3000 for 700 sums,
-    // then 2 groups of the largest word and 2 of the most negative, then
-    // random words
-    for (int n = 0; n < 3 * 700; n++) to_send.push_back(tone(n, 1000.0, 2000, -3000));
-    repeat (6) to_send.push_back(18'h1FFFF);
-    repeat (6) to_send.push_back(18'h20000);
-    @(negedge clk);
+    #500;
     reset_b = 1;
-
-    // test 2: the microphone pins run at the right rates
-    @(posedge bclk); t0 = $realtime;
-    @(posedge bclk); bclk_period = $realtime - t0;
-    @(negedge ws);   t0 = $realtime;
-    @(negedge ws);   ws_period = $realtime - t0;
-    check(bclk_period > 333.0 && bclk_period < 333.7 && ws_period > 21332.0 && ws_period < 21335.0,
-          $sformatf("bclk is %0.1f ns (3 MHz) and ws is %0.1f ns (46.875 kHz)", bclk_period, ws_period));
-
-    // test 3: the first frame comes once 512 samples are stored, at the
-    // second 312-sample boundary
-    wait (frames == 1);
-    check(expected_pcm.size() >= 2 * HOP_SAMPLES && expected_pcm.size() <= 2 * HOP_SAMPLES + 1,
-          $sformatf("First frame_ready after %0d pcm samples (the model is at most 1 ahead)", 2 * HOP_SAMPLES));
-
-    // test 4: frame 1 is the tone with the DC offset being removed
-    read_frame(wrong, last_pcm);
-    check(wrong == 0, $sformatf("Frame 1 (pcm %0d to %0d) matches the model, from %0d to %0d",
-          last_pcm - DEPTH, last_pcm - 1, frame_min, frame_max));
-
-    // test 5: frame 2, 20 ms later, holds the full-scale words, clamped
-    wait (frames == 2);
-    read_frame(wrong, last_pcm);
-    check(wrong == 0 && frame_max == 32767 && frame_min == -32768,
-          $sformatf("Frame 2 (pcm %0d to %0d) matches the model and clamps to 32767 and -32768",
-          last_pcm - DEPTH, last_pcm - 1));
-
-    // test 6: frame 3 is random words
-    wait (frames == 3);
-    read_frame(wrong, last_pcm);
-    check(wrong == 0, $sformatf("Frame 3 (pcm %0d to %0d) matches the model", last_pcm - DEPTH, last_pcm - 1));
-
-    // test 7: frame_ready is one clk wide, every 312 x 768 clk (20 ms)
-    check(long_pulses == 0 && bad_gap == 0, "frame_ready lasts one clk and comes every 239616 clk (19.97 ms)");
-
-    // test 8: asynchronous reset clears the outputs
-    repeat (100) @(posedge clk);
-    #10 reset_b = 0;
-    #1;
-    check(bclk == 0 && ws == 0 && !frame_ready, "Asynchronous reset clears bclk, ws, and frame_ready");
-
-    if (errors == 0) $display("ALL TESTS PASSED");
-    else             $display("%0d TESTS FAILED", errors);
+    wait (n_frames == FRAMES);
+    wait (n_bytes >= FRAMES * 1030);
+    #(BIT_NS * 20);
+    if (n_bytes != FRAMES * 1030 || bad_stop != 0) begin errors++; $display("ERROR: %0d uart bytes (expected %0d), %0d bad stop bits", n_bytes, FRAMES * 1030, bad_stop); end
+    $fclose(fuart);
+    if (spi_sck !== 1'b0 || spi_cs_b !== 1'b1) begin errors++; $display("ERROR: sck/cs_b not idle after frame"); end
+    $fclose(fspi); $fclose(fin); $fclose(fpcm);
+    $display("fpga_top_tb: %0d frames, %0d errors, %0t", n_frames, errors, $time);
+    if (errors == 0) $display("PASSED"); else $display("FAILED");
     $finish;
   end
 endmodule

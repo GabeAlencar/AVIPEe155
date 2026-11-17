@@ -1,4 +1,4 @@
-// Top level 16-bit 512-point FFT test.
+// Top level 16-bit 512-point FFT test (Katie). Writes test_out.txt and stages.txt.
 // loads input from          test_in.mem,
 // compares output to        gt_test_out.mem,
 // writes computed output to test_out.mem.

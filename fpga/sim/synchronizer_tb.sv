@@ -30,7 +30,7 @@ module synchronizer_tb();
     reset_b = 0;
     d = 4'b1111;
     #22;
-    assert (q == 4'b0000)
+    if (q == 4'b0000)
       $display("PASSED! The synchronizer resets to 0 as desired at time: %0t.", $time);
     else begin
       errors++;
@@ -43,7 +43,7 @@ module synchronizer_tb();
     d = 4'b1110;
     @(posedge clk);
     #1;
-    assert (q == 4'b1111)
+    if (q == 4'b1111)
       $display("PASSED! The synchronizer has not passed the new value after 1 cycle at time: %0t.", $time);
     else begin
       errors++;
@@ -53,7 +53,7 @@ module synchronizer_tb();
     // test 3: the input reaches the output after the second clock edge
     @(posedge clk);
     #1;
-    assert (q == 4'b1110)
+    if (q == 4'b1110)
       $display("PASSED! The synchronizer passes the input after 2 cycles at time: %0t.", $time);
     else begin
       errors++;
@@ -66,7 +66,7 @@ module synchronizer_tb();
     #3 d = 4'b0101;
     repeat (2) @(posedge clk);
     #1;
-    assert (q == 4'b0101)
+    if (q == 4'b0101)
       $display("PASSED! The synchronizer passes an asynchronous change at time: %0t.", $time);
     else begin
       errors++;
@@ -78,7 +78,7 @@ module synchronizer_tb();
     #8 d = 4'b1011;
     repeat (2) @(posedge clk);
     #1;
-    assert (q == 4'b1011)
+    if (q == 4'b1011)
       $display("PASSED! The synchronizer passes a late asynchronous change at time: %0t.", $time);
     else begin
       errors++;
@@ -92,7 +92,7 @@ module synchronizer_tb();
     d = 4'b0110;
     repeat (3) @(posedge clk);
     #1;
-    assert (q == 4'b0110)
+    if (q == 4'b0110)
       $display("PASSED! The synchronizer passes a change on a clock edge at time: %0t.", $time);
     else begin
       errors++;
@@ -102,7 +102,7 @@ module synchronizer_tb();
     // test 7: reset works while the synchronizer is running
     reset_b = 0;
     #1;
-    assert (q == 4'b0000)
+    if (q == 4'b0000)
       $display("PASSED! The synchronizer resets while running at time: %0t.", $time);
     else begin
       errors++;

@@ -1,4 +1,4 @@
-"""Check the SPI frames from mic_fft_spi_top_tb against fft_fixed.py.
+"""Check the SPI frames from fpga_top_tb against fft_fixed.py.
 
     python fft_spi_check.py SPI_HEX IN_TXT [PCM_TXT]
 
@@ -9,7 +9,7 @@ IN_TXT   the testbench's +IN file: the 512 samples that went into the fft
 PCM_TXT  optional +PCM file; each input frame must then be 512 consecutive
          samples of it.
 
-Frame format (fpga/src/fft_frame_spi.sv): A55A, {frame number, STAGE_SHIFT},
+Frame format (fpga/src/spi_frame_tx.sv): A55A, {frame number, STAGE_SHIFT},
 then re X[k], im X[k] for k = 0..255, all 16-bit words.
 """
 

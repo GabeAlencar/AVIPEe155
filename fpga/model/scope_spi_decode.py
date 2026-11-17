@@ -7,7 +7,7 @@ row per sample with time in the first column and one column per channel
 (x-axis, 1 (VOLT), 2 (VOLT), ...). --cs/--sck/--mosi give which column
 holds each signal, counting the channels from 1.
 
-Decodes SPI mode 0 as fft_frame_spi.sv sends it: cs low frames, mosi read on
+Decodes SPI mode 0 as spi_frame_tx.sv sends it: cs low frames, mosi read on
 each rising sck edge, 16-bit words MSB first. Prints every frame's words in
 hex and, when a frame starts with A55A, the frame number and STAGE_SHIFT and
 the first bins as signed numbers.

@@ -1,15 +1,39 @@
-# Pin assignments for the UPduino v3.1 (iCE40UP5K-SG48).
+# Pin assignments for fpga_top on the UPduino v3.1 (iCE40UP5K-SG48).
 # Pins come from the E155 FA23 v4 dev board and breadboard adapter schematics.
-# J1/J3 are adapter header positions; SW0 and D6 are on the dev board.
+# Names in the comments are the adapter sheet's (P##) and header positions
+# (J1/J3); SW0, D6 and D7 are on the dev board.
 # Keep DIP switch SW7 off: it ties MCU pins to P10, P12, P20, P21, P23, P25-27.
-# clk comes from the internal HSOSC (fpga_board_top), so it has no pin.
+# clk comes from the internal HSOSC, so it has no pin.
 
 # SPH0645 microphone. Power it from J3-2 (+3V3) and J3-1 (GND): J1 has only
 # +5V and VIN.
-ldc_set_location -site {11} [get_ports bclk]      ;# J1-4
-ldc_set_location -site {6}  [get_ports ws]        ;# J1-5
-ldc_set_location -site {48} [get_ports sd]        ;# J1-7
+ldc_set_location -site {11} [get_ports bclk]      ;# P11, J1-4
+ldc_set_location -site {6}  [get_ports ws]        ;# P6,  J1-5
+ldc_set_location -site {48} [get_ports sd]        ;# P48, J1-7
 
 # active-low reset on dev board push button SW0 (to GND, internal pull-up)
-ldc_set_location -site {34} [get_ports reset_b]   ;# SW0
+ldc_set_location -site {34} [get_ports reset_b]   ;# P34, SW0
 ldc_set_port -iobuf {PULLMODE=100K} [get_ports reset_b]
+
+# FFT output, SPI master mode 0 at 3 MHz (frame format in spi_frame_tx.sv).
+# Scope ground on J3-1.
+ldc_set_location -site {46} [get_ports spi_sck]   ;# P46, J3-12
+ldc_set_location -site {45} [get_ports spi_mosi]  ;# P45, J3-13
+ldc_set_location -site {3}  [get_ports spi_cs_b]  ;# P3,  J3-14
+ldc_set_location -site {44} [get_ports fft_busy]  ;# P44, J3-15
+
+# FFT output to the PC: pin 14 drives the UPduino FT232H RXD (ADBUS1,
+# through R12). Shows up as the UPduino's USB serial port.
+ldc_set_location -site {14} [get_ports uart_tx]   ;# P14 (not on a header)
+
+# VU meter: 5 green LEDs on the adapter, bar[0] is the quietest level.
+# Each LED: long leg (anode) to the pin, short leg through 330 ohm-1k to GND.
+ldc_set_location -site {10} [get_ports {bar[0]}]  ;# P10, J1-1
+ldc_set_location -site {21} [get_ports {bar[1]}]  ;# P21, J1-2
+ldc_set_location -site {19} [get_ports {bar[2]}]  ;# P19, J1-3
+ldc_set_location -site {4}  [get_ports {bar[3]}]  ;# P4,  J1-6
+ldc_set_location -site {47} [get_ports {bar[4]}]  ;# P47, J1-8
+
+# dev board blue LEDs: D6 heartbeat (1 Hz blink), D7 clip
+ldc_set_location -site {42} [get_ports led_heartbeat] ;# P42, D6
+ldc_set_location -site {38} [get_ports led_clip]      ;# P38, D7

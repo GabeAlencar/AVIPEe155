@@ -3,24 +3,24 @@
   "components": [],
   "drawings": [
     {
-      "id": "drawing-1794700000000-ujzd",
+      "id": "drawing-1795400000000-ujzd",
       "toolId": "rectangle",
-      "x": 800.0,
-      "y": 270.0,
+      "x": 1115.0,
+      "y": 345.0,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
       "fontSize": 12,
-      "shapeWidth": 1280,
-      "shapeHeight": 300
+      "shapeWidth": 1890,
+      "shapeHeight": 350
     },
     {
-      "id": "drawing-1794700000000-e8gx",
+      "id": "drawing-1795400000000-e8gx",
       "toolId": "text",
-      "x": 215,
-      "y": 142,
+      "x": 225,
+      "y": 192,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -32,10 +32,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-d6nc",
+      "id": "drawing-1795400000000-d6nc",
       "toolId": "rectangle",
-      "x": 70,
-      "y": 250,
+      "x": 75,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -46,10 +46,10 @@
       "shapeHeight": 150
     },
     {
-      "id": "drawing-1794700000000-f10e",
+      "id": "drawing-1795400000000-f10e",
       "toolId": "text",
-      "x": 70,
-      "y": 250,
+      "x": 75,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -61,68 +61,39 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-pf91",
+      "id": "drawing-1795400000000-pf91",
       "toolId": "rectangle",
-      "x": 340,
-      "y": 250,
+      "x": 345,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
       "fontSize": 12,
-      "shapeWidth": 170,
-      "shapeHeight": 130
+      "shapeWidth": 160,
+      "shapeHeight": 140
     },
     {
-      "id": "drawing-1794700000000-dhod",
+      "id": "drawing-1795400000000-dhod",
       "toolId": "text",
-      "x": 340,
-      "y": 250,
+      "x": 345,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
-      "fontSize": 16,
-      "text": "u_receiver\ni2s_receiver",
+      "fontSize": 15,
+      "text": "u_i2s_receiver\ni2s_receiver",
       "borderWidth": 60,
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-zdoc",
+      "id": "drawing-1795400000000-zdoc",
       "toolId": "rectangle",
-      "x": 610,
-      "y": 250,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 10,
-      "fontSize": 12,
-      "shapeWidth": 150,
-      "shapeHeight": 130
-    },
-    {
-      "id": "drawing-1794700000000-9is0",
-      "toolId": "text",
-      "x": 610,
-      "y": 250,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 10,
-      "fontSize": 16,
-      "text": "u_sum3\nsum_of_3",
-      "borderWidth": 60,
-      "borderHeight": 20
-    },
-    {
-      "id": "drawing-1794700000000-j8ht",
-      "toolId": "rectangle",
-      "x": 880,
-      "y": 250,
+      "x": 625,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -130,28 +101,57 @@
       "borderGridSpacing": 10,
       "fontSize": 12,
       "shapeWidth": 150,
-      "shapeHeight": 130
+      "shapeHeight": 140
     },
     {
-      "id": "drawing-1794700000000-9lgm",
+      "id": "drawing-1795400000000-9is0",
       "toolId": "text",
-      "x": 880,
-      "y": 250,
+      "x": 625,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
-      "fontSize": 16,
-      "text": "u_dc\ndc_removal",
+      "fontSize": 15,
+      "text": "u_sum_of_3\nsum_of_3",
       "borderWidth": 60,
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-xg9e",
+      "id": "drawing-1795400000000-j8ht",
       "toolId": "rectangle",
-      "x": 1170,
-      "y": 250,
+      "x": 885,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 150,
+      "shapeHeight": 140
+    },
+    {
+      "id": "drawing-1795400000000-9lgm",
+      "toolId": "text",
+      "x": 885,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 15,
+      "text": "u_dc_removal\ndc_removal",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-xg9e",
+      "toolId": "rectangle",
+      "x": 1185,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -159,28 +159,86 @@
       "borderGridSpacing": 10,
       "fontSize": 12,
       "shapeWidth": 170,
-      "shapeHeight": 130
+      "shapeHeight": 140
     },
     {
-      "id": "drawing-1794700000000-dn58",
+      "id": "drawing-1795400000000-dn58",
       "toolId": "text",
-      "x": 1170,
-      "y": 250,
+      "x": 1185,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
-      "fontSize": 16,
-      "text": "u_ring\nring_buffer\n512 x 16 RAM",
+      "fontSize": 15,
+      "text": "u_ring_buffer\nring_buffer",
       "borderWidth": 60,
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-xtpl",
+      "id": "drawing-1795400000000-1u33",
+      "toolId": "rectangle",
+      "x": 1505,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 190,
+      "shapeHeight": 180
+    },
+    {
+      "id": "drawing-1795400000000-xtpl",
+      "toolId": "text",
+      "x": 1505,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 15,
+      "text": "u_fft_controller\nfft_controller\nfft (512-point)",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-pft7",
+      "toolId": "rectangle",
+      "x": 1880,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 190,
+      "shapeHeight": 150
+    },
+    {
+      "id": "drawing-1795400000000-5v2s",
+      "toolId": "text",
+      "x": 1880,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 15,
+      "text": "u_spi_frame_tx\nspi_frame_tx\nSPI master, 3 MHz",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-eh60",
       "toolId": "port",
-      "x": 160,
-      "y": 205,
+      "x": 170,
+      "y": 285,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -189,10 +247,10 @@
       "fontSize": 12
     },
     {
-      "id": "drawing-1794700000000-5v2s",
+      "id": "drawing-1795400000000-uvw5",
       "toolId": "text",
-      "x": 200,
-      "y": 193,
+      "x": 215,
+      "y": 273,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -204,10 +262,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-kvj5",
+      "id": "drawing-1795400000000-3efr",
       "toolId": "port",
-      "x": 140,
-      "y": 250,
+      "x": 150,
+      "y": 330,
       "rotation": 180,
       "strokeColor": "#000000",
       "border": false,
@@ -216,10 +274,10 @@
       "fontSize": 12
     },
     {
-      "id": "drawing-1794700000000-uvw5",
+      "id": "drawing-1795400000000-b3wk",
       "toolId": "text",
-      "x": 200,
-      "y": 238,
+      "x": 215,
+      "y": 318,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -231,10 +289,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-4edt",
+      "id": "drawing-1795400000000-h5dn",
       "toolId": "port",
-      "x": 140,
-      "y": 295,
+      "x": 150,
+      "y": 375,
       "rotation": 180,
       "strokeColor": "#000000",
       "border": false,
@@ -243,10 +301,10 @@
       "fontSize": 12
     },
     {
-      "id": "drawing-1794700000000-b3wk",
+      "id": "drawing-1795400000000-2z9r",
       "toolId": "text",
-      "x": 200,
-      "y": 283,
+      "x": 215,
+      "y": 363,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -258,10 +316,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-sipz",
+      "id": "drawing-1795400000000-0wyo",
       "toolId": "text",
-      "x": 480.0,
-      "y": 210,
+      "x": 487.5,
+      "y": 290,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -273,10 +331,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-2z9r",
+      "id": "drawing-1795400000000-ooa5",
       "toolId": "text",
-      "x": 480.0,
-      "y": 290,
+      "x": 487.5,
+      "y": 370,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -288,10 +346,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-0wyo",
+      "id": "drawing-1795400000000-j08x",
       "toolId": "text",
-      "x": 745.0,
-      "y": 210,
+      "x": 755.0,
+      "y": 290,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -303,10 +361,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-ooa5",
+      "id": "drawing-1795400000000-39zz",
       "toolId": "text",
-      "x": 745.0,
-      "y": 290,
+      "x": 755.0,
+      "y": 370,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -318,10 +376,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-j08x",
+      "id": "drawing-1795400000000-zdme",
       "toolId": "text",
-      "x": 1020.0,
-      "y": 210,
+      "x": 1030.0,
+      "y": 290,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -333,10 +391,10 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-39zz",
+      "id": "drawing-1795400000000-vdga",
       "toolId": "text",
-      "x": 1020.0,
-      "y": 290,
+      "x": 1030.0,
+      "y": 370,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -348,106 +406,70 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-zdme",
-      "toolId": "port",
-      "x": 1460,
-      "y": 210,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 5,
-      "fontSize": 12
-    },
-    {
-      "id": "drawing-1794700000000-n2kh",
+      "id": "drawing-1795400000000-beny",
       "toolId": "text",
-      "x": 1530,
-      "y": 210,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 10,
-      "fontSize": 14,
-      "text": "read_data[15:0]",
-      "borderWidth": 60,
-      "borderHeight": 20
-    },
-    {
-      "id": "drawing-1794700000000-j8gx",
-      "toolId": "port",
-      "x": 1460,
-      "y": 250,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 5,
-      "fontSize": 12
-    },
-    {
-      "id": "drawing-1794700000000-beny",
-      "toolId": "text",
-      "x": 1530,
-      "y": 250,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 10,
-      "fontSize": 14,
-      "text": "frame_ready",
-      "borderWidth": 60,
-      "borderHeight": 20
-    },
-    {
-      "id": "drawing-1794700000000-jqwx",
-      "toolId": "port",
-      "x": 1440,
-      "y": 290,
-      "rotation": 180,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 5,
-      "fontSize": 12
-    },
-    {
-      "id": "drawing-1794700000000-344t",
-      "toolId": "text",
-      "x": 1530,
-      "y": 290,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 10,
-      "fontSize": 14,
-      "text": "read_index[8:0]",
-      "borderWidth": 60,
-      "borderHeight": 20
-    },
-    {
-      "id": "drawing-1794700000000-fjgv",
-      "toolId": "text",
-      "x": 1350,
-      "y": 330,
+      "x": 1340.0,
+      "y": 280,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
       "fontSize": 13,
-      "text": "to the FFT (next)",
+      "text": "read_data[15:0]",
       "borderWidth": 60,
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-q4k7",
+      "id": "drawing-1795400000000-4hh5",
+      "toolId": "text",
+      "x": 1340.0,
+      "y": 318,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "frame_ready",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-fjgv",
+      "toolId": "text",
+      "x": 1340.0,
+      "y": 380,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "read_index[8:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-bn7x",
+      "toolId": "text",
+      "x": 1692.5,
+      "y": 280,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "bin_we\nbin_addr[7:0]\nbin_data[31:0]\nbins_done\nframe_num[7:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-tfq7",
       "toolId": "port",
-      "x": 160,
-      "y": 360,
+      "x": 2060,
+      "y": 295,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -456,25 +478,25 @@
       "fontSize": 12
     },
     {
-      "id": "drawing-1794700000000-j8b7",
+      "id": "drawing-1795400000000-xkwo",
       "toolId": "text",
-      "x": 105,
-      "y": 360,
+      "x": 2115,
+      "y": 295,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
       "fontSize": 14,
-      "text": "clk",
+      "text": "spi_sck",
       "borderWidth": 60,
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-tfq7",
+      "id": "drawing-1795400000000-ompz",
       "toolId": "port",
-      "x": 160,
-      "y": 390,
+      "x": 2060,
+      "y": 330,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -483,10 +505,108 @@
       "fontSize": 12
     },
     {
-      "id": "drawing-1794700000000-886v",
+      "id": "drawing-1795400000000-om75",
       "toolId": "text",
-      "x": 105,
-      "y": 390,
+      "x": 2115,
+      "y": 330,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "spi_mosi",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-4qmw",
+      "toolId": "port",
+      "x": 2060,
+      "y": 365,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795400000000-2wxf",
+      "toolId": "text",
+      "x": 2115,
+      "y": 365,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "spi_cs_b",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-ogo4",
+      "toolId": "rectangle",
+      "x": 345,
+      "y": 468,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 160,
+      "shapeHeight": 70
+    },
+    {
+      "id": "drawing-1795400000000-mvn4",
+      "toolId": "text",
+      "x": 345,
+      "y": 468,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 15,
+      "text": "u_hsosc\nHSOSC\n48 MHz / 4",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-hym4",
+      "toolId": "text",
+      "x": 555.0,
+      "y": 468,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "clk (12 MHz)",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795400000000-l1vf",
+      "toolId": "port",
+      "x": 170,
+      "y": 490,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795400000000-kkib",
+      "toolId": "text",
+      "x": 110,
+      "y": 490,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
@@ -498,48 +618,33 @@
       "borderHeight": 20
     },
     {
-      "id": "drawing-1794700000000-ompz",
+      "id": "drawing-1795400000000-j3j4",
       "toolId": "text",
-      "x": 360,
-      "y": 375,
-      "rotation": 0,
-      "strokeColor": "#000000",
-      "border": false,
-      "borderStrokeWidth": 1,
-      "borderGridSpacing": 10,
-      "fontSize": 14,
-      "text": "12 MHz clk and reset_b go to every block",
-      "borderWidth": 60,
-      "borderHeight": 20
-    },
-    {
-      "id": "drawing-1794700000000-om75",
-      "toolId": "text",
-      "x": 1390,
-      "y": 400,
+      "x": 760,
+      "y": 490,
       "rotation": 0,
       "strokeColor": "#000000",
       "border": false,
       "borderStrokeWidth": 1,
       "borderGridSpacing": 10,
       "fontSize": 13,
-      "text": "thick = bus",
+      "text": "clk and reset_b go to every block",
       "borderWidth": 60,
       "borderHeight": 20
     }
   ],
   "wires": [
     {
-      "id": "wire-1794700000000-1u33",
-      "x": 125,
-      "y": 205,
+      "id": "wire-1795400000000-kvj5",
+      "x": 130,
+      "y": 285,
       "vertices": [
         {
           "x": 0,
           "y": 0
         },
         {
-          "x": 15,
+          "x": 20,
           "y": 0
         }
       ],
@@ -549,9 +654,9 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-pft7",
-      "x": 160,
-      "y": 205,
+      "id": "wire-1795400000000-0ce9",
+      "x": 170,
+      "y": 285,
       "vertices": [
         {
           "x": 0,
@@ -568,9 +673,9 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-eh60",
-      "x": 255.0,
-      "y": 250,
+      "id": "wire-1795400000000-4edt",
+      "x": 265.0,
+      "y": 330,
       "vertices": [
         {
           "x": 0.0,
@@ -587,16 +692,16 @@
       "arrowEnd": false
     },
     {
-      "id": "wire-1794700000000-0ce9",
-      "x": 140,
-      "y": 250,
+      "id": "wire-1795400000000-2syw",
+      "x": 150,
+      "y": 330,
       "vertices": [
         {
           "x": 0,
           "y": 0
         },
         {
-          "x": -15,
+          "x": -20,
           "y": 0
         }
       ],
@@ -606,9 +711,9 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-3efr",
-      "x": 255.0,
-      "y": 295,
+      "id": "wire-1795400000000-sipz",
+      "x": 265.0,
+      "y": 375,
       "vertices": [
         {
           "x": 0.0,
@@ -625,35 +730,149 @@
       "arrowEnd": false
     },
     {
-      "id": "wire-1794700000000-2syw",
-      "x": 140,
+      "id": "wire-1795400000000-z5fk",
+      "x": 150,
+      "y": 375,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -20,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-i19r",
+      "x": 425.0,
+      "y": 305,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 125.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-jflj",
+      "x": 425.0,
+      "y": 355,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 125.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-lqsa",
+      "x": 700.0,
+      "y": 305,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 110.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-ui6d",
+      "x": 700.0,
+      "y": 355,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 110.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-zzg4",
+      "x": 960.0,
+      "y": 305,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 140.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-n2kh",
+      "x": 960.0,
+      "y": 355,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 140.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-j8gx",
+      "x": 1270.0,
       "y": 295,
       "vertices": [
         {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": -15,
-          "y": 0
-        }
-      ],
-      "strokeColor": "#000000",
-      "strokeWidth": 2,
-      "dash": [],
-      "arrowEnd": true
-    },
-    {
-      "id": "wire-1794700000000-h5dn",
-      "x": 425.0,
-      "y": 225,
-      "vertices": [
-        {
           "x": 0.0,
           "y": 0
         },
         {
-          "x": 110.0,
+          "x": 140.0,
           "y": 0
         }
       ],
@@ -663,16 +882,16 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-z5fk",
-      "x": 425.0,
-      "y": 275,
+      "id": "wire-1795400000000-jqwx",
+      "x": 1270.0,
+      "y": 330,
       "vertices": [
         {
           "x": 0.0,
           "y": 0
         },
         {
-          "x": 110.0,
+          "x": 140.0,
           "y": 0
         }
       ],
@@ -682,16 +901,16 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-i19r",
-      "x": 685.0,
-      "y": 225,
+      "id": "wire-1795400000000-344t",
+      "x": 1410.0,
+      "y": 365,
       "vertices": [
         {
           "x": 0.0,
           "y": 0
         },
         {
-          "x": 120.0,
+          "x": -140.0,
           "y": 0
         }
       ],
@@ -701,66 +920,9 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-jflj",
-      "x": 685.0,
-      "y": 275,
-      "vertices": [
-        {
-          "x": 0.0,
-          "y": 0
-        },
-        {
-          "x": 120.0,
-          "y": 0
-        }
-      ],
-      "strokeColor": "#000000",
-      "strokeWidth": 2,
-      "dash": [],
-      "arrowEnd": true
-    },
-    {
-      "id": "wire-1794700000000-lqsa",
-      "x": 955.0,
-      "y": 225,
-      "vertices": [
-        {
-          "x": 0.0,
-          "y": 0
-        },
-        {
-          "x": 130.0,
-          "y": 0
-        }
-      ],
-      "strokeColor": "#000000",
-      "strokeWidth": 4,
-      "dash": [],
-      "arrowEnd": true
-    },
-    {
-      "id": "wire-1794700000000-ui6d",
-      "x": 955.0,
-      "y": 275,
-      "vertices": [
-        {
-          "x": 0.0,
-          "y": 0
-        },
-        {
-          "x": 130.0,
-          "y": 0
-        }
-      ],
-      "strokeColor": "#000000",
-      "strokeWidth": 2,
-      "dash": [],
-      "arrowEnd": true
-    },
-    {
-      "id": "wire-1794700000000-zzg4",
-      "x": 1255.0,
-      "y": 210,
+      "id": "wire-1795400000000-q4k7",
+      "x": 1600.0,
+      "y": 330,
       "vertices": [
         {
           "x": 0.0,
@@ -774,57 +936,19 @@
       "strokeColor": "#000000",
       "strokeWidth": 4,
       "dash": [],
-      "arrowEnd": false
+      "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-vdga",
-      "x": 1255.0,
-      "y": 250,
+      "id": "wire-1795400000000-j8b7",
+      "x": 1975.0,
+      "y": 295,
       "vertices": [
         {
           "x": 0.0,
           "y": 0
         },
         {
-          "x": 185.0,
-          "y": 0
-        }
-      ],
-      "strokeColor": "#000000",
-      "strokeWidth": 2,
-      "dash": [],
-      "arrowEnd": false
-    },
-    {
-      "id": "wire-1794700000000-4hh5",
-      "x": 1440,
-      "y": 290,
-      "vertices": [
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": -185.0,
-          "y": 0
-        }
-      ],
-      "strokeColor": "#000000",
-      "strokeWidth": 4,
-      "dash": [],
-      "arrowEnd": true
-    },
-    {
-      "id": "wire-1794700000000-bn7x",
-      "x": 160,
-      "y": 360,
-      "vertices": [
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 40,
+          "x": 65.0,
           "y": 0
         }
       ],
@@ -834,16 +958,73 @@
       "arrowEnd": true
     },
     {
-      "id": "wire-1794700000000-xkwo",
-      "x": 160,
-      "y": 390,
+      "id": "wire-1795400000000-886v",
+      "x": 1975.0,
+      "y": 330,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 65.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-wbbr",
+      "x": 1975.0,
+      "y": 365,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 65.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-a4wf",
+      "x": 425.0,
+      "y": 468,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 70.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-z3zf",
+      "x": 170,
+      "y": 490,
       "vertices": [
         {
           "x": 0,
           "y": 0
         },
         {
-          "x": 40,
+          "x": 60,
           "y": 0
         }
       ],
