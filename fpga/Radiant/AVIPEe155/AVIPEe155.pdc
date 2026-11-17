@@ -25,15 +25,3 @@ ldc_set_location -site {44} [get_ports fft_busy]  ;# P44, J3-15
 # FFT output to the PC: pin 14 drives the UPduino FT232H RXD (ADBUS1,
 # through R12). Shows up as the UPduino's USB serial port.
 ldc_set_location -site {14} [get_ports uart_tx]   ;# P14 (not on a header)
-
-# VU meter: 5 green LEDs on the adapter, bar[0] is the quietest level.
-# Each LED: long leg (anode) to the pin, short leg through 330 ohm-1k to GND.
-ldc_set_location -site {10} [get_ports {bar[0]}]  ;# P10, J1-1
-ldc_set_location -site {21} [get_ports {bar[1]}]  ;# P21, J1-2
-ldc_set_location -site {19} [get_ports {bar[2]}]  ;# P19, J1-3
-ldc_set_location -site {4}  [get_ports {bar[3]}]  ;# P4,  J1-6
-ldc_set_location -site {47} [get_ports {bar[4]}]  ;# P47, J1-8
-
-# dev board blue LEDs: D6 heartbeat (1 Hz blink), D7 clip
-ldc_set_location -site {42} [get_ports led_heartbeat] ;# P42, D6
-ldc_set_location -site {38} [get_ports led_clip]      ;# P38, D7

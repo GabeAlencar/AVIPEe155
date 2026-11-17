@@ -7,14 +7,7 @@
  *   HALF_PERIOD - clk cycles per half sck period. 4 gives 12 MHz / 8 = 1.5 MHz.
  *
  * Sends one word as an SPI master in mode 0 (sck idles low, data is read
- * on the rising edge of sck), MSB first. Used by the hardware tests to send
- * data to a logic analyzer.
- *
- * A word starts when start is high while busy is low. sdo has the MSB right
- * away and sck rises HALF_PERIOD clk later. Each later bit is put on sdo
- * when sck falls. busy stays high from the clk after start until the last
- * falling edge of sck, so a caller can use ~busy as an active-low chip
- * select. One word takes 2 * HALF_PERIOD * WIDTH clk.
+ * on the rising edge of sck), MSB first. 
  */
 
 module spi_word_tx #(

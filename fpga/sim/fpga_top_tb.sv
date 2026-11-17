@@ -28,8 +28,6 @@ module fpga_top_tb();
   logic       reset_b;
   tri0        sd;
   logic       bclk, ws;
-  logic [4:0] bar;
-  logic       led_heartbeat, led_clip;
   logic       spi_sck, spi_mosi, spi_cs_b, fft_busy, uart_tx;
 
   localparam real PI     = 3.14159265358979;
@@ -37,7 +35,7 @@ module fpga_top_tb();
   localparam int  WORDS  = 514;
 
   fpga_top dut (.reset_b(reset_b), .sd(sd), .bclk(bclk), .ws(ws), .spi_sck(spi_sck), .spi_mosi(spi_mosi), .spi_cs_b(spi_cs_b), .fft_busy(fft_busy),
-                .uart_tx(uart_tx), .bar(bar), .led_heartbeat(led_heartbeat), .led_clip(led_clip));
+                .uart_tx(uart_tx));
 
   // ---- model of sum_of_3 and dc_removal (same as fpga_top_tb) ----
   int     group_count, group_sum;

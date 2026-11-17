@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "components": [],
+  "drawings": [
+    {
+      "id": "drawing-1795500000000-ujzd",
+      "toolId": "rectangle",
+      "x": 565.0,
+      "y": 255.0,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 790,
+      "shapeHeight": 430
+    },
+    {
+      "id": "drawing-1795500000000-e8gx",
+      "toolId": "text",
+      "x": 240,
+      "y": 62,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 18,
+      "text": "i2s_receiver",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-d6nc",
+      "toolId": "rectangle",
+      "x": 550,
+      "y": 175,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 360,
+      "shapeHeight": 130
+    },
+    {
+      "id": "drawing-1795500000000-f10e",
+      "toolId": "text",
+      "x": 550,
+      "y": 175,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 15,
+      "text": "u_i2s_clkgen\ni2s_clkgen\nbclk = clk / 4, ws = bclk / 64",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-pf91",
+      "toolId": "rectangle",
+      "x": 550,
+      "y": 380,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 360,
+      "shapeHeight": 90
+    },
+    {
+      "id": "drawing-1795500000000-dhod",
+      "toolId": "text",
+      "x": 550,
+      "y": 380,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 15,
+      "text": "u_i2s_deserializer\ni2s_deserializer\n18-bit shift register",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-9is0",
+      "toolId": "port",
+      "x": 170,
+      "y": 145,
+      "rotation": 180,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795500000000-j8ht",
+      "toolId": "text",
+      "x": 125,
+      "y": 145,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "ws",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-xg9e",
+      "toolId": "port",
+      "x": 170,
+      "y": 185,
+      "rotation": 180,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795500000000-dn58",
+      "toolId": "text",
+      "x": 125,
+      "y": 185,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "bclk",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-xtpl",
+      "toolId": "text",
+      "x": 408,
+      "y": 287.5,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "sample_en",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-5v2s",
+      "toolId": "text",
+      "x": 690,
+      "y": 287.5,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "slot[5:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-eh60",
+      "toolId": "port",
+      "x": 170,
+      "y": 380,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795500000000-0ce9",
+      "toolId": "text",
+      "x": 125,
+      "y": 380,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "sd",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-3efr",
+      "toolId": "port",
+      "x": 960,
+      "y": 360,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795500000000-4edt",
+      "toolId": "text",
+      "x": 1030,
+      "y": 360,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "sample[17:0]",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-b3wk",
+      "toolId": "port",
+      "x": 960,
+      "y": 400,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795500000000-h5dn",
+      "toolId": "text",
+      "x": 1030,
+      "y": 400,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 14,
+      "text": "sample_valid",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-sipz",
+      "toolId": "text",
+      "x": 845.0,
+      "y": 345,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "to sum_of_3",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-z5fk",
+      "toolId": "port",
+      "x": 170,
+      "y": 450,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795500000000-i19r",
+      "toolId": "text",
+      "x": 110,
+      "y": 450,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 13,
+      "text": "clk, reset_b",
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1795500000000-0wyo",
+      "toolId": "text",
+      "x": 390,
+      "y": 450,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "clk (12 MHz) and reset_b go to every block",
+      "borderWidth": 60,
+      "borderHeight": 20
+    }
+  ],
+  "wires": [
+    {
+      "id": "wire-1795400000000-zdoc",
+      "x": 370.0,
+      "y": 145,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": -200.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795400000000-9lgm",
+      "x": 370.0,
+      "y": 185,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": -200.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795400000000-1u33",
+      "x": 460,
+      "y": 240.0,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0.0
+        },
+        {
+          "x": 0,
+          "y": 95.0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-pft7",
+      "x": 640,
+      "y": 240.0,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0.0
+        },
+        {
+          "x": 0,
+          "y": 95.0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-kvj5",
+      "x": 170,
+      "y": 380,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 200.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-uvw5",
+      "x": 730.0,
+      "y": 360,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 210.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 4,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-2syw",
+      "x": 730.0,
+      "y": 400,
+      "vertices": [
+        {
+          "x": 0.0,
+          "y": 0
+        },
+        {
+          "x": 210.0,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    },
+    {
+      "id": "wire-1795400000000-2z9r",
+      "x": 170,
+      "y": 450,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 50,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 2,
+      "dash": [],
+      "arrowEnd": true
+    }
+  ]
+}

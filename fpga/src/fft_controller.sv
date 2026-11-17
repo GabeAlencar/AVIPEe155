@@ -3,10 +3,7 @@
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
  * Date:   11/16/26
  * Parameters:
- *   STAGE_SHIFT - passed to fft. 1 halves every stage so 16-bit pcm never
- *                 overflows (output = FFT / 512).
- *
- * Runs Katie's fft on every frame from the ring buffer:
+ *   STAGE_SHIFT - passed to fft. 1 halves every stage so 16-bit pcm never overflows.
  *
  *   1. on frame_ready, reset the fft and copy the 512 samples from the ring
  *      buffer into it, oldest first, as {pcm, 16'h0000} (real, imaginary).
@@ -14,16 +11,6 @@
  *   3. read out X[0..255] on bin_we / bin_addr / bin_data, one a clk. The
  *      input is real, so X[256..511] are the complex conjugates of these.
  *   4. pulse bins_done and count the frame.
- *
- * All of this takes about 5,400 clk (0.45 ms) and a frame comes every 20 ms.
- * Step 1 starts the clk after frame_ready, well inside the 767 clk the ring
- * buffer gives before it overwrites the oldest sample.
- *
- * Ports:
- *   bin_we, bin_addr, bin_data - X[bin_addr] as {re, im}, for the output drivers
- *   bins_done  - one clk pulse after X[255]
- *   frame_num  - number of this frame, counts up after bins_done
- *   fft_busy   - high from frame_ready until bins_done (a scope trigger)
  */
 
 module fft_controller #(
@@ -45,8 +32,8 @@ module fft_controller #(
     localparam int N    = 512;
     localparam int BINS = N / 2;
 
-    typedef enum logic [2:0] {IDLE, FFT_RESET, LOAD, START, RUN, READ, DONE} state_t;
-    state_t state;   // needs FSM Encoding Style = Binary in the Radiant strategy: LSE's Auto (one-hot) version never left IDLE on hardware
+    typedef enum logic [2:0] {IDLE = 3'd0, FFT_RESET = 3'd1, LOAD = 3'd2, START = 3'd3, RUN = 3'd4, READ = 3'd5, DONE = 3'd6} statetype;
+    statetype state, nextstate;
 
     logic [9:0]  cnt;               // sample counter while loading and reading
 
@@ -58,13 +45,35 @@ module fft_controller #(
 
     fft #(.width(16), .M(9), .STAGE_SHIFT(STAGE_SHIFT)) u_fft (.clk(clk), .reset(fft_reset), .start(fft_start), .load(load_v), .rd_adr(load_adr), .rd({read_data, 16'h0000}), .wd(bin_data), .done(fft_done));
 
-    assign read_index = cnt[8:0];
-    assign fft_reset  = (state == FFT_RESET) | ~reset_b;
-    assign fft_start  = (state == START);
-    assign bin_we     = (state == READ);
-    assign bin_addr   = cnt[7:0];
-    assign bins_done  = (state == DONE);
-    assign fft_busy   = (state != IDLE);
+    // ---- state register ----
+    always_ff @(posedge clk, negedge reset_b)
+        if (!reset_b) state <= IDLE;
+        else          state <= nextstate;
+
+    // ---- next state logic ----
+    always_comb
+        case (state)
+            IDLE:      nextstate = frame_ready ? FFT_RESET : IDLE;
+            FFT_RESET: nextstate = LOAD;
+            LOAD:      nextstate = (cnt == 10'(N)) ? START : LOAD;        // the last sample is written this clk
+            START:     nextstate = RUN;
+            RUN:       nextstate = fft_done ? READ : RUN;                 // X[0] is on wd next clk
+            READ:      nextstate = (cnt == 10'(BINS - 1)) ? DONE : READ;
+            DONE:      nextstate = IDLE;
+            default:   nextstate = IDLE;
+        endcase
+
+    // ---- sample counter: 0 to 512 while loading, 0 to 255 while reading ----
+    always_ff @(posedge clk, negedge reset_b)
+        if      (!reset_b)                                    cnt <= '0;
+        else if (state == FFT_RESET || (state == RUN && fft_done)) cnt <= '0;
+        else if ((state == LOAD && cnt != 10'(N)) ||
+                 (state == READ && cnt != 10'(BINS - 1)))     cnt <= cnt + 1'b1;
+
+    // ---- frame counter ----
+    always_ff @(posedge clk, negedge reset_b)
+        if      (!reset_b)       frame_num <= '0;
+        else if (state == DONE)  frame_num <= frame_num + 1'b1;
 
     // ---- load pipeline ----
     always_ff @(posedge clk, negedge reset_b)
@@ -76,33 +85,13 @@ module fft_controller #(
             load_adr <= cnt[8:0];
         end
 
-    // ---- control ----
-    always_ff @(posedge clk, negedge reset_b)
-        if (!reset_b) begin
-            state     <= IDLE;
-            cnt       <= '0;
-            frame_num <= '0;
-        end else
-            case (state)
-                IDLE:      if (frame_ready) state <= FFT_RESET;
-                FFT_RESET: begin
-                               cnt   <= '0;
-                               state <= LOAD;
-                           end
-                LOAD:      if (cnt == 10'(N)) state <= START;     // the last sample is written this clk
-                           else               cnt   <= cnt + 1'b1;
-                START:     state <= RUN;
-                RUN:       if (fft_done) begin                    // X[0] is on wd next clk
-                               cnt   <= '0;
-                               state <= READ;
-                           end
-                READ:      if (cnt == 10'(BINS - 1)) state <= DONE;
-                           else                      cnt   <= cnt + 1'b1;
-                DONE:      begin
-                               frame_num <= frame_num + 1'b1;
-                               state     <= IDLE;
-                           end
-                default:   state <= IDLE;
-            endcase
+    // ---- output logic ----
+    assign read_index = cnt[8:0];
+    assign fft_reset  = (state == FFT_RESET) | ~reset_b;
+    assign fft_start  = (state == START);
+    assign bin_we     = (state == READ);
+    assign bin_addr   = cnt[7:0];
+    assign bins_done  = (state == DONE);
+    assign fft_busy   = (state != IDLE);
 
 endmodule

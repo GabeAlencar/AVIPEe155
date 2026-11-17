@@ -5,23 +5,7 @@
  *
  * I2S master clock generator. The FPGA drives the microphone clocks.
  *   bclk = clk / 4  (12 MHz -> 3 MHz)
- *   ws   = bclk / 64 (3 MHz -> 46.875 kHz), low for the left channel
- *
- * Both outputs come straight from flops, so they do not glitch, and both
- * change on the same clk edge, so ws changes on the falling edge of bclk.
- *
- * phase counts the 4 clk cycles in each bclk period:
- *   phase   0    1    2    3
- *   bclk    0    0    1    1
- * bclk falls when phase wraps 3 -> 0. That is also when bit_cnt advances.
- *
- * The SPH0645 changes SD 7 to 66 ns after each bclk rising edge
- * (datasheet tHTR and tDC). sample_en pulses for one clk when phase == 0,
- * so the deserializer reads SD on the clk edge where phase becomes 1:
- * 250 ns after the bclk rise that sent the bit, which leaves 184 ns of
- * setup after the latest change and 90 ns of hold before the next. SD
- * needs no synchronizer because the FPGA drives bclk, so SD never changes
- * near that edge. slot is the index (0 to 63) of the bit being read.
+ *   ws   = bclk / 64 (3 MHz -> 46.875 kHz)
  */
 
 module i2s_clkgen (

@@ -3,21 +3,9 @@
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
  * Date:   11/6/26
  * Parameters:
- *   ADDR_WIDTH  - number of address bits, so the buffer holds 2**ADDR_WIDTH
- *                 samples (9 gives the 512 samples the FFT needs).
+ *   ADDR_WIDTH  - number of address bits, so the buffer holds 2**ADDR_WIDTH samples
  *   DATA_WIDTH  - number of bits in each sample.
- *   HOP_SAMPLES - new samples between frames. 312 at 15.625 kHz is 20 ms.
- *
- * Stores every pcm sample in a block RAM, overwriting the oldest one, and
- * pulses frame_ready for one clk every HOP_SAMPLES samples once the buffer
- * has been filled. After frame_ready, the reader asks for read_index 0 to
- * 2**ADDR_WIDTH - 1 and gets the samples oldest first, each on read_data
- * one clk after its read_index.
- *
- * The next sample after frame_ready overwrites the oldest sample of that
- * frame (read_index 0), 767 clk after frame_ready. A reader that asks for
- * read_index 0 less than 767 clk after frame_ready always reads the whole
- * frame before anything in it changes.
+ *   HOP_SAMPLES - new samples between frames.
  */
 
 module ring_buffer #(

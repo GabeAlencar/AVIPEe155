@@ -6,9 +6,7 @@
  *   CLKS_PER_BIT - clk cycles per bit. 16 gives 12 MHz / 16 = 750 kbaud.
  *
  * Sends one byte as 8N1 serial: a start bit (0), the 8 data bits LSB
- * first, and a stop bit (1). tx idles high. A byte starts when start is
- * high while busy is low, and busy stays high for the 10 bit periods.
- * tx comes straight from a flop so it never glitches.
+ * first, and a stop bit (1). tx idles high.
  */
 
 module uart_tx #(

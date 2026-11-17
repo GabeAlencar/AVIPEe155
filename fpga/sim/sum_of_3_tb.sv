@@ -128,7 +128,7 @@ module sum_of_3_tb();
     send_sample(10, 4);
     send_sample(20, 4);
     @(posedge clk); #1;
-    check(!sum_valid && $signed(sum) == -1, "No sum after only 2 of a group; old sum holds");
+    check(!sum_valid && $signed(sum) == 30, "No sum_valid after only 2 of a group; sum shows the running total");
     send_sample(30, 4);
     @(posedge clk); #1;
     check($signed(sum) == 60, "Third sample finishes the group");

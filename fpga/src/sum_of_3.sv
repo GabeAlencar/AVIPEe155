@@ -4,15 +4,6 @@
  * Date:   11/6/26
  * Parameters:
  *   DATA_WIDTH - width of each two's complement input sample.
- *
- * Adds each group of 3 samples from the I2S receiver and outputs one sum
- * per group, so the 46.875 kHz sample rate drops to 15.625 kHz. The sum
- * is 2 bits wider than a sample, which holds 3 times the largest or most
- * negative sample, so it never overflows.
- *
- * sample is read in the clk cycle that sample_valid is high. sum updates
- * one clk after the third sample of a group, and sum_valid pulses for one
- * clk when it does. Reset starts a new group.
  */
 
 module sum_of_3 #(
@@ -43,19 +34,16 @@ module sum_of_3 #(
     assign next_sum    = (sample_count == 2'd0) ? sample_ext : partial_sum + sample_ext;
     assign last_sample = sample_valid & (sample_count == 2'd2);
 
-    // ---- running sum ----
+    // ---- running sum: holds the finished sum until the next group starts ----
     always_ff @(posedge clk, negedge reset_b)
         if      (!reset_b)     partial_sum <= '0;
         else if (sample_valid) partial_sum <= next_sum;
 
-    // ---- output register ----
+    assign sum = partial_sum;
+
+    // sum_valid pulses the clk after the third sample is added
     always_ff @(posedge clk, negedge reset_b)
-        if (!reset_b) begin
-            sum       <= '0;
-            sum_valid <= 1'b0;
-        end else begin
-            sum_valid <= last_sample;
-            if (last_sample) sum <= next_sum;
-        end
+        if (!reset_b) sum_valid <= 1'b0;
+        else          sum_valid <= last_sample;
 
 endmodule

@@ -60,9 +60,6 @@
         <Source name="../../src/uart_frame_tx.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog"/>
         </Source>
-        <Source name="../../src/level_meter.sv" type="Verilog" type_short="Verilog">
-            <Options VerilogStandard="System Verilog"/>
-        </Source>
         <Source name="../../src/fpga_top.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog" top_module="fpga_top"/>
         </Source>
