@@ -1,0 +1,23 @@
+---
+title: Midpoint Checkoff
+---
+
+## Status Update
+A clear, concise summary of your current status and progress toward the final project
+Materials ordered. Extra mics are coming just in case ours blows up. 
+### Riskiest element update
+The status of the riskiest element identified in your proposal, which should be substantially addressed or completed
+## FPGA Block Diagrams 
+Block diagrams of the logic on your FPGA
+## Breadboard Schematics
+Schematics of anything on a breadboard
+## System Block Diagram
+A system block diagram with the interfaces between components (SPI, I2C, GPIO, etc.) clearly labeled
+An outline of the routines used on the MCU
+
+
+## Appendix A: Verilog Code
+Include as an appendix either your Verilog code or software that is mostly complete (you do not have to have both ready).
+## Appendix B: MCU Code
+
+
