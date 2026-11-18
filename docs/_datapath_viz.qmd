@@ -1,0 +1,111 @@
+```{=html}
+<div class="avz" id="avz">
+<style>
+.avz { border: 1px solid #dee2e6; border-radius: 10px; padding: 8px 10px 4px; margin: .5rem 0 1.5rem; background: #fff; }
+.avz svg { width: 100%; height: auto; display: block; font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.avz .mv { transition: transform .7s cubic-bezier(.4,0,.2,1), opacity .5s ease; }
+.avz .snap, .avz .snap * { transition: none !important; }
+.avz .avz-bit { transition: fill .25s; }
+.avz .avz-bit.hot { fill: #2f6fdb; }
+.avz .avz-top, .avz .avz-low { transition: fill .5s, opacity .5s; }
+.avz .pcm .avz-top { opacity: .12; }
+.avz .pcm .avz-low { fill: #2a9d5c; }
+.avz .col { transition: opacity .4s; }
+.avz .strip { transition: stroke .3s, stroke-width .3s; }
+.avz .strip.full { stroke: #2f6fdb; stroke-width: 3; }
+.avz .fft { transition: opacity .3s; opacity: 0; }
+.avz .fft.on { opacity: 1; }
+.avz .lbl { font-size: 15px; fill: #46535f; text-anchor: middle; }
+</style>
+<svg viewBox="0 30 960 190" role="img" aria-label="Animation: each I2S frame from the microphone gives 18 data bits; three 18-bit samples stack and add into one 20-bit sum, which shrinks to a 16-bit sample and drops into a 512-sample frame that goes to the FFT">
+<g><rect class="" x="20" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="avz-bit" x="25" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="30" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="35" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="40" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="45" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="50" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="55" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="60" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="65" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="70" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="75" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="80" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="85" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="90" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="95" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="100" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="105" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="avz-bit" x="110" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="115" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="120" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="125" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="130" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="135" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="140" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="145" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="150" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="155" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="160" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="165" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="170" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="175" y="70" width="4" height="18" rx="1" fill="#c3cad2"/><rect class="" x="180" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="185" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="190" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="195" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="200" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="205" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="210" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="215" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="220" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="225" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="230" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="235" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="240" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="245" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="250" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="255" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="260" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="265" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="270" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="275" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="280" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="285" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="290" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="295" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="300" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="305" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="310" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="315" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="320" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="325" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="330" y="70" width="4" height="18" rx="1" fill="#eef1f4"/><rect class="" x="335" y="70" width="4" height="18" rx="1" fill="#eef1f4"/></g>
+<text class="lbl" x="180" y="112">mic: one I2S frame, 64 bits</text>
+<text class="lbl" x="461" y="212">3 samples → 1 sum → 16 bits</text>
+<rect class="strip" x="636" y="58" width="308" height="124" rx="6" fill="#eef1f4" stroke="#c9d0d8" stroke-width="1.5"/>
+<line x1="636" y1="120" x2="944" y2="120" stroke="#d5dbe1"/>
+<g class="cols mv" style="transform-box: view-box; transform-origin: 0 0"></g>
+<text class="lbl" x="790" y="212">frame: 512 samples, every 20 ms</text>
+<text class="fft" x="790" y="48" font-size="16" font-weight="700" fill="#2f6fdb" text-anchor="middle">→ FFT</text>
+<g class="b0 mv" style="transform-box: view-box; transform-origin: 0 0; opacity: 0"><rect x="0" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="9" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="18" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="27" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="36" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="45" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="54" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="63" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="72" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="81" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="90" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="99" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="108" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="117" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="126" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="135" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="144" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="153" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/></g>
+<g class="b1 mv" style="transform-box: view-box; transform-origin: 0 0; opacity: 0"><rect x="0" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="9" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="18" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="27" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="36" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="45" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="54" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="63" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="72" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="81" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="90" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="99" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="108" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="117" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="126" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="135" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="144" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="153" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/></g>
+<g class="b2 mv" style="transform-box: view-box; transform-origin: 0 0; opacity: 0"><rect x="0" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="9" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="18" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="27" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="36" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="45" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="54" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="63" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="72" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="81" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="90" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="99" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="108" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="117" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="126" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="135" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="144" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/><rect x="153" y="0" width="8" height="16" rx="1.5" fill="#2f6fdb"/></g>
+<g class="sum mv" style="transform-box: view-box; transform-origin: 0 0; opacity: 0"><rect class="avz-top" x="0" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-top" x="9" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-top" x="18" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-top" x="27" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="36" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="45" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="54" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="63" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="72" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="81" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="90" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="99" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="108" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="117" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="126" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="135" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="144" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="153" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="162" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/><rect class="avz-low" x="171" y="0" width="8" height="16" rx="1.5" fill="#7b4fc9"/></g>
+<rect class="drop mv" x="0" y="0" width="1" height="1" fill="#2a9d5c" style="transform-box: view-box; transform-origin: 0 0; opacity: 0"/>
+</svg>
+</div>
+<script>
+(function () {
+  var root = document.getElementById('avz'), NS = 'http://www.w3.org/2000/svg';
+  var bits = root.querySelectorAll('.avz-bit');
+  var bars = [root.querySelector('.b0'), root.querySelector('.b1'), root.querySelector('.b2')];
+  var sum = root.querySelector('.sum'), drop = root.querySelector('.drop');
+  var cols = root.querySelector('.cols'), strip = root.querySelector('.strip'), fft = root.querySelector('.fft');
+  var NCOL = 60, KEEP = 23, PITCH = 5, X0 = 640, MID = 120;   // 60 columns stand for 512 samples; 23 = the 200-sample overlap
+  var amps = [], n = 0;
+  function amp(i) { return 46 * Math.sin(i * 0.42) * (0.55 + 0.45 * Math.sin(i * 0.06)); }
+  function T(el, x, y, sx, sy, op) {
+    el.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + sx + ',' + sy + ')';
+    if (op !== undefined) el.style.opacity = op;
+  }
+  function snap(el, f) { el.classList.add('snap'); f(); void el.getBoundingClientRect(); el.classList.remove('snap'); }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function render() {
+    while (cols.firstChild) cols.removeChild(cols.firstChild);
+    amps.forEach(function (a, i) { addCol(i, a); });
+  }
+  function addCol(i, a) {
+    var r = document.createElementNS(NS, 'rect');
+    r.setAttribute('class', 'col'); r.setAttribute('x', X0 + i * PITCH); r.setAttribute('width', PITCH - 1);
+    r.setAttribute('y', a >= 0 ? MID - a : MID); r.setAttribute('height', Math.max(Math.abs(a), 1));
+    r.setAttribute('fill', '#2a9d5c'); cols.appendChild(r); return r;
+  }
+  function push() { var a = amp(n++); amps.push(a); addCol(amps.length - 1, a); }
+  for (var i = 0; i < KEEP; i++) push();
+  async function cycle() {
+    // three I2S frames give three 18-bit samples that stack up
+    for (var k = 0; k < 3; k++) {
+      bits.forEach(function (b) { b.classList.add('hot'); });
+      snap(bars[k], function () { T(bars[k], 25, 71, 5 / 9, 1, 1); });
+      await wait(350);
+      T(bars[k], 380, 58 + 26 * k, 1, 1);
+      await wait(250);
+      bits.forEach(function (b) { b.classList.remove('hot'); });
+      await wait(550);
+    }
+    // they add into one 20-bit sum
+    snap(sum, function () { sum.classList.remove('pcm'); T(sum, 362, 84, 1, 1, 0); });
+    bars.forEach(function (b) { T(b, 380, 84, 1, 1, 0); });
+    T(sum, 362, 84, 1, 1, 1);
+    await wait(900);
+    // the top 4 bits go: 16-bit pcm
+    sum.classList.add('pcm');
+    await wait(800);
+    // it shrinks to one sample and drops into the frame
+    var a = amp(n), x = X0 + amps.length * PITCH;
+    snap(drop, function () { T(drop, 398, 84, 144, 16, 1); });
+    T(sum, 362, 84, 1, 1, 0);
+    T(drop, x, a >= 0 ? MID - a : MID, PITCH - 1, Math.max(Math.abs(a), 1), 1);
+    await wait(750);
+    push(); drop.style.opacity = 0;
+    // more samples arrive the same way until the frame is full
+    while (amps.length < NCOL) { push(); await wait(55); }
+    strip.classList.add('full'); fft.classList.add('on');
+    await wait(1100);
+    strip.classList.remove('full'); fft.classList.remove('on');
+    // keep the newest 200 samples for the next frame
+    var gone = Array.prototype.slice.call(cols.children, 0, NCOL - KEEP);
+    gone.forEach(function (c) { c.style.opacity = 0; });
+    T(cols, -(NCOL - KEEP) * PITCH, 0, 1, 1);
+    await wait(800);
+    amps = amps.slice(NCOL - KEEP);
+    snap(cols, function () { T(cols, 0, 0, 1, 1); render(); });
+    await wait(400);
+  }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    while (amps.length < NCOL) push();
+    return;
+  }
+  (async function () { while (true) await cycle(); })();
+})();
+</script>
+```

@@ -1,0 +1,8 @@
+{
+ "port": "COM3",
+ "baud": 744186,
+ "seconds": 3.0,
+ "bytes": 159847,
+ "elapsed": 3.2360925674438477,
+ "packets": 49
+}

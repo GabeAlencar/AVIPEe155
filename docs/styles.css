@@ -1,1 +1,12 @@
 /* css styles */
+
+/* FPGA design page: the short description under each module heading */
+.module-kind {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #1f3a5c;
+  background: #eaf2fc;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 0.75rem;
+}

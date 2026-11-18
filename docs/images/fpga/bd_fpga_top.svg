@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 155 2200 380" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="fpga_top block diagram">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,1 L10,5 L0,9 z" fill="#000"/></marker></defs>
+<rect x="0" y="155" width="2200" height="380" fill="#fff"/>
+<polyline points="130,285 150,285" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="170,285 265.0,285" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="265.0,330 170.0,330" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="150,330 130,330" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="265.0,375 170.0,375" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="150,375 130,375" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="425.0,305 550.0,305" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="425.0,355 550.0,355" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="700.0,305 810.0,305" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="700.0,355 810.0,355" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="960.0,305 1100.0,305" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="960.0,355 1100.0,355" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="1270.0,295 1410.0,295" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="1270.0,330 1410.0,330" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="1410.0,365 1270.0,365" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="1600.0,330 1785.0,330" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="1975.0,295 2040.0,295" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="1975.0,330 2040.0,330" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="1975.0,365 2040.0,365" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="425.0,468 495.0,468" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="170,490 230,490" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<rect x="170.0" y="170.0" width="1890" height="350" fill="none" stroke="#000" stroke-width="2"/>
+<text x="225" y="192.0" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central">fpga_top</text>
+<rect x="20.0" y="255.0" width="110" height="150" fill="none" stroke="#000" stroke-width="2"/>
+<text x="75" y="321.25" font-size="14" text-anchor="middle" dominant-baseline="central">SPH0645</text>
+<text x="75" y="338.75" font-size="14" text-anchor="middle" dominant-baseline="central">microphone</text>
+<rect x="265.0" y="260.0" width="160" height="140" fill="none" stroke="#000" stroke-width="2"/>
+<text x="345" y="320.625" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_i2s_receiver</text>
+<text x="345" y="339.375" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">i2s_receiver</text>
+<rect x="550.0" y="260.0" width="150" height="140" fill="none" stroke="#000" stroke-width="2"/>
+<text x="625" y="320.625" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_sum_of_3</text>
+<text x="625" y="339.375" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">sum_of_3</text>
+<rect x="810.0" y="260.0" width="150" height="140" fill="none" stroke="#000" stroke-width="2"/>
+<text x="885" y="320.625" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_dc_removal</text>
+<text x="885" y="339.375" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">dc_removal</text>
+<rect x="1100.0" y="260.0" width="170" height="140" fill="none" stroke="#000" stroke-width="2"/>
+<text x="1185" y="320.625" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_ring_buffer</text>
+<text x="1185" y="339.375" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">ring_buffer</text>
+<rect x="1410.0" y="240.0" width="190" height="180" fill="none" stroke="#000" stroke-width="2"/>
+<text x="1505" y="311.25" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_fft_controller</text>
+<text x="1505" y="330.0" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">fft_controller</text>
+<text x="1505" y="348.75" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">fft (512-point)</text>
+<rect x="1785.0" y="255.0" width="190" height="150" fill="none" stroke="#000" stroke-width="2"/>
+<text x="1880" y="311.25" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_spi_frame_tx</text>
+<text x="1880" y="330.0" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">spi_frame_tx</text>
+<text x="1880" y="348.75" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">SPI master, 3 MHz</text>
+<polygon points="150,278 163,278 170,285 163,292 150,292" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="215" y="273.0" font-size="14" text-anchor="middle" dominant-baseline="central">sd</text>
+<polygon points="150,330 157,323 170,323 170,337 157,337" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="215" y="318.0" font-size="14" text-anchor="middle" dominant-baseline="central">bclk</text>
+<polygon points="150,375 157,368 170,368 170,382 157,382" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="215" y="363.0" font-size="14" text-anchor="middle" dominant-baseline="central">ws</text>
+<text x="487.5" y="290.0" font-size="13" text-anchor="middle" dominant-baseline="central">sample[17:0]</text>
+<text x="487.5" y="370.0" font-size="13" text-anchor="middle" dominant-baseline="central">sample_valid</text>
+<text x="755.0" y="290.0" font-size="13" text-anchor="middle" dominant-baseline="central">sum[19:0]</text>
+<text x="755.0" y="370.0" font-size="13" text-anchor="middle" dominant-baseline="central">sum_valid</text>
+<text x="1030.0" y="290.0" font-size="13" text-anchor="middle" dominant-baseline="central">pcm[15:0]</text>
+<text x="1030.0" y="370.0" font-size="13" text-anchor="middle" dominant-baseline="central">pcm_valid</text>
+<text x="1340.0" y="280.0" font-size="13" text-anchor="middle" dominant-baseline="central">read_data[15:0]</text>
+<text x="1340.0" y="318.0" font-size="13" text-anchor="middle" dominant-baseline="central">frame_ready</text>
+<text x="1340.0" y="380.0" font-size="13" text-anchor="middle" dominant-baseline="central">read_index[8:0]</text>
+<text x="1692.5" y="250.0" font-size="12" text-anchor="middle" dominant-baseline="central">bin_we</text>
+<text x="1692.5" y="265.0" font-size="12" text-anchor="middle" dominant-baseline="central">bin_addr[7:0]</text>
+<text x="1692.5" y="280.0" font-size="12" text-anchor="middle" dominant-baseline="central">bin_data[31:0]</text>
+<text x="1692.5" y="295.0" font-size="12" text-anchor="middle" dominant-baseline="central">bins_done</text>
+<text x="1692.5" y="310.0" font-size="12" text-anchor="middle" dominant-baseline="central">frame_num[7:0]</text>
+<polygon points="2040,288 2053,288 2060,295 2053,302 2040,302" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="2115" y="295.0" font-size="14" text-anchor="middle" dominant-baseline="central">spi_sck</text>
+<polygon points="2040,323 2053,323 2060,330 2053,337 2040,337" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="2115" y="330.0" font-size="14" text-anchor="middle" dominant-baseline="central">spi_mosi</text>
+<polygon points="2040,358 2053,358 2060,365 2053,372 2040,372" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="2115" y="365.0" font-size="14" text-anchor="middle" dominant-baseline="central">spi_cs_b</text>
+<rect x="265.0" y="433.0" width="160" height="70" fill="none" stroke="#000" stroke-width="2"/>
+<text x="345" y="449.25" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_hsosc</text>
+<text x="345" y="468.0" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">HSOSC</text>
+<text x="345" y="486.75" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">48 MHz / 4</text>
+<text x="555.0" y="468.0" font-size="13" text-anchor="middle" dominant-baseline="central">clk (12 MHz)</text>
+<polygon points="150,483 163,483 170,490 163,497 150,497" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="110" y="490.0" font-size="14" text-anchor="middle" dominant-baseline="central">reset_b</text>
+<text x="760" y="490.0" font-size="13" text-anchor="middle" dominant-baseline="central">clk and reset_b go to every block</text>
+</svg>

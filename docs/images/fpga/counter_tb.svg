@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 198" font-family="Helvetica, Arial, sans-serif" role="img">
+<title>counter_tb waveform</title>
+<rect width="960" height="198" fill="#ffffff"/>
+<line x1="150.0" y1="10" x2="150.0" y2="164" stroke="#e3e8ee"/>
+<text x="150.0" y="180" font-size="11" fill="#5b6b7c" text-anchor="middle">0 ns</text>
+<line x1="314.6" y1="10" x2="314.6" y2="164" stroke="#e3e8ee"/>
+<text x="314.6" y="180" font-size="11" fill="#5b6b7c" text-anchor="middle">50 ns</text>
+<line x1="479.2" y1="10" x2="479.2" y2="164" stroke="#e3e8ee"/>
+<text x="479.2" y="180" font-size="11" fill="#5b6b7c" text-anchor="middle">100 ns</text>
+<line x1="643.8" y1="10" x2="643.8" y2="164" stroke="#e3e8ee"/>
+<text x="643.8" y="180" font-size="11" fill="#5b6b7c" text-anchor="middle">150 ns</text>
+<line x1="808.3" y1="10" x2="808.3" y2="164" stroke="#e3e8ee"/>
+<text x="808.3" y="180" font-size="11" fill="#5b6b7c" text-anchor="middle">200 ns</text>
+<rect x="0" y="14" width="960" height="36" fill="#f6f8fa" opacity="0.6"/>
+<text x="138" y="34.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">clk</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,40.0 166.5,40.0 166.5,20.0 182.9,20.0 182.9,40.0 199.4,40.0 199.4,20.0 215.8,20.0 215.8,40.0 232.3,40.0 232.3,20.0 248.8,20.0 248.8,40.0 265.2,40.0 265.2,20.0 281.7,20.0 281.7,40.0 298.1,40.0 298.1,20.0 314.6,20.0 314.6,40.0 331.0,40.0 331.0,20.0 347.5,20.0 347.5,40.0 364.0,40.0 364.0,20.0 380.4,20.0 380.4,40.0 396.9,40.0 396.9,20.0 413.3,20.0 413.3,40.0 429.8,40.0 429.8,20.0 446.2,20.0 446.2,40.0 462.7,40.0 462.7,20.0 479.2,20.0 479.2,40.0 495.6,40.0 495.6,20.0 512.1,20.0 512.1,40.0 528.5,40.0 528.5,20.0 545.0,20.0 545.0,40.0 561.5,40.0 561.5,20.0 577.9,20.0 577.9,40.0 594.4,40.0 594.4,20.0 610.8,20.0 610.8,40.0 627.3,40.0 627.3,20.0 643.8,20.0 643.8,40.0 660.2,40.0 660.2,20.0 676.7,20.0 676.7,40.0 693.1,40.0 693.1,20.0 709.6,20.0 709.6,40.0 726.0,40.0 726.0,20.0 742.5,20.0 742.5,40.0 759.0,40.0 759.0,20.0 775.4,20.0 775.4,40.0 791.9,40.0 791.9,20.0 808.3,20.0 808.3,40.0 824.8,40.0 824.8,20.0 841.2,20.0 841.2,40.0 857.7,40.0 857.7,20.0 874.2,20.0 874.2,40.0 890.6,40.0 890.6,20.0 907.1,20.0 907.1,40.0 940.0,40.0"/>
+<text x="138" y="70.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">reset_b</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,76.0 248.8,76.0 248.8,56.0 913.7,56.0 913.7,76.0 940.0,76.0"/>
+<rect x="0" y="86" width="960" height="36" fill="#f6f8fa" opacity="0.6"/>
+<text x="138" y="106.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">enable</text>
+<polyline fill="none" stroke="#2780e3" stroke-width="1.8" points="150.0,92.0 248.8,92.0 248.8,112.0 347.5,112.0 347.5,92.0 775.4,92.0 775.4,112.0 940.0,112.0"/>
+<text x="138" y="142.0" font-size="13" font-weight="700" fill="#17202b" text-anchor="end">count</text>
+<polygon points="150.0,138.0 153.0,128 361.0,128 364.0,138.0 361.0,148 153.0,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="257.0" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">0</text>
+<polygon points="364.0,138.0 367.0,128 393.9,128 396.9,138.0 393.9,148 367.0,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="380.4" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">1</text>
+<polygon points="396.9,138.0 399.9,128 426.8,128 429.8,138.0 426.8,148 399.9,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="413.3" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">2</text>
+<polygon points="429.8,138.0 432.8,128 459.7,128 462.7,138.0 459.7,148 432.8,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="446.2" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">3</text>
+<polygon points="462.7,138.0 465.7,128 492.6,128 495.6,138.0 492.6,148 465.7,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="479.2" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">4</text>
+<polygon points="495.6,138.0 498.6,128 525.5,128 528.5,138.0 525.5,148 498.6,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="512.1" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">5</text>
+<polygon points="528.5,138.0 531.5,128 558.5,128 561.5,138.0 558.5,148 531.5,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="545.0" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">6</text>
+<polygon points="561.5,138.0 564.5,128 591.4,128 594.4,138.0 591.4,148 564.5,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="577.9" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">7</text>
+<polygon points="594.4,138.0 597.4,128 624.3,128 627.3,138.0 624.3,148 597.4,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="610.8" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">8</text>
+<polygon points="627.3,138.0 630.3,128 657.2,128 660.2,138.0 657.2,148 630.3,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="643.8" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">9</text>
+<polygon points="660.2,138.0 663.2,128 690.1,128 693.1,138.0 690.1,148 663.2,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="676.7" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">0</text>
+<polygon points="693.1,138.0 696.1,128 723.0,128 726.0,138.0 723.0,148 696.1,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="709.6" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">1</text>
+<polygon points="726.0,138.0 729.0,128 756.0,128 759.0,138.0 756.0,148 729.0,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="742.5" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">2</text>
+<polygon points="759.0,138.0 762.0,128 910.7,128 913.7,138.0 910.7,148 762.0,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="836.3" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">3</text>
+<polygon points="913.7,138.0 916.7,128 937.0,128 940.0,138.0 937.0,148 916.7,148" fill="#eaf2fc" stroke="#2780e3" stroke-width="1.2"/>
+<text x="926.8" y="142.0" font-size="11.5" fill="#17202b" text-anchor="middle">0</text>
+</svg>

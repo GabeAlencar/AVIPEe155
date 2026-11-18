@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 25 1100 465" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="i2s_receiver block diagram">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,1 L10,5 L0,9 z" fill="#000"/></marker></defs>
+<rect x="0" y="25" width="1100" height="465" fill="#fff"/>
+<polyline points="370.0,145 170.0,145" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="370.0,185 170.0,185" fill="none" stroke="#000" stroke-width="2"/>
+<polyline points="460,240.0 460,335.0" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="640,240.0 640,335.0" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="170,380 370.0,380" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="730.0,360 940.0,360" fill="none" stroke="#000" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="730.0,400 940.0,400" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="170,450 220,450" fill="none" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<rect x="170.0" y="40.0" width="790" height="430" fill="none" stroke="#000" stroke-width="2"/>
+<text x="240" y="62.0" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central">i2s_receiver</text>
+<rect x="370.0" y="110.0" width="360" height="130" fill="none" stroke="#000" stroke-width="2"/>
+<text x="550" y="156.25" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_i2s_clkgen</text>
+<text x="550" y="175.0" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">i2s_clkgen</text>
+<text x="550" y="193.75" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">bclk = clk / 4, ws = bclk / 64</text>
+<rect x="370.0" y="335.0" width="360" height="90" fill="none" stroke="#000" stroke-width="2"/>
+<text x="550" y="361.25" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">u_i2s_deserializer</text>
+<text x="550" y="380.0" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">i2s_deserializer</text>
+<text x="550" y="398.75" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">18-bit shift register</text>
+<polygon points="170,145 177,138 190,138 190,152 177,152" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="125" y="145.0" font-size="14" text-anchor="middle" dominant-baseline="central">ws</text>
+<polygon points="170,185 177,178 190,178 190,192 177,192" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="125" y="185.0" font-size="14" text-anchor="middle" dominant-baseline="central">bclk</text>
+<text x="408" y="287.5" font-size="13" text-anchor="middle" dominant-baseline="central">sample_en</text>
+<text x="690" y="287.5" font-size="13" text-anchor="middle" dominant-baseline="central">slot[5:0]</text>
+<polygon points="150,373 163,373 170,380 163,387 150,387" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="125" y="380.0" font-size="14" text-anchor="middle" dominant-baseline="central">sd</text>
+<polygon points="940,353 953,353 960,360 953,367 940,367" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1030" y="360.0" font-size="14" text-anchor="middle" dominant-baseline="central">sample[17:0]</text>
+<polygon points="940,393 953,393 960,400 953,407 940,407" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1030" y="400.0" font-size="14" text-anchor="middle" dominant-baseline="central">sample_valid</text>
+<text x="845.0" y="345.0" font-size="12" text-anchor="middle" dominant-baseline="central">to sum_of_3</text>
+<polygon points="150,443 163,443 170,450 163,457 150,457" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="110" y="450.0" font-size="13" text-anchor="middle" dominant-baseline="central">clk, reset_b</text>
+<text x="390" y="450.0" font-size="12" text-anchor="middle" dominant-baseline="central">clk (12 MHz) and reset_b go to every block</text>
+</svg>

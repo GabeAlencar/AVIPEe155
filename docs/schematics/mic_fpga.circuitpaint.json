@@ -1,0 +1,630 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "id": "component-1795700000000-uo6s",
+      "toolId": "v-rail",
+      "x": -130,
+      "y": -80,
+      "rotation": 0,
+      "flipped": false,
+      "strokeColor": "#000000"
+    },
+    {
+      "id": "component-1795700000000-0emr",
+      "toolId": "ground",
+      "x": -130,
+      "y": 80,
+      "rotation": 0,
+      "flipped": false,
+      "strokeColor": "#000000"
+    }
+  ],
+  "drawings": [
+    {
+      "id": "drawing-1795700000000-2932",
+      "toolId": "rectangle",
+      "x": 0,
+      "y": 0,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 140,
+      "shapeHeight": 220
+    },
+    {
+      "id": "drawing-1795700000000-6ml6",
+      "toolId": "text",
+      "x": 0,
+      "y": -85,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "SPH0645\nI2S mic breakout"
+    },
+    {
+      "id": "drawing-1795700000000-4lg2",
+      "toolId": "text",
+      "x": -48,
+      "y": -40,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "3V"
+    },
+    {
+      "id": "drawing-1795700000000-cz2k",
+      "toolId": "text",
+      "x": -48,
+      "y": 10,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "GND"
+    },
+    {
+      "id": "drawing-1795700000000-cmpb",
+      "toolId": "text",
+      "x": -48,
+      "y": 50,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "SEL"
+    },
+    {
+      "id": "drawing-1795700000000-7os5",
+      "toolId": "text",
+      "x": 45,
+      "y": -40,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "BCLK"
+    },
+    {
+      "id": "drawing-1795700000000-af3r",
+      "toolId": "text",
+      "x": 45,
+      "y": 0,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "LRCL"
+    },
+    {
+      "id": "drawing-1795700000000-09fq",
+      "toolId": "text",
+      "x": 45,
+      "y": 40,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "DOUT"
+    },
+    {
+      "id": "drawing-1795700000000-gsye",
+      "toolId": "text",
+      "x": -130,
+      "y": -92,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "+3.3 V"
+    },
+    {
+      "id": "drawing-1795700000000-d4yz",
+      "toolId": "joint",
+      "x": -130,
+      "y": 50,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795700000000-vftv",
+      "toolId": "rectangle",
+      "x": 330,
+      "y": 0,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 200,
+      "shapeHeight": 220
+    },
+    {
+      "id": "drawing-1795700000000-a0hi",
+      "toolId": "text",
+      "x": 330,
+      "y": -85,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "UPduino v3.1\niCE40 UP5K"
+    },
+    {
+      "id": "drawing-1795700000000-35l9",
+      "toolId": "text",
+      "x": 262,
+      "y": -40,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P11"
+    },
+    {
+      "id": "drawing-1795700000000-i0yh",
+      "toolId": "text",
+      "x": 262,
+      "y": 0,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P6"
+    },
+    {
+      "id": "drawing-1795700000000-rtbn",
+      "toolId": "text",
+      "x": 262,
+      "y": 40,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P48"
+    },
+    {
+      "id": "drawing-1795700000000-lzgc",
+      "toolId": "text",
+      "x": 400,
+      "y": -60,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P46"
+    },
+    {
+      "id": "drawing-1795700000000-avsy",
+      "toolId": "port",
+      "x": 493,
+      "y": -60,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795700000000-eefn",
+      "toolId": "text",
+      "x": 536,
+      "y": -60,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "spi_sck"
+    },
+    {
+      "id": "drawing-1795700000000-paxx",
+      "toolId": "text",
+      "x": 400,
+      "y": -20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P45"
+    },
+    {
+      "id": "drawing-1795700000000-yljt",
+      "toolId": "port",
+      "x": 493,
+      "y": -20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795700000000-opmk",
+      "toolId": "text",
+      "x": 536,
+      "y": -20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "spi_mosi"
+    },
+    {
+      "id": "drawing-1795700000000-9my4",
+      "toolId": "text",
+      "x": 400,
+      "y": 20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P3"
+    },
+    {
+      "id": "drawing-1795700000000-gc6q",
+      "toolId": "port",
+      "x": 493,
+      "y": 20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795700000000-pzq0",
+      "toolId": "text",
+      "x": 536,
+      "y": 20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "spi_cs_b"
+    },
+    {
+      "id": "drawing-1795700000000-5s7l",
+      "toolId": "text",
+      "x": 400,
+      "y": 60,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "text": "P44"
+    },
+    {
+      "id": "drawing-1795700000000-9ern",
+      "toolId": "port",
+      "x": 493,
+      "y": 60,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1795700000000-nber",
+      "toolId": "text",
+      "x": 536,
+      "y": 60,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "fft_busy"
+    },
+    {
+      "id": "drawing-1795700000000-02pd",
+      "toolId": "rectangle",
+      "x": 330,
+      "y": 190,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 280,
+      "shapeHeight": 64
+    },
+    {
+      "id": "drawing-1795700000000-clsx",
+      "toolId": "text",
+      "x": 330,
+      "y": 190,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "text": "Gabe Alencar and Katie Latvakoski\nAVIPE: Microphone to FPGA Schematic\n11/18/26"
+    }
+  ],
+  "wires": [
+    {
+      "id": "wire-1795700000000-tjf8",
+      "x": -70,
+      "y": -40,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-a7ed",
+      "x": -70,
+      "y": 10,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-3u2m",
+      "x": -70,
+      "y": 50,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-begz",
+      "x": -130,
+      "y": -70,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 30
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-bann",
+      "x": -130,
+      "y": 10,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 70
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-pgad",
+      "x": 70,
+      "y": -40,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 160,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-m26m",
+      "x": 70,
+      "y": 0,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 160,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-z0na",
+      "x": 70,
+      "y": 40,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 160,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-jn2q",
+      "x": 430,
+      "y": -60,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-3i4i",
+      "x": 430,
+      "y": -20,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-f0dg",
+      "x": 430,
+      "y": 20,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1795700000000-eio4",
+      "x": 430,
+      "y": 60,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    }
+  ]
+}

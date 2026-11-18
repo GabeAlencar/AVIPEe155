@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -130 790 362" font-family="'Times New Roman', Times, serif" role="img" aria-label="Microphone to FPGA schematic">
+<rect x="-200" y="-130" width="790" height="362" fill="#fff"/>
+<polyline points="-70,-40 -130,-40" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="-70,10 -130,10" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="-70,50 -130,50" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="-130,-70 -130,-40" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="-130,10 -130,80" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="70,-40 230,-40" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="70,0 230,0" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="70,40 230,40" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="430,-60 490,-60" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="430,-20 490,-20" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="430,20 490,20" fill="none" stroke="#000" stroke-width="1"/>
+<polyline points="430,60 490,60" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M-142,-80 H-118 M-130,-80 V-70" stroke="#000" stroke-width="2" fill="none"/>
+<path d="M-142,80 H-118 M-138,85 H-122 M-134,90 H-126" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="-70.0" y="-110.0" width="140" height="220" fill="none" stroke="#000" stroke-width="1"/>
+<text x="0" y="-92.5" font-size="12" text-anchor="middle" dominant-baseline="central">SPH0645</text>
+<text x="0" y="-77.5" font-size="12" text-anchor="middle" dominant-baseline="central">I2S mic breakout</text>
+<text x="-48" y="-40.0" font-size="9" text-anchor="middle" dominant-baseline="central">3V</text>
+<text x="-48" y="10.0" font-size="9" text-anchor="middle" dominant-baseline="central">GND</text>
+<text x="-48" y="50.0" font-size="9" text-anchor="middle" dominant-baseline="central">SEL</text>
+<text x="45" y="-40.0" font-size="9" text-anchor="middle" dominant-baseline="central">BCLK</text>
+<text x="45" y="0.0" font-size="9" text-anchor="middle" dominant-baseline="central">LRCL</text>
+<text x="45" y="40.0" font-size="9" text-anchor="middle" dominant-baseline="central">DOUT</text>
+<text x="-130" y="-92.0" font-size="12" text-anchor="middle" dominant-baseline="central">+3.3 V</text>
+<circle cx="-130" cy="50" r="3" fill="#000"/>
+<rect x="230.0" y="-110.0" width="200" height="220" fill="none" stroke="#000" stroke-width="1"/>
+<text x="330" y="-92.5" font-size="12" text-anchor="middle" dominant-baseline="central">UPduino v3.1</text>
+<text x="330" y="-77.5" font-size="12" text-anchor="middle" dominant-baseline="central">iCE40 UP5K</text>
+<text x="262" y="-40.0" font-size="9" text-anchor="middle" dominant-baseline="central">P11</text>
+<text x="262" y="0.0" font-size="9" text-anchor="middle" dominant-baseline="central">P6</text>
+<text x="262" y="40.0" font-size="9" text-anchor="middle" dominant-baseline="central">P48</text>
+<text x="400" y="-60.0" font-size="9" text-anchor="middle" dominant-baseline="central">P46</text>
+<circle cx="493" cy="-60" r="3" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="536" y="-60.0" font-size="12" text-anchor="middle" dominant-baseline="central">spi_sck</text>
+<text x="400" y="-20.0" font-size="9" text-anchor="middle" dominant-baseline="central">P45</text>
+<circle cx="493" cy="-20" r="3" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="536" y="-20.0" font-size="12" text-anchor="middle" dominant-baseline="central">spi_mosi</text>
+<text x="400" y="20.0" font-size="9" text-anchor="middle" dominant-baseline="central">P3</text>
+<circle cx="493" cy="20" r="3" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="536" y="20.0" font-size="12" text-anchor="middle" dominant-baseline="central">spi_cs_b</text>
+<text x="400" y="60.0" font-size="9" text-anchor="middle" dominant-baseline="central">P44</text>
+<circle cx="493" cy="60" r="3" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="536" y="60.0" font-size="12" text-anchor="middle" dominant-baseline="central">fft_busy</text>
+<rect x="190.0" y="158.0" width="280" height="64" fill="none" stroke="#000" stroke-width="1"/>
+<text x="330" y="175.0" font-size="12" text-anchor="middle" dominant-baseline="central">Gabe Alencar and Katie Latvakoski</text>
+<text x="330" y="190.0" font-size="12" text-anchor="middle" dominant-baseline="central">AVIPE: Microphone to FPGA Schematic</text>
+<text x="330" y="205.0" font-size="12" text-anchor="middle" dominant-baseline="central">11/18/26</text>
+</svg>

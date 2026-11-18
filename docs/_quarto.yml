@@ -5,6 +5,8 @@ project:
   render:
     - proposal.qmd
     - team.qmd
+    - midpoint.qmd
+    - fpga-design.qmd
 
 website:
   title: "AVIPE"
@@ -19,6 +21,10 @@ website:
         text: Project Proposal
       - href: team.qmd
         text: Team
+      - href: midpoint.qmd
+        text: Midpoint Checkoff
+      - href: fpga-design.qmd
+        text: FPGA Design
       # - href: index.qmd
       #   text: Home
       # - href: documentation.qmd

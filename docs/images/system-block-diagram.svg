@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 948 492" role="img" aria-labelledby="diagram-title" font-family="Helvetica, Arial, sans-serif">
+  <title id="diagram-title">AVIPE system block diagram</title>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#2b3644"/>
+    </marker>
+    <style>
+      .fpga-band { fill: #eaf2fc; stroke: #2780e3; stroke-width: 1.5; }
+      .mcu-band { fill: #e8f6ee; stroke: #2a9d5c; stroke-width: 1.5; }
+      .ext { fill: #fdf1e0; stroke: #d9831f; stroke-width: 1.5; }
+      .box { fill: #ffffff; stroke: #5b6b7c; stroke-width: 1.2; }
+      .core { fill: #ffffff; stroke: #1558a8; stroke-width: 2.2; }
+      .cell { fill: #dcebfb; stroke: none; }
+      .wire { stroke: #2b3644; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+      .pill { fill: #2b3644; }
+      .pilltext { font-size: 12.5px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .band { font-size: 15px; font-weight: 700; fill: #17202b; }
+      .clock { font-size: 13px; fill: #46535f; }
+      .name { font-size: 15px; font-weight: 700; fill: #17202b; text-anchor: middle; }
+      .mod { font-size: 9.5px; font-family: Menlo, Consolas, monospace; fill: #1558a8; text-anchor: middle; }
+      .note { font-size: 12.5px; fill: #46535f; text-anchor: middle; }
+      .cellname { font-size: 12.5px; font-weight: 700; fill: #17202b; text-anchor: middle; }
+      .cellnote { font-size: 11.5px; fill: #3c4a58; text-anchor: middle; }
+      .bus { font-size: 12px; fill: #2b3644; text-anchor: middle; }
+      .legend { font-size: 12.5px; fill: #2b3644; }
+    </style>
+  </defs>
+
+  <!-- FPGA (blocks match fpga_top.sv) -->
+  <rect class="fpga-band" x="236" y="16" width="696" height="194" rx="12"/>
+  <text class="band" x="250" y="42">iCE40 UP5K FPGA</text>
+  <text class="clock" x="918" y="42" text-anchor="end">HSOSC internal oscillator, 12 MHz</text>
+
+  <rect class="box" x="246" y="84" width="82" height="92" rx="8"/>
+  <text class="name" x="287.0" y="104">I2S</text>
+  <text class="name" x="287.0" y="120">receiver</text>
+  <text class="mod" x="287.0" y="139">i2s_receiver</text>
+  <text class="note" x="287.0" y="156">18-bit</text>
+  <text class="note" x="287.0" y="170">46.875 kHz</text>
+  <rect class="box" x="340" y="84" width="82" height="92" rx="8"/>
+  <text class="name" x="381.0" y="112">Sum of 3</text>
+  <text class="mod" x="381.0" y="139">sum_of_3</text>
+  <text class="note" x="381.0" y="156">20-bit</text>
+  <text class="note" x="381.0" y="170">15.625 kHz</text>
+  <rect class="box" x="434" y="84" width="82" height="92" rx="8"/>
+  <text class="name" x="475.0" y="104">DC</text>
+  <text class="name" x="475.0" y="120">removal</text>
+  <text class="mod" x="475.0" y="139">dc_removal</text>
+  <text class="note" x="475.0" y="156">16-bit PCM</text>
+  <text class="note" x="475.0" y="170">15.625 kHz</text>
+  <rect class="box" x="528" y="84" width="82" height="92" rx="8"/>
+  <text class="name" x="569.0" y="104">Ring</text>
+  <text class="name" x="569.0" y="120">buffer</text>
+  <text class="mod" x="569.0" y="139">ring_buffer</text>
+  <text class="note" x="569.0" y="156">512 x 16</text>
+  <text class="note" x="569.0" y="170">hop 312</text>
+  <rect class="core" x="622" y="56" width="196" height="142" rx="8"/>
+  <text class="name" x="720" y="74">512-point FFT</text>
+  <text class="mod" x="720" y="88">fft_controller, fft</text>
+  <rect class="cell" x="630" y="96" width="86" height="44" rx="5"/>
+  <text class="cellname" x="673" y="114">RAM0, RAM1</text>
+  <text class="cellnote" x="673" y="130">memory</text>
+  <rect class="cell" x="724" y="96" width="86" height="44" rx="5"/>
+  <text class="cellname" x="767" y="114">Butterfly</text>
+  <text class="cellnote" x="767" y="130">fft_butterfly</text>
+  <rect class="cell" x="630" y="146" width="86" height="44" rx="5"/>
+  <text class="cellname" x="673" y="164">Twiddle ROM</text>
+  <text class="cellnote" x="673" y="180">fft_twiddleROM</text>
+  <rect class="cell" x="724" y="146" width="86" height="44" rx="5"/>
+  <text class="cellname" x="767" y="164">Address gen</text>
+  <text class="cellnote" x="767" y="180">fft_agu</text>
+
+  <rect class="box" x="830" y="84" width="92" height="92" rx="8"/>
+  <text class="name" x="876.0" y="104">SPI</text>
+  <text class="name" x="876.0" y="120">master</text>
+  <text class="mod" x="876.0" y="139">spi_frame_tx</text>
+  <text class="note" x="876.0" y="156">514 words</text>
+  <text class="note" x="876.0" y="170">3 MHz</text>
+  <!-- MCU -->
+  <rect class="mcu-band" x="236" y="290" width="696" height="160" rx="12"/>
+  <text class="band" x="250" y="316">STM32L432KC MCU</text>
+  <text class="clock" x="430" y="316">80 MHz</text>
+
+  <rect class="box" x="770" y="334" width="150" height="100" rx="8"/>
+  <text class="name" x="845" y="374">SPI3 + DMA</text>
+  <text class="note" x="845" y="394">Receives FFT frame</text>
+
+  <rect class="box" x="596" y="334" width="150" height="100" rx="8"/>
+  <text class="name" x="671" y="374">Spectrum</text>
+  <text class="note" x="671" y="394">Hamming, magnitude</text>
+
+  <rect class="box" x="422" y="334" width="150" height="100" rx="8"/>
+  <text class="name" x="497" y="374">Drawing</text>
+  <text class="note" x="497" y="394">Bars and peak label</text>
+
+  <rect class="box" x="248" y="334" width="150" height="100" rx="8"/>
+  <text class="name" x="323" y="374">SPI1 + DMA</text>
+  <text class="note" x="323" y="394">Display driver</text>
+
+  <!-- External hardware -->
+  <rect class="ext" x="16" y="84" width="120" height="92" rx="10"/>
+  <text class="name" x="76" y="122">I2S mic</text>
+  <text class="note" x="76" y="142">SPH0645</text>
+  <text class="note" x="76" y="158">18-bit</text>
+
+  <rect class="ext" x="16" y="334" width="120" height="100" rx="10"/>
+  <text class="name" x="76" y="370">ePaper</text>
+  <text class="note" x="76" y="390">6 in, 1448 x 1072</text>
+  <text class="note" x="76" y="406">IT8951</text>
+
+  <!-- Audio path -->
+  <path class="wire" d="M136,130 L244,130"/>
+  <rect class="pill" x="143" y="102" width="86" height="20" rx="10"/>
+  <text class="pilltext" x="186" y="116">I2S 3 MHz</text>
+  <text class="bus" x="186" y="148">BCLK, WS, SD</text>
+
+  <path class="wire" d="M328,130 L338,130"/>
+  <path class="wire" d="M422,130 L432,130"/>
+  <path class="wire" d="M516,130 L526,130"/>
+  <path class="wire" d="M610,130 L620,130"/>
+  <path class="wire" d="M818,130 L828,130"/>
+
+  <!-- FPGA to MCU -->
+  <path class="wire" d="M876,176 L876,332"/>
+  <rect class="pill" x="590" y="229" width="304" height="20" rx="10"/>
+  <text class="pilltext" x="742" y="243">SPI mode 0, 3 MHz, frame every 20 ms</text>
+  <text class="bus" x="742" y="267">SCK, MOSI, CS (FPGA is master)</text>
+
+  <!-- MCU internal -->
+  <path class="wire" d="M770,384 L748,384"/>
+  <path class="wire" d="M596,384 L574,384"/>
+  <path class="wire" d="M422,384 L400,384"/>
+
+  <!-- MCU to display -->
+  <path class="wire" d="M248,384 L138,384"/>
+  <rect class="pill" x="143" y="356" width="86" height="20" rx="10"/>
+  <text class="pilltext" x="186" y="370">SPI1 5 MHz</text>
+  <text class="bus" x="186" y="402">SCK, MOSI,</text>
+  <text class="bus" x="186" y="417">MISO, CS,</text>
+  <text class="bus" x="186" y="432">HRDY, RST</text>
+
+  <!-- Legend -->
+  <rect x="236" y="466" width="14" height="14" rx="3" fill="#eaf2fc" stroke="#2780e3"/>
+  <text class="legend" x="256" y="478">FPGA</text>
+  <rect x="312" y="466" width="14" height="14" rx="3" fill="#e8f6ee" stroke="#2a9d5c"/>
+  <text class="legend" x="332" y="478">MCU</text>
+  <rect x="384" y="466" width="14" height="14" rx="3" fill="#fdf1e0" stroke="#d9831f"/>
+  <text class="legend" x="404" y="478">New external hardware</text>
+  <rect x="560" y="466" width="14" height="14" rx="3" fill="#ffffff" stroke="#1558a8" stroke-width="2"/>
+  <text class="legend" x="580" y="478">New FPGA IP</text>
+  <rect x="680" y="466" width="42" height="14" rx="7" fill="#2b3644"/>
+  <text class="legend" x="728" y="478">Protocol and clock rate</text>
+</svg>
