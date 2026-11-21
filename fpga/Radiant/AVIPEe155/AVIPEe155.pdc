@@ -16,10 +16,12 @@ ldc_set_location -site {34} [get_ports reset_b]   ;# P34, SW0
 ldc_set_port -iobuf {PULLMODE=100K} [get_ports reset_b]
 
 # FFT output, SPI master mode 0 at 3 MHz (frame format in spi_frame_tx.sv).
-# Scope ground on J3-1.
-ldc_set_location -site {46} [get_ports spi_sck]   ;# P46, J3-12
-ldc_set_location -site {45} [get_ports spi_mosi]  ;# P45, J3-13
-ldc_set_location -site {3}  [get_ports spi_cs_b]  ;# P3,  J3-14
+# These go to the MCU through dev board DIP switch SW7 (turn on only the
+# PB3-P21, PB5-P10 and PA9-P25 switches; PA5 and PA11 are the display's SPI).
+# Routing them through the ribbon cable and back made sck ring and double-clock.
+ldc_set_location -site {21} [get_ports spi_sck]   ;# P21 -> SW7 -> MCU PB3
+ldc_set_location -site {10} [get_ports spi_mosi]  ;# P10 -> SW7 -> MCU PB5
+ldc_set_location -site {25} [get_ports spi_cs_b]  ;# P25 -> SW7 -> MCU PA9
 ldc_set_location -site {44} [get_ports fft_busy]  ;# P44, J3-15
 
 # FFT output to the PC: pin 14 drives the UPduino FT232H RXD (ADBUS1,
