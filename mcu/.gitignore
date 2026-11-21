@@ -3,3 +3,4 @@ segger/*.emSession
 segger/*.jlink
 test/render_host
 *.pgm
+src/image_data.h

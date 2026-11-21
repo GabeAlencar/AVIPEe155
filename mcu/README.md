@@ -22,7 +22,7 @@ The MCU receives each FFT frame from the FPGA on SPI3 and draws the spectrum on 
 
 ## Wiring
 
-Keep DIP switch SW7 off. Every MCU pin here is on the E155 breadboard adapter (J1 and J3 are the adapter's two 20-pin headers). PA1 and PA4 are not on the adapter, so the display clock is on PA5 and the FPGA cs_b is on PA9. Leave adapter J3-9 (PB7) unconnected: the Nucleo ties it to PA5.
+Every MCU pin here is on the E155 breadboard adapter (J1 and J3 are the adapter's two 20-pin headers). PA1 and PA4 are not on the adapter, so the display clock is on PA5 and the FPGA cs_b is on PA9. Leave adapter J3-9 (PB7) unconnected: the Nucleo ties it to PA5.
 
 | Signal | MCU pin | Adapter pin | Other end | HAT 40-pin header |
 |---|---|---|---|---|
@@ -34,11 +34,19 @@ Keep DIP switch SW7 off. Every MCU pin here is on the E155 breadboard adapter (J
 | e-paper RST | PB1 | J3-8 | HAT RST | 11 |
 | e-paper 5V | +5V | J1-19 | HAT 5V | 2 |
 | e-paper GND | GND | J1-18 | HAT GND | 6 |
-| FPGA sck | PB3, SPI3_SCK | J1-16 | FPGA P46, J3-12 | |
-| FPGA mosi | PB5, SPI3_MOSI | J1-15 | FPGA P45, J3-13 | |
-| FPGA cs_b | PA9, GPIO input | J3-11 | FPGA P3, J3-14 | |
+
+The FPGA link needs no wires: fpga_top drives sck, mosi and cs_b on P21, P10 and P25, which dev board DIP switch SW7 connects to PB3, PB5 and PA9. Turn on only those three SW7 switches (PB3-P21, PB5-P10, PA9-P25) and leave the rest off, since PA5 and PA11 are the display's SPI. Jumpers through the ribbon cable and back made sck ring and double-count bits. PB4, between PB3 and PB5 on the ribbon, is driven low as a shield.
 
 Set the HAT's interface switch to SPI. The FPGA's `fft_busy` and UART pins are not needed.
+
+## What it shows
+
+`SPECTROGRAM` in `config.h` picks the screen:
+
+- 1: a sweeping spectrogram (`spectrogram.c`). Time runs left to right over `SWEEP_SECONDS` (10 s), frequency bottom to top, loudness as dithered black. Frames are received in the background (cs_b interrupt + DMA), and every `SG_STEP_US` (0.2 s) only the strip at the scan line is redrawn with the fast A2 waveform. The peak readout in the title refreshes once a second alongside it, and the whole screen gets a GC16 clear after each pass.
+- 0: the `fft_live.py` style dB vs frequency plot of the newest frame (`plot.c`).
+
+`SHOW_IMAGE` shows a picture made with `test/make_image.py` (the generated `image_data.h` is gitignored), and `TEST_SCREEN_ONLY` shows the bring-up test screen.
 
 ## Display bring-up
 

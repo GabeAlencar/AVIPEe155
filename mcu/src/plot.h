@@ -24,4 +24,11 @@ void plot_render_band(uint8_t *buf, int y0, int rows);
 // Test screen for display bring-up: border, diagonal, corner labels.
 void plot_render_test_band(uint8_t *buf, int y0, int rows);
 
+// Picture from image_data.h (SHOW_IMAGE).
+void plot_render_image_band(uint8_t *buf, int y0, int rows);
+
+// Spectrogram frame (axes, labels, title) and the peak readout in the title.
+void plot_spectro_set_peak(int hz, int db);
+void plot_render_spectro_bg_band(uint8_t *buf, int y0, int rows);
+
 #endif

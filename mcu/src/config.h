@@ -29,8 +29,9 @@
 #define EPD_SPI_BR  3
 
 // VCOM in mV, without the minus sign. It is printed on the display's flat
-// cable (for example "VCOM = -1.53V" means 1530). Set it before the first run.
-#define EPD_VCOM_MV 1500
+// cable (for example "VCOM = -1.53V" means 1530). 0 leaves the controller's
+// VCOM as it is; the boot log prints that value.
+#define EPD_VCOM_MV 0
 
 // IT8951 waveform modes (the same numbers for every panel: 0 INIT, 1 DU, 2 GC16).
 // DU is a fast black/white update. Every EPD_FULL_EVERY updates use GC16 to
@@ -38,7 +39,8 @@
 #define EPD_MODE_INIT  0
 #define EPD_MODE_DU    1
 #define EPD_MODE_GC16  2
-#define EPD_MODE_FAST  EPD_MODE_DU
+#define EPD_MODE_A2    6       // A2 on the M841 LUT this panel reports
+#define EPD_MODE_FAST  EPD_MODE_A2
 #define EPD_FULL_EVERY 30
 
 // 1-bpp packing. If the test screen shows text broken up in 8-pixel groups,
@@ -48,6 +50,9 @@
 #define EPD_SWAP_BYTES 0
 
 // ---- image ----
+// 1 turns the image upside down, for the way the panel is mounted.
+#define ROTATE_180  1
+
 // The panel is 1448 x 1072. In 1-bpp mode the width must be a multiple of 32.
 #define IMG_W       1440
 #define IMG_H       1072
@@ -59,6 +64,13 @@
 #define FFT_N       512
 #define BINS        256
 #define USE_HAMMING 0           // 1 applies the Hamming window to the bins
+
+// 1 draws a sweeping spectrogram (spectrogram.h); 0 draws the spectrum plot.
+#define SPECTROGRAM 1
+
+// Set to 1 to show the picture in image_data.h at boot and stop. Make that
+// file with mcu/test/make_image.py.
+#define SHOW_IMAGE 0
 
 // Set to 1 to draw a test screen at boot and stop (display bring-up).
 #define TEST_SCREEN_ONLY 0

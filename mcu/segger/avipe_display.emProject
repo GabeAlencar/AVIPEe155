@@ -83,6 +83,8 @@
         <file file_name="../src/main.c" />
         <file file_name="../src/plot.c" />
         <file file_name="../src/plot.h" />
+        <file file_name="../src/spectrogram.c" />
+        <file file_name="../src/spectrogram.h" />
         <file file_name="../src/spectrum.c" />
         <file file_name="../src/spectrum.h" />
         <file file_name="../src/timing.c" />

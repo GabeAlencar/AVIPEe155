@@ -16,12 +16,13 @@ from fft_live import parse   # noqa: E402
 ap = argparse.ArgumentParser()
 ap.add_argument('capture')
 ap.add_argument('--index', type=int, default=0, help='which frame in the capture')
+ap.add_argument('--all', action='store_true', help='write every frame, one after another')
 a = ap.parse_args()
 
 frames, _, bad = parse(pathlib.Path(a.capture).read_bytes())
 if not frames:
     sys.exit(f'no frames in {a.capture} ({bad} bad checksums)')
-f = frames[min(a.index, len(frames) - 1)]
-for w in f['words']:          # A55A, header, re/im of X[0..255]
-    print(f'{int(w):04X}')
+for f in (frames if a.all else [frames[min(a.index, len(frames) - 1)]]):
+    for w in f['words']:      # A55A, header, re/im of X[0..255]
+        print(f'{int(w):04X}')
 print(f'{len(frames)} frames, using frame {f["frame"]}', file=sys.stderr)

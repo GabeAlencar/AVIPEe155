@@ -193,45 +193,62 @@ static void wait_display_done(void) {
         if (micros() - start > HRDY_TIMEOUT_US) { timed_out = 1; return; }
 }
 
-int it8951_draw(band_fn draw_band, int mode) {
+int it8951_draw_area_flags(int x, int y, int w, int h, band_fn draw_band, int mode, int flags) {
     static uint8_t bufs[2][BAND_ROWS * ROW_BYTES];
+    const int stride = w / 8;                               // bytes per row
+    const int rows = (BAND_ROWS * ROW_BYTES) / stride;     // rows per band
     timed_out = 0;
 
-    wait_display_done();
+    if (!(flags & IT8951_NO_WAIT_BEFORE)) wait_display_done();
 
     // where to load, then the load area: 8-bpp pixels that each hold 8 real ones
     write_reg(REG_LISAR + 2, (uint16_t)(img_addr >> 16));
     write_reg(REG_LISAR, (uint16_t)(img_addr & 0xFFFF));
-    uint16_t area[5] = {(ENDIAN_LITTLE << 8) | (PIX_8BPP << 4), 0, 0, IMG_W / 8, IMG_H};
+    uint16_t area[5] = {(ENDIAN_LITTLE << 8) | (PIX_8BPP << 4), (uint16_t)(x / 8), (uint16_t)y,
+                        (uint16_t)stride, (uint16_t)h};
     cmd_args(CMD_LD_IMG_AREA, area, 5);
 
     // draw band n+1 while DMA sends band n
     int cur = 0;
-    draw_band(bufs[cur], 0, BAND_ROWS);
-    for (int y0 = 0; y0 < IMG_H; y0 += BAND_ROWS) {
+    int n = rows < h ? rows : h;
+    draw_band(bufs[cur], y, n);
+    for (int y0 = y; y0 < y + h; ) {
+        int n_next = y + h - (y0 + n);
+        if (n_next > rows) n_next = rows;
         wait_ready();
         cs_low();
         xfer(0x0000);
         wait_ready();
-        dma_start(bufs[cur], BAND_ROWS * ROW_BYTES / 2);
-        if (y0 + BAND_ROWS < IMG_H) draw_band(bufs[cur ^ 1], y0 + BAND_ROWS, BAND_ROWS);
+        dma_start(bufs[cur], n * stride / 2);
+        if (n_next > 0) draw_band(bufs[cur ^ 1], y0 + n, n_next);
         dma_wait();
         cs_high();
         cur ^= 1;
+        y0 += n;
+        n = n_next;
     }
     write_cmd(CMD_LD_IMG_END);
 
-    // show it in 1-bpp mode: bit 1 = black, bit 0 = white
+    // show it in 1-bpp mode: bit 1 = black ink, bit 0 = white
+    // 1-bpp mode stays on: everything this driver draws is 1 bpp, and leaving
+    // it on lets an update start while another area is still refreshing
     uint16_t up1sr = read_reg(REG_UP1SR + 2);
-    write_reg(REG_UP1SR + 2, up1sr | (1 << 2));
-    write_reg(REG_BGVR, (GRAY_BLACK << 8) | GRAY_WHITE);
-    uint16_t dpy[7] = {0, 0, IMG_W, IMG_H, (uint16_t)mode,
+    if (!(up1sr & (1 << 2))) write_reg(REG_UP1SR + 2, up1sr | (1 << 2));
+    write_reg(REG_BGVR, (GRAY_WHITE << 8) | GRAY_BLACK);   // high byte is the bit=0 gray on this controller (seen on hardware)
+    uint16_t dpy[7] = {(uint16_t)x, (uint16_t)y, (uint16_t)w, (uint16_t)h, (uint16_t)mode,
                        (uint16_t)(img_addr & 0xFFFF), (uint16_t)(img_addr >> 16)};
     cmd_args(CMD_DPY_BUF_AREA, dpy, 7);
-    wait_display_done();
-    write_reg(REG_UP1SR + 2, up1sr & ~(1 << 2));
+    if (!(flags & IT8951_NO_WAIT_AFTER)) wait_display_done();
 
     return !timed_out;
+}
+
+int it8951_draw_area(int x, int y, int w, int h, band_fn draw_band, int mode) {
+    return it8951_draw_area_flags(x, y, w, h, draw_band, mode, 0);
+}
+
+int it8951_draw(band_fn draw_band, int mode) {
+    return it8951_draw_area(0, 0, IMG_W, IMG_H, draw_band, mode);
 }
 
 static void blank_band(uint8_t *buf, int y0, int rows) {
@@ -272,12 +289,13 @@ int it8951_init(it8951_info_t *info) {
 
     write_reg(REG_I80CPCR, 0x0001);
 
-    // VCOM: read it, and write it only if it differs
+    // VCOM: read it, and write it only if EPD_VCOM_MV is set and differs
     uint16_t vcom;
     write_cmd(CMD_VCOM);
     write_data(0x0000);
     read_data(&vcom, 1);
-    if (vcom != EPD_VCOM_MV) {
+    info->vcom_mv = vcom;
+    if (EPD_VCOM_MV != 0 && vcom != EPD_VCOM_MV) {
         write_cmd(CMD_VCOM);
         write_data(0x0001);
         write_data(EPD_VCOM_MV);

@@ -36,6 +36,13 @@ void fpga_link_init(void) {
     pin_af(FPGA_SCK, 6);
     pin_af(FPGA_MOSI, 6);
 
+    // PB4 sits between PB3 (sck) and PB5 (mosi) on the ribbon cable to the
+    // adapter (J2 pins 9, 10, 11). Driving it low makes it a ground wire
+    // between them, which cuts the mosi-to-sck crosstalk that double-clocks
+    // every 1 bit.
+    digitalWrite(PB4, 0);
+    pinMode(PB4, GPIO_OUTPUT);
+
     // cs_b as a plain input with a pull-up, so it reads idle if unplugged
     pinMode(FPGA_CS, GPIO_INPUT);
     GPIO_TypeDef *cs_port = gpioPinToBase(FPGA_CS);
@@ -56,9 +63,12 @@ static int wait_cs(int level) {
     return 1;
 }
 
+fpga_link_debug_t fpga_link_debug;
+
 int fpga_link_receive(uint16_t *words) {
     // find the end of a frame: cs_b low, then high
-    if (!wait_cs(0) || !wait_cs(1)) return 0;
+    if (!wait_cs(0)) { fpga_link_debug.stage = 1; return 0; }
+    if (!wait_cs(1)) { fpga_link_debug.stage = 2; return 0; }
 
     // reset SPI3 so no half-received word is left in it
     RCC->APB1RSTR1 |=  RCC_APB1RSTR1_SPI3RST;
@@ -81,9 +91,69 @@ int fpga_link_receive(uint16_t *words) {
     while (!(DMA2->ISR & DMA_ISR_TCIF1))
         if (micros() - start > FRAME_TIMEOUT_US) { ok = 0; break; }
 
+    fpga_link_debug.stage = ok ? 4 : 3;
+    fpga_link_debug.left  = DMA2_Channel1->CNDTR;
+    fpga_link_debug.sr    = SPI3->SR;
+    fpga_link_debug.w0    = words[0];
+    fpga_link_debug.w1    = words[1];
+
     SPI3->CR1 &= ~SPI_CR1_SPE;
     DMA2_Channel1->CCR &= ~DMA_CCR_EN;
     DMA2->IFCR = DMA_IFCR_CGIF1;
 
     return ok && words[0] == FRAME_SYNC;
+}
+
+// ---- background receive ----
+// cs_b rising (end of a frame) raises EXTI line 9 (FPGA_CS is PA9). The
+// handler hands a finished frame to the callback and re-arms SPI3 and DMA in
+// the idle gap before the next frame, so every frame is received while the
+// main loop draws.
+
+static uint16_t        rx_buf[FRAME_WORDS];
+static frame_callback  on_frame;
+volatile uint32_t      fpga_link_good, fpga_link_bad;
+
+static void arm(void) {
+    SPI3->CR1 &= ~SPI_CR1_SPE;
+    DMA2_Channel1->CCR &= ~DMA_CCR_EN;
+    RCC->APB1RSTR1 |=  RCC_APB1RSTR1_SPI3RST;
+    RCC->APB1RSTR1 &= ~RCC_APB1RSTR1_SPI3RST;
+    SPI3->CR1 = SPI_CR1_RXONLY | SPI_CR1_SSM;
+    SPI3->CR2 = (0xFu << SPI_CR2_DS_Pos) | SPI_CR2_RXDMAEN;
+    DMA2_Channel1->CMAR  = (uint32_t)rx_buf;
+    DMA2_Channel1->CNDTR = FRAME_WORDS;
+    DMA2->IFCR = DMA_IFCR_CGIF1;
+    DMA2_Channel1->CCR  |= DMA_CCR_EN;
+    SPI3->CR1 |= SPI_CR1_SPE;
+}
+
+void EXTI9_5_IRQHandler(void) {
+    if (!(EXTI->PR1 & EXTI_PR1_PIF9)) return;
+    EXTI->PR1 = EXTI_PR1_PIF9;
+    if ((DMA2->ISR & DMA_ISR_TCIF1) && rx_buf[0] == FRAME_SYNC) {
+        fpga_link_good++;
+        on_frame(rx_buf);
+    } else {
+        fpga_link_bad++;
+    }
+    arm();
+}
+
+void fpga_link_start_async(frame_callback cb) {
+    on_frame = cb;
+    RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN;
+    SYSCFG->EXTICR[2] = (SYSCFG->EXTICR[2] & ~SYSCFG_EXTICR3_EXTI9) | (0u << SYSCFG_EXTICR3_EXTI9_Pos); // PA9
+    EXTI->RTSR1 |= EXTI_RTSR1_RT9;
+    EXTI->FTSR1 &= ~EXTI_FTSR1_FT9;
+    EXTI->IMR1  |= EXTI_IMR1_IM9;
+
+    // start in an idle gap: after the end of a frame (or right away if the
+    // FPGA is silent; the first frame then fails the sync check and re-arms)
+    wait_cs(0);
+    wait_cs(1);
+    arm();
+    EXTI->PR1 = EXTI_PR1_PIF9;
+    NVIC_SetPriority(EXTI9_5_IRQn, 2);
+    NVIC_EnableIRQ(EXTI9_5_IRQn);
 }

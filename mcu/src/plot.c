@@ -36,15 +36,22 @@ static text_t  texts[MAX_TEXT];
 static int     n_texts;
 
 // ---- band being drawn ----
+// band_y0 .. band_y1-1 are the rows in drawing coordinates; with ROTATE_180
+// they are the panel rows dev_y0 .. dev_y0+rows-1 turned upside down.
 static uint8_t *band;
-static int      band_y0, band_y1;   // rows band_y0 .. band_y1-1
+static int      band_y0, band_y1;
+static int      dev_y0;
 
 static inline void set_px(int x, int y) {
     if (y < band_y0 || y >= band_y1 || x < 0 || x >= IMG_W) return;
+#if ROTATE_180
+    x = IMG_W - 1 - x;
+    y = IMG_H - 1 - y;
+#endif
 #if EPD_LSB_FIRST
-    band[(y - band_y0) * ROW_BYTES + (x >> 3)] |= (uint8_t)(1u << (x & 7));
+    band[(y - dev_y0) * ROW_BYTES + (x >> 3)] |= (uint8_t)(1u << (x & 7));
 #else
-    band[(y - band_y0) * ROW_BYTES + (x >> 3)] |= (uint8_t)(0x80u >> (x & 7));
+    band[(y - dev_y0) * ROW_BYTES + (x >> 3)] |= (uint8_t)(0x80u >> (x & 7));
 #endif
 }
 
@@ -58,8 +65,13 @@ static void fill_rect(int x, int y, int w, int h) {
 
 static void begin_band(uint8_t *buf, int y0, int rows) {
     band = buf;
+    dev_y0 = y0;
+#if ROTATE_180
+    band_y0 = IMG_H - y0 - rows;
+#else
     band_y0 = y0;
-    band_y1 = y0 + rows;
+#endif
+    band_y1 = band_y0 + rows;
     memset(buf, 0, (size_t)rows * ROW_BYTES);
 }
 
@@ -245,6 +257,99 @@ void plot_render_test_band(uint8_t *buf, int y0, int rows) {
     // evenly spaced only if the bit order is right.
     for (int x = 0; x < IMG_W; x += 8)
         fill_rect(x, 400, 1, (x % 64) ? 30 : 60);
+
+    end_band(rows);
+}
+
+#if SHOW_IMAGE
+#include "image_data.h"     // made by mcu/test/make_image.py (gitignored)
+
+// The picture from image_data.h, centered.
+void plot_render_image_band(uint8_t *buf, int y0, int rows) {
+    begin_band(buf, y0, rows);
+    const int ox = (IMG_W - IMAGE_W) / 2, oy = (IMG_H - IMAGE_H) / 2;
+    const int rb = (IMAGE_W + 7) / 8;
+    for (int y = band_y0; y < band_y1; y++) {
+        int iy = y - oy;
+        if (iy < 0 || iy >= IMAGE_H) continue;
+        for (int ix = 0; ix < IMAGE_W; ix++)
+            if (image_bits[iy * rb + (ix >> 3)] & (0x80 >> (ix & 7))) set_px(ox + ix, y);
+    }
+    end_band(rows);
+}
+#endif
+
+// ---- spectrogram frame: axes, labels, and the peak readout ----
+#include "spectrogram.h"
+
+static char sg_peak[TEXT_LEN] = "";
+#define SG_FRAME_T 6
+
+
+
+void plot_spectro_set_peak(int hz, int db) {
+    snprintf(sg_peak, sizeof sg_peak, "%d HZ  %d DB", hz, db);
+}
+
+// y of frequency f (Hz) on the spectrogram, 0 Hz at the bottom
+static int sg_hz_to_y(float f) {
+    return SG_Y1 - 1 - (int)(f / (FS_HZ / 2.0f) * SG_H + 0.5f);
+}
+
+void plot_render_spectro_bg_band(uint8_t *buf, int y0, int rows) {
+    char s[TEXT_LEN];
+    begin_band(buf, y0, rows);
+
+    // border
+    fill_rect(SG_X0 - SG_FRAME_T, SG_Y0 - SG_FRAME_T, SG_W + 2 * SG_FRAME_T, SG_FRAME_T);
+    fill_rect(SG_X0 - SG_FRAME_T, SG_Y1, SG_W + 2 * SG_FRAME_T, SG_FRAME_T);
+    fill_rect(SG_X0 - SG_FRAME_T, SG_Y0, SG_FRAME_T, SG_H);
+    fill_rect(SG_X1, SG_Y0, SG_FRAME_T, SG_H);
+
+    // frequency axis: a tick and label every 1 kHz
+    for (int khz = 0; khz * 1000 <= FS_HZ / 2; khz++) {
+        int y = sg_hz_to_y(khz * 1000.0f);
+        fill_rect(SG_X0 - SG_FRAME_T - 12, y - 1, 12, 3);
+        if (khz == 0) snprintf(s, sizeof s, "0");
+        else          snprintf(s, sizeof s, "%dK", khz);
+        draw_text(SG_X0 - SG_FRAME_T - 26 - text_width(s, 6), y - 14, 6, s);
+    }
+    draw_text(SG_X0 - SG_FRAME_T - 26 - text_width("HZ", 6), SG_Y0 + 4, 6, "HZ");
+
+    // time axis: one sweep is SWEEP_SECONDS
+    for (int t = 0; t <= SWEEP_SECONDS; t++) {
+        int x = SG_X0 + t * SG_W / SWEEP_SECONDS;
+        if (x >= SG_X1) x = SG_X1 - 1;
+        fill_rect(x - 1, SG_Y1 + SG_FRAME_T, 3, 12);
+        snprintf(s, sizeof s, "%d", t);
+        int lx = x - text_width(s, 6) / 2;
+        if (lx + text_width(s, 6) > IMG_W - 4) lx = IMG_W - 4 - text_width(s, 6);   // keep "10" on screen
+        draw_text(lx, SG_Y1 + 24, 6, s);
+    }
+    draw_text((SG_X0 + SG_X1) / 2 - text_width("SECONDS", 5) / 2, SG_Y1 + 80, 5, "SECONDS");
+
+    // dashed kHz lines inside the plot, the same rows spectrogram.c draws them on
+    for (int y = band_y0; y < band_y1; y++) {
+        if (y < SG_Y0 || y >= SG_Y1) continue;
+        int grid = 0;
+        for (int d = 0; d <= 1 && !grid; d++) {
+            int fb = SG_Y1 - 1 - y - d;
+            if (fb <= 0) break;
+            int b = 1 + fb * (BINS - 1) / SG_H, bp = 1 + (fb - 1) * (BINS - 1) / SG_H;
+            grid = (int)(b * FS_HZ / FFT_N) / 1000 != (int)(bp * FS_HZ / FFT_N) / 1000;
+        }
+        if (grid)
+            for (int x = SG_X0; x < SG_X1; x++)
+                if (x % 12 < 4) set_px(x, y);
+    }
+
+    // title and peak readout
+    // title lines up with the left edge of the frequency labels, the peak
+    // readout with the right edge of the last time label
+    int left  = SG_X0 - SG_FRAME_T - 26 - text_width("7K", 6);
+    int right = SG_X1 + text_width("10", 6) / 2;
+    draw_text(left, 20, 9, "SPECTROGRAM");
+    draw_text(right - text_width(sg_peak, 7), 26, 7, sg_peak);
 
     end_band(rows);
 }
