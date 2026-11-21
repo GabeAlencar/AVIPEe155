@@ -22,22 +22,23 @@ The MCU receives each FFT frame from the FPGA on SPI3 and draws the spectrum on 
 
 ## Wiring
 
-Keep DIP switch SW7 off. These pins match the proposal (SPI3 on PB3/PB5, SPI1 on PA1/PA11/PA12).
+Keep DIP switch SW7 off. Every MCU pin here is on the E155 breadboard adapter (J1 and J3 are the adapter's two 20-pin headers). PA1 and PA4 are not on the adapter, so the display clock is on PA5 and the FPGA cs_b is on PA9. Leave adapter J3-9 (PB7) unconnected: the Nucleo ties it to PA5.
 
-| Signal | MCU pin (Nucleo) | Other end |
-|---|---|---|
-| FPGA sck | PB3 (D13), SPI3_SCK | FPGA P46, J3-12 |
-| FPGA mosi | PB5 (D11), SPI3_MOSI | FPGA P45, J3-13 |
-| FPGA cs_b | PA4 (A3), GPIO input | FPGA P3, J3-14 |
-| e-paper SCLK | PA1 (A1), SPI1_SCK | HAT SCLK |
-| e-paper MISO | PA11 (D10), SPI1_MISO | HAT MISO |
-| e-paper MOSI | PA12 (D2), SPI1_MOSI | HAT MOSI |
-| e-paper CS | PA8 (D9) | HAT CS |
-| e-paper HRDY | PB0 (D3) | HAT HRDY |
-| e-paper RST | PB1 (D6) | HAT RST |
-| Ground | GND | FPGA J3-1 and HAT GND |
+| Signal | MCU pin | Adapter pin | Other end | HAT 40-pin header |
+|---|---|---|---|---|
+| e-paper SCLK | PA5, SPI1_SCK | J1-17 | HAT SCLK | 23 |
+| e-paper MOSI | PA12, SPI1_MOSI | J3-10 | HAT MOSI | 19 |
+| e-paper MISO | PA11, SPI1_MISO | J3-6 | HAT MISO | 21 |
+| e-paper CS | PA8 | J1-14 | HAT CS | 24 |
+| e-paper HRDY | PB0 | J1-11 | HAT HRDY | 18 |
+| e-paper RST | PB1 | J3-8 | HAT RST | 11 |
+| e-paper 5V | +5V | J1-19 | HAT 5V | 2 |
+| e-paper GND | GND | J1-18 | HAT GND | 6 |
+| FPGA sck | PB3, SPI3_SCK | J1-16 | FPGA P46, J3-12 | |
+| FPGA mosi | PB5, SPI3_MOSI | J1-15 | FPGA P45, J3-13 | |
+| FPGA cs_b | PA9, GPIO input | J3-11 | FPGA P3, J3-14 | |
 
-Power the HAT from 5 V and set its interface switch to SPI. The FPGA's `fft_busy` and UART pins are not needed.
+Set the HAT's interface switch to SPI. The FPGA's `fft_busy` and UART pins are not needed.
 
 ## Display bring-up
 

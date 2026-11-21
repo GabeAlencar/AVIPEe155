@@ -13,17 +13,17 @@
 
 // ---- FPGA link: SPI3 slave, FPGA is the master (spi_frame_tx.sv) ----
 // mode 0, 16-bit words, MSB first, 3 MHz sck, cs_b low for the whole frame.
-#define FPGA_SCK    PB3     // SPI3_SCK  AF6  <- FPGA P46 (J3-12)
-#define FPGA_MOSI   PB5     // SPI3_MOSI AF6  <- FPGA P45 (J3-13)
-#define FPGA_CS     PA4     // GPIO input     <- FPGA P3  (J3-14), cs_b
+#define FPGA_SCK    PB3     // SPI3_SCK  AF6  <- FPGA P46 (J3-12); adapter J1-16
+#define FPGA_MOSI   PB5     // SPI3_MOSI AF6  <- FPGA P45 (J3-13); adapter J1-15
+#define FPGA_CS     PA9     // GPIO input     <- FPGA P3  (J3-14), cs_b; adapter J3-11
 
 // ---- IT8951 e-paper controller: SPI1 master ----
-#define EPD_SCK     PA1     // SPI1_SCK  AF5  -> HAT SCLK
-#define EPD_MISO    PA11    // SPI1_MISO AF5  <- HAT MISO
-#define EPD_MOSI    PA12    // SPI1_MOSI AF5  -> HAT MOSI
-#define EPD_CS      PA8     // GPIO output    -> HAT CS
-#define EPD_HRDY    PB0     // GPIO input     <- HAT HRDY (high = ready)
-#define EPD_RST     PB1     // GPIO output    -> HAT RST (active low)
+#define EPD_SCK     PA5     // SPI1_SCK  AF5  -> HAT SCLK, adapter J1-17
+#define EPD_MISO    PA11    // SPI1_MISO AF5  <- HAT MISO, adapter J3-6
+#define EPD_MOSI    PA12    // SPI1_MOSI AF5  -> HAT MOSI, adapter J3-10
+#define EPD_CS      PA8     // GPIO output    -> HAT CS, adapter J1-14
+#define EPD_HRDY    PB0     // GPIO input     <- HAT HRDY (high = ready), adapter J1-11
+#define EPD_RST     PB1     // GPIO output    -> HAT RST (active low), adapter J3-8
 
 // SPI1 clock = 80 MHz / 2^(EPD_SPI_BR+1). 3 gives 5 MHz.
 #define EPD_SPI_BR  3
